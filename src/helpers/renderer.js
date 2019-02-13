@@ -31,7 +31,7 @@ export default (req, store, context) => {
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,700i" rel="stylesheet">
       </head>
       <body>
-        <div id="root">${content}</div>
+        <div id="root" class="outer-wrapper">${content}</div>
         <script>
           window.INITIAL_STATE = ${serialize(store.getState())}
         </script>
