@@ -1,0 +1,5 @@
+@each $font in (16, 18) {
+  .font-#{$font} {
+    font-size: #{$font}px !important;
+  }
+}

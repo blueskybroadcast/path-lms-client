@@ -28,6 +28,7 @@ export default (req, store, context) => {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         ${helmet.title.toString()}
         ${helmet.meta.toString()}
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,700i" rel="stylesheet">
       </head>
       <body>
         <div id="root">${content}</div>
@@ -35,6 +36,7 @@ export default (req, store, context) => {
           window.INITIAL_STATE = ${serialize(store.getState())}
         </script>
         <script src="bundle.js"></script>
+        <script src="https://use.fontawesome.com/85c8c10249.js"></script>
       </body>
     </html>
   `;

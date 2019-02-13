@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 import axios from 'axios';
 
-import '../styles/app.scss';
+import '../styles/temp.css';
 
 import routes from './routes';
 import reducers from './reducers';
