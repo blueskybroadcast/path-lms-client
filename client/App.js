@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 import { renderRoutes } from 'react-router-config';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 import { fetchCurrentUser } from './actions';
 
 const App = ({ route }) => (
-  <div>
+  <>
     <Header />
     {renderRoutes(route.routes)}
-  </div>
+    <Footer />
+  </>
 );
 
 App.propTypes = {
