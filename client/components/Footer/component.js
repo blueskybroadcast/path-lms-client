@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Footer = () => (
-  <>
+  <div>
     <div className="footer-spacer" />
 
     <footer className="account">
@@ -51,7 +51,7 @@ const Footer = () => (
         </ul>
       </div>
     </footer>
-  </>
+  </div>
 );
 
 export default Footer;

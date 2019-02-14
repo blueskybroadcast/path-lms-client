@@ -1,9 +1,16 @@
 import { FETCH_CURRENT_USER } from '../actions/types';
 
-const authReducer = (state = null, action) => {
+const initialState = {
+  isAdmin: true
+};
+
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CURRENT_USER:
-      return action.payload.data || false;
+      return {
+        ...state,
+        ...action.payload.data
+      } || false;
     default:
       return state;
   }

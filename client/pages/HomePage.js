@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => (
   <div>
-    Home
+    Homes
+    <Link to="/showroom/courses">Courses</Link>
   </div>
 );
 
