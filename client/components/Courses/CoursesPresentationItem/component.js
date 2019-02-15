@@ -1,15 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const CoursesPresentationItem = () => (
-  <article className="course" data-id="221">
-    <a title="Online Course" href="/showroom/courses/221">
+const CoursesPresentationItem = ({
+  coverDescription, coverPhotoUrl, id, name
+}) => (
+  <article className="course">
+    <a title="Online Course" href={`/showroom/courses/${id}`}>
       <img
         className="course-cover-photo"
         alt=""
-        src="https://deqefw538d79t.cloudfront.net/api/file/DZmCeOH4S2ygMlOvB9aw/convert?align=left&amp;cache=true&amp;fit=crop&amp;format=jpeg&amp;h=152&amp;quality=100&amp;w=320"
+        src={coverPhotoUrl}
       />
       <h3 data-role="course-info" title="Online Course">
-        Online Course&nbsp;
+        {name}
         <span
           className="status icon icon-purchasable-usd unpaid"
           aria-label="Unpaid"
@@ -20,10 +23,7 @@ const CoursesPresentationItem = () => (
         />
       </h3>
       <div className="info">
-        <p>
-          This is a small simple course that requires a user to complete a
-          survey before they are awarded the certificate.
-        </p>
+        <p>{coverDescription}</p>
       </div>
       <footer className="meta-info">
         <ul>
@@ -68,5 +68,12 @@ const CoursesPresentationItem = () => (
     </a>
   </article>
 );
+
+CoursesPresentationItem.propTypes = {
+  coverDescription: PropTypes.string.isRequired,
+  coverPhotoUrl: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
+};
 
 export default CoursesPresentationItem;

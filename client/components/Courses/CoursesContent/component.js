@@ -1,23 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import CoursesPresentationItem from '../CoursesPresentationItem';
 
-const CoursesContent = () => (
+const CoursesContent = ({ coursesIds, coursesData }) => (
   <section className="library-content">
     <div
       className="courses-container"
       data-role="courses-container"
     >
       <div className="courses courses-list ui-sortable">
-        {[{ id: 1 }, { id: 2 }].map(presentation => (
+        {coursesIds.map(id => (
           <CoursesPresentationItem
-            key={presentation.id}
-            {...presentation}
+            key={id}
+            {...coursesData[id]}
           />
         ))}
       </div>
     </div>
   </section>
 );
+
+CoursesContent.propTypes = {
+  coursesIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  coursesData: PropTypes.objectOf(PropTypes.object).isRequired
+};
 
 export default CoursesContent;

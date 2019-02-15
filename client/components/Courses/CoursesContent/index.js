@@ -1,3 +1,3 @@
-import CoursesContent from './component';
+import CoursesContent from './container';
 
 export default CoursesContent;
