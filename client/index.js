@@ -14,7 +14,7 @@ import routes from './routes';
 import reducers from './reducers';
 
 const axiosInstance = axios.create({
-  baseURL: '/api'
+  baseURL: '/api_private/api_private/v1/testing'
 });
 
 /* eslint-disable no-underscore-dangle */

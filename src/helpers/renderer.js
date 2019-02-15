@@ -8,10 +8,10 @@ import { Helmet } from 'react-helmet';
 
 import routes from '../../client/routes';
 
-export default (req, store, context) => {
+export default (request, store, context) => {
   const content = renderToString(
     <Provider store={store}>
-      <StaticRouter location={req.path} context={context}>
+      <StaticRouter location={request.path} context={context}>
         <div>{renderRoutes(routes)}</div>
       </StaticRouter>
     </Provider>
@@ -35,7 +35,7 @@ export default (req, store, context) => {
         <script>
           window.INITIAL_STATE = ${serialize(store.getState())}
         </script>
-        <script src="bundle.js"></script>
+        <script src="/bundle.js"></script>
         <script src="https://use.fontawesome.com/85c8c10249.js"></script>
       </body>
     </html>

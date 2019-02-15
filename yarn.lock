@@ -3821,6 +3821,11 @@ json5@^2.1.0:
   dependencies:
     minimist "^1.2.0"
 
+jsonapi-normalizer@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/jsonapi-normalizer/-/jsonapi-normalizer-2.0.1.tgz#3a8d12ba50af14b2777140fbd6157180d0200d7d"
+  integrity sha512-svnMKclAIxI89uMCDigDrpzl5BnZTFxGfBGZgErIm320p85pDDeW6p/ic84upgbFNto4qgGsTkjMvVb8usYQhw==
+
 jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
@@ -5607,6 +5612,11 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+
+reselect@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/reselect/-/reselect-4.0.0.tgz#f2529830e5d3d0e021408b246a206ef4ea4437f7"
+  integrity sha512-qUgANli03jjAyGlnbYVAV5vvnOmJnODyABz51RdBN7M4WaVu8mecZWgyQNkG8Yqe3KRGRt0l4K4B3XVEULC4CA==
 
 resolve-cwd@^2.0.0:
   version "2.0.0"

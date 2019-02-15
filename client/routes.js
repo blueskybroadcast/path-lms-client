@@ -1,6 +1,7 @@
 import App from './App';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
+import CoursesPage from './pages/CoursesPage';
 
 import UsersListPage from './pages/stubs/UsersListPage';
 import AdminsListPage from './pages/stubs/AdminsListPage';
@@ -13,6 +14,9 @@ const routes = [
         ...HomePage,
         path: '/',
         exact: true
+      }, {
+        ...CoursesPage,
+        path: '/showroom/courses'
       }, {
         ...UsersListPage,
         path: '/users'
