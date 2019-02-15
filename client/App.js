@@ -10,9 +10,7 @@ import { fetchCurrentUser } from './actions';
 const App = ({ route }) => (
   <>
     <Header />
-    <section className="main-container" id="main-container">
-      {renderRoutes(route.routes)}
-    </section>
+    {renderRoutes(route.routes)}
     <Footer />
   </>
 );
