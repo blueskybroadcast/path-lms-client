@@ -10,7 +10,7 @@ const CoursesContent = ({ coursesIds, coursesData }) => (
       data-role="courses-container"
     >
       <div className="courses courses-list ui-sortable">
-        {coursesIds.map(id => (
+        {coursesIds && coursesIds.map(id => (
           <CoursesPresentationItem
             key={id}
             {...coursesData[id]}
