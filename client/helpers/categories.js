@@ -46,17 +46,19 @@ export const getSortedCategories = (categoriesIds, categoriesData) => {
   });
 
   const finalCategories = [...nextCategories];
+  let finalAddedCategoriesCount = 0;
 
   nextCategories.forEach((cat, index) => {
     if (cat.level === 1) {
       categoriesIds.forEach((id) => {
         if (cat.id === categoriesData[id].parent.id) {
           finalCategories.splice(
-            index + 1 + nextCategories[index].childCount,
+            index + 1 + finalAddedCategoriesCount,
             0,
             { id, level: 2, name: categoriesData[id].name }
           );
           nextCategories[index].childCount += 1;
+          finalAddedCategoriesCount += 1;
         }
       });
     }
