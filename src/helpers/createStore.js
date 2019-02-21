@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import axios from 'axios';
 import reducers from '../../client/reducers';
 
-const createStore = (req) => {
+const createStore = (request) => {
+  const accountSlug = request.params.account || '';
+
   const axiosInstance = axios.create({
-    baseURL: 'http://localhost:3800/api_private/v1/testing',
+    baseURL: `http://localhost:3800/api_private/v1/${accountSlug}`,
     headers: {
-      cookie: req.get('cookie') || ''
+      cookie: request.get('cookie') || ''
     }
   });
   const store = createReduxStore(

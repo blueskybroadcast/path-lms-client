@@ -1,131 +1,171 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import HeaderNavDropdown from './components/HeaderNavDropdown';
 
-const Header = ({ auth }) => {
-  const authButton = auth ? (
-    <a href="/api/logout">Logout</a>
-  ) : (
-    <a href="/api/auth/google">Login</a>
-  );
-
-  return (
-    <header className="account">
-      <nav aria-expanded="false">
-        <div className="pull-left logo">
-          <div className="item" />
-          <div className="item">
-            <h1>
-              <a className="home" title="Showroom" href="/showroom">
-                <i className="icon icon-home" />
-                &nbsp;Showroom
-              </a>
-            </h1>
+const Header = ({ currentUser: { guest, admin, firstName }, slug, accountName }) => (
+  <header className="account">
+    <nav>
+      <div className="pull-left logo">
+        <div className="item" />
+        <div className="item">
+          <h1>
+            <a className="home" href={`/${slug}`}>
+              <i className="icon icon-home" />
+              &nbsp;
+              {accountName}
+            </a>
+          </h1>
+        </div>
+        <div className="item toggle-nav">
+          <button
+            className="toggle-header-nav transparent"
+            title="Toggle navigation menu"
+            type="button"
+          >
+            <i className="icon icon-reorder" />
+          </button>
+        </div>
+      </div>
+      <div className="pull-left flexible">
+        { admin && (
+          <div className="item admin-edit-account">
+            <a
+              className="settings"
+              title="Admin Settings"
+              href={`/${slug}/account/edit`}
+            >
+              <i className="icon icon-wrench" />
+              <span className="admin-text">&nbsp;Admin</span>
+            </a>
           </div>
-          <div className="item toggle-nav">
+        )}
+        <HeaderNavDropdown />
+        <div className="item">
+          <a
+            className="courses"
+            title="Programs"
+            href={`/${slug}/courses`}
+          >
+            <i className="icon icon-course" />
+            &nbsp;Courses
+          </a>
+        </div>
+        <div className="item">
+          <NavLink
+            className="content-library"
+            title="Video Go"
+            to={`/${slug}/library`}
+          >
+            <i className="icon icon-library" />
+            &nbsp;Content Library
+          </NavLink>
+        </div>
+        <div className="item">
+          <a
+            className="product-bundles"
+            title="Product Bundles"
+            href={`/${slug}/product_bundles`}
+          >
+            <i className="icon icon-product-bundle" />
+            &nbsp;Product Bundles
+          </a>
+        </div>
+        <div className="item search">
+          <a
+            className="searches"
+            title="Search"
+            href={`/${slug}/searches`}
+          >
+            <i className="icon icon-search" />
+            <span className="search-text">Search</span>
+          </a>
+        </div>
+      </div>
+      <div className="pull-right flexible">
+        <div className="item global-searching">
+          <form
+            className="search"
+          >
+            <input type="text" name="query" id="global-search-field" defaultValue="" className="global-search" placeholder="Search..." aria-label="Search" />
             <button
-              aria-expanded="false"
-              className="toggle-header-nav transparent"
-              title="Toggle navigation menu"
+              aria-label="Submit search form"
+              id="search-submit"
+              title="Submit search form"
               type="button"
             >
-              <i className="icon icon-reorder" />
-            </button>
-          </div>
-        </div>
-        <div className="pull-left flexible">
-          <HeaderNavDropdown />
-          <div className="item">
-            <a
-              className="courses"
-              title="Programs"
-              href="/showroom/courses"
-            >
-              <i className="icon icon-course" />
-              &nbsp;Programs
-            </a>
-          </div>
-          <div className="item">
-            <NavLink
-              className="content-library"
-              title="Video Go"
-              to="/showroom/library"
-            >
-              <i className="icon icon-library" />
-              &nbsp;Video Go
-            </NavLink>
-          </div>
-          <div className="item">
-            <a
-              className="product-bundles"
-              title="Product Bundles"
-              href="/showroom/product_bundles"
-            >
-              <i className="icon icon-product-bundle" />
-              &nbsp;Product Bundles
-            </a>
-          </div>
-          <div className="item search">
-            <a
-              className="searches"
-              title="Search"
-              href="/showroom/searches"
-            >
               <i className="icon icon-search" />
-              <span className="search-text">Search</span>
-            </a>
-          </div>
+            </button>
+          </form>
         </div>
-        <div className="pull-right flexible">
-          <div className="item global-searching">
-            <form
-              className="search"
-              action="/showroom/searches"
-              acceptCharset="UTF-8"
-              method="post"
-            >
-              <input name="utf8" type="hidden" defaultValue="✓" />
-              <input type="hidden" name="authenticity_token" defaultValue="hqQ9S/zT5lejZ/Ui5q6tAlnCQ38HHA8gSh8EZ/hszsxaUMjKZ1yMKiq6/cUvRlzw6N77nu37Nas4d6scc7dT1Q==" />
-              <input type="text" name="query" id="global-search-field" defaultValue="" className="global-search" placeholder="Search..." aria-label="Search" />
-              <button
-                aria-label="Submit search form"
-                id="search-submit"
-                title="Submit search form"
-                type="button"
-              >
-                <i className="icon icon-search" />
-              </button>
-            </form>
-          </div>
-          <div className="item cart">
-            <a title="Cart" href="/showroom/cart">
-              <i className="icon icon-shopping-cart" />
-              <span className="cart-text">&nbsp;Cart&nbsp;</span>
-              <span className="filled" data-role="cart-total">0</span>
-            </a>
-          </div>
-          <div className="item">
-            <a data-role="sign-up" id="sign-up-link" href="/showroom/sign_up">
-              <i className="icon icon-asterisk" />
-              &nbsp;Sign Up
-            </a>
-          </div>
-          <div className="item">
-            <a data-role="login" href="/showroom/sign_in">
-              <i className="icon icon-sign-in" />
-              &nbsp;Sign In
-            </a>
-          </div>
+        <div className="item cart">
+          <a
+            title="Cart"
+            href={`/${slug}/cart`}
+          >
+            <i className="icon icon-shopping-cart" />
+            <span className="cart-text">&nbsp;Cart&nbsp;</span>
+            <span className="filled" data-role="cart-total">0</span>
+          </a>
         </div>
-      </nav>
-    </header>
-  );
+        { guest
+          ? (
+            <>
+              <div className="item">
+                <a href={`/${slug}/sign_up`}>
+                  <i className="icon icon-asterisk" />
+                  &nbsp;Sign Up
+                </a>
+              </div>
+              <div className="item">
+                <a data-role="login" href={`/${slug}/sign_in`}>
+                  <i className="icon icon-sign-in" />
+                  &nbsp;Sign In
+                </a>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="item avatar-wrapper">
+                <a
+                  title="Profile Settings"
+                  href={`/${slug}/profile`}
+                >
+                  <i className="icon icon-user" />
+                  <span className="profile-text">
+                    &nbsp;
+                    {firstName}
+                  </span>
+                </a>
+              </div>
+              <div className="item sign-out-wrapper">
+                <a
+                  title="Sign Out"
+                  href={`/${slug}/sign_out`}
+                >
+                  <i className="icon icon-sign-out" />
+                  <span className="sign-out-text">
+                    &nbsp;Sign Out
+                  </span>
+                </a>
+              </div>
+            </>
+          )
+        }
+      </div>
+    </nav>
+  </header>
+);
+
+Header.propTypes = {
+  currentUser: PropTypes.shape({
+    guest: PropTypes.bool.isRequired,
+    admin: PropTypes.bool.isRequired,
+    firstName: PropTypes.string.isRequired
+  }).isRequired,
+  slug: PropTypes.string.isRequired,
+  accountName: PropTypes.string.isRequired
 };
 
-const mapStateToProps = ({ auth }) => ({
-  auth
-});
-
-export default connect(mapStateToProps)(Header);
+export default Header;

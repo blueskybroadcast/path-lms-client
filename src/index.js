@@ -12,11 +12,13 @@ const app = express();
 app.use('/api_private', proxy('http://localhost:3800'));
 app.use(express.static('public'));
 
-app.get('*', (request, response) => {
+app.get('/:account/*', (request, response) => {
   const store = createStore(request);
 
+  const accountSlug = request.params.account || '';
+
   const promises = matchRoutes(routes, request.path).map(({ route }) => {
-    return route.loadData ? route.loadData(store) : null;
+    return route.loadData ? route.loadData(store, accountSlug) : null;
   }).map((promise) => {
     if (promise) {
       return new Promise((resolve, reject) => {

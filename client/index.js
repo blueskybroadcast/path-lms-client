@@ -13,8 +13,10 @@ import '../styles/proof_of_concept.scss';
 import routes from './routes';
 import reducers from './reducers';
 
+const accountSlug = window.location.pathname.split('/')[1];
+
 const axiosInstance = axios.create({
-  baseURL: '/api_private/api_private/v1/testing'
+  baseURL: `/api_private/api_private/v1/${accountSlug}`
 });
 
 /* eslint-disable no-underscore-dangle */
