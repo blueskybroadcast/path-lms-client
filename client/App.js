@@ -5,7 +5,7 @@ import { renderRoutes } from 'react-router-config';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-import { fetchCurrentUser } from './actions';
+import { fetchCurrentUser } from './actions/auth';
 
 const App = ({ route }) => (
   <>

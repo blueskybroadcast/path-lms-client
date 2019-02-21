@@ -9,6 +9,7 @@ import CoursesFilters from '../components/Courses/CoursesFilters';
 import CoursesContent from '../components/Courses/CoursesContent';
 
 import { fetchCourses } from '../actions';
+import { currentUserIsAdmin } from '../selectors/authSelectors';
 
 class CoursesPage extends React.Component {
   componentDidMount() {
@@ -38,8 +39,8 @@ CoursesPage.propTypes = {
   isAdmin: PropTypes.bool.isRequired
 };
 
-const mapStateToProps = ({ auth }) => ({
-  isAdmin: auth.isAdmin
+const mapStateToProps = state => ({
+  isAdmin: currentUserIsAdmin(state)
 });
 
 export const loadData = store => (

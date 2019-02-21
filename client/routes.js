@@ -1,5 +1,4 @@
 import App from './App';
-import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import CoursesPage from './pages/CoursesPage';
 import CategoriesPage from './pages/CategoriesPage';
@@ -12,15 +11,11 @@ const routes = [
     ...App,
     routes: [
       {
-        ...HomePage,
-        path: '/',
-        exact: true
-      }, {
         ...CoursesPage,
-        path: '/showroom/courses'
+        path: '/:account/courses'
       }, {
         ...CategoriesPage,
-        path: '/showroom/categories'
+        path: '/:account/categories'
       }, {
         ...UsersListPage,
         path: '/users'

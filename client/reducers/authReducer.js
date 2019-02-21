@@ -1,7 +1,10 @@
 import { FETCH_CURRENT_USER } from '../actions/types';
 
 const initialState = {
-  isAdmin: true
+  currentUser: {
+    attributes: {}
+  },
+  currentAccount: {}
 };
 
 const authReducer = (state = initialState, action) => {
@@ -9,8 +12,9 @@ const authReducer = (state = initialState, action) => {
     case FETCH_CURRENT_USER:
       return {
         ...state,
-        ...action.payload.data
-      } || false;
+        currentUser: action.payload.data,
+        currentAccount: action.payload.meta.currentAccount.data
+      };
     default:
       return state;
   }

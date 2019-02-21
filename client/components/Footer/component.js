@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Footer = () => (
+const Footer = ({ slug }) => (
   <div>
     <div className="footer-spacer" />
 
@@ -8,22 +9,22 @@ const Footer = () => (
       <div className="wrapper pull-left">
         <ul className="navigation">
           <li>
-            <a className="events" href="/showroom/events">Events</a>
+            <a className="events" href={`/${slug}/events`}>Events</a>
           </li>
           <li>
-            <a className="courses" href="/showroom/courses">Programs</a>
+            <a className="courses" href={`/${slug}/courses`}>Programs</a>
           </li>
           <li>
-            <a className="searches" href="/showroom/searches">Search</a>
+            <a className="searches" href={`/${slug}/searches`}>Search</a>
           </li>
           <li>
-            <a className="support" href="/showroom/support">Support</a>
+            <a className="support" href={`/${slug}/support`}>Support</a>
           </li>
           <li>
-            <a href="/showroom/sign_up">Sign Up</a>
+            <a href={`/${slug}/sign_up`}>Sign Up</a>
           </li>
           <li className="footer-login">
-            <a href="/showroom/sign_in">Sign In</a>
+            <a href={`/${slug}/sign_in`}>Sign In</a>
           </li>
         </ul>
       </div>
@@ -53,5 +54,9 @@ const Footer = () => (
     </footer>
   </div>
 );
+
+Footer.propTypes = {
+  slug: PropTypes.string.isRequired
+};
 
 export default Footer;
