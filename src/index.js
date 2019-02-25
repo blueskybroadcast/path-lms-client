@@ -9,7 +9,9 @@ import createStore from './helpers/createStore';
 
 const app = express();
 
-app.use('/api_private', proxy('http://localhost:3800'));
+const apiHost = process.env.NODE_ENV === 'production' ? process.env.API_HOST_PROD : process.env.API_HOST_DEV;
+
+app.use('/api_private', proxy(apiHost));
 app.use(express.static('public'));
 
 app.get('/:account/*', (request, response) => {

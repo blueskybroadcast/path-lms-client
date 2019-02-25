@@ -47,7 +47,7 @@ const AddCourseCoverPhoto = ({
             { coverPhotoUrl && <span className="upload-completed">Upload Complete</span> }
             { coverPhotoUrl === '' && (
               <ReactFilestack
-                apikey="Al5Ki9tT0TDaeEbwfMAjTz"
+                apikey={process.env.FILEPICKER_API_KEY}
                 buttonText="Choose File"
                 buttonClass="btn btn-link"
                 disabled

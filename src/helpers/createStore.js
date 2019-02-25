@@ -5,9 +5,10 @@ import reducers from '../../client/reducers';
 
 const createStore = (request) => {
   const accountSlug = request.params.account || '';
+  const apiHost = process.env.NODE_ENV === 'production' ? process.env.API_HOST_PROD : process.env.API_HOST_DEV;
 
   const axiosInstance = axios.create({
-    baseURL: `http://localhost:3800/api_private/v1/${accountSlug}`,
+    baseURL: `${apiHost}/api_private/v1/${accountSlug}`,
     headers: {
       cookie: request.get('cookie') || ''
     }
