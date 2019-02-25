@@ -10,12 +10,14 @@ export const getSortedCategories = (categoriesIds, categoriesData) => {
   const categories = [];
 
   categoriesIds.forEach((id) => {
-    if (!categoriesData[id].parent.id) {
+    const data = categoriesData[id];
+    if (!data.parent.id) {
       categories.push({
         id,
         level: 0,
-        name: categoriesData[id].name,
-        childCount: 0
+        name: data.name,
+        childCount: 0,
+        hidden: data.hidden
       });
     }
   });
@@ -25,7 +27,8 @@ export const getSortedCategories = (categoriesIds, categoriesData) => {
 
   categories.forEach((cat, index) => {
     categoriesIds.forEach((id) => {
-      const parentId = categoriesData[id].parent.id;
+      const data = categoriesData[id];
+      const parentId = data.parent.id;
 
       if (cat.id === parentId) {
         nextCategories.splice(
@@ -34,9 +37,10 @@ export const getSortedCategories = (categoriesIds, categoriesData) => {
           {
             id,
             level: 1,
-            name: categoriesData[id].name,
+            name: data.name,
             childCount: 0,
-            parentId
+            parentId,
+            hidden: data.hidden
           }
         );
         categories[index].childCount += 1;
@@ -51,11 +55,17 @@ export const getSortedCategories = (categoriesIds, categoriesData) => {
   nextCategories.forEach((cat, index) => {
     if (cat.level === 1) {
       categoriesIds.forEach((id) => {
-        if (cat.id === categoriesData[id].parent.id) {
+        const data = categoriesData[id];
+        if (cat.id === data.parent.id) {
           finalCategories.splice(
             index + 1 + finalAddedCategoriesCount,
             0,
-            { id, level: 2, name: categoriesData[id].name }
+            {
+              id,
+              level: 2,
+              name: data.name,
+              hidden: data.hidden
+            }
           );
           nextCategories[index].childCount += 1;
           finalAddedCategoriesCount += 1;

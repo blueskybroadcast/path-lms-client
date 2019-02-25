@@ -4,21 +4,19 @@ import PropTypes from 'prop-types';
 import CoursesPresentationItem from '../CoursesPresentationItem';
 
 const CoursesContent = ({ coursesIds, coursesData }) => (
-  <section className="library-content">
-    <div
-      className="courses-container"
-      data-role="courses-container"
-    >
-      <div className="courses courses-list ui-sortable">
-        {coursesIds && coursesIds.map(id => (
-          <CoursesPresentationItem
-            key={id}
-            {...coursesData[id]}
-          />
-        ))}
-      </div>
+  <div
+    className="courses-container"
+    data-role="courses-container"
+  >
+    <div className="courses courses-list ui-sortable">
+      {coursesIds && coursesIds.map(id => (
+        <CoursesPresentationItem
+          key={id}
+          {...coursesData[id]}
+        />
+      ))}
     </div>
-  </section>
+  </div>
 );
 
 CoursesContent.propTypes = {

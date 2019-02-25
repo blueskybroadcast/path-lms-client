@@ -9,6 +9,8 @@ import { renderRoutes } from 'react-router-config';
 import axios from 'axios';
 
 import '../styles/proof_of_concept.scss';
+import 'semantic-ui-css/components/transition.css';
+import 'semantic-ui-css/components/dropdown.css';
 
 import routes from './routes';
 import reducers from './reducers';

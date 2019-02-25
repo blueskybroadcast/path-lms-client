@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 
 import {
-  categoriesSortedListSelector, categoriesDataSelector
+  categoriesSortedIdsSelector, categoriesDataSelector
 } from '../../../selectors/categoriesSelectors';
 
 import CategoriesList from './component';
 
 const mapStateToProps = state => ({
-  categoriesSortedList: categoriesSortedListSelector(state),
+  categoriesSortedList: categoriesSortedIdsSelector(state),
   categoriesData: categoriesDataSelector(state)
 });
 

@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import authReducer from './authReducer';
 import categoriesReducer from './categoriesReducer';
 import coursesReducer from './coursesReducer';
-import userReducer from './stubs/usersReducer';
+import userReducer from './usersReducer';
 import adminsReducer from './stubs/adminsReducer';
 
 export default combineReducers({

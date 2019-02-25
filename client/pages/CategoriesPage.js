@@ -9,6 +9,14 @@ import CategoriesList from '../components/categories/CategoriesList';
 import { fetchCategories } from '../actions/categories';
 
 class CategoriesPage extends React.Component {
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        account: PropTypes.string.isRequired
+      })
+    }).isRequired
+  }
+
   componentDidMount() {
     this.props.fetchCategories();
     document.querySelector('body').classList.add('categories-index');
@@ -19,12 +27,14 @@ class CategoriesPage extends React.Component {
   }
 
   render() {
+    const { match: { params: { account } } } = this.props;
+
     return (
       <div className="categories categories-index">
         <section className="course-categories">
           <header className="admin" id="main-container-header">
             <Link
-              to="/showroom/courses"
+              to={`/${account}/courses`}
               className="back"
             >
               <i className="icon icon-reply" />
