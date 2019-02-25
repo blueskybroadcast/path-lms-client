@@ -1,15 +1,4 @@
-import normalize from 'jsonapi-normalizer';
-
-import { FETCH_COURSES, FETCH_USERS, FETCH_ADMINS } from './types';
-
-export const fetchCourses = () => async (dispatch, getState, api) => {
-  const res = await api.get('/courses');
-
-  dispatch({
-    type: FETCH_COURSES,
-    payload: normalize(res.data)
-  });
-};
+import { FETCH_USERS, FETCH_ADMINS } from './types';
 
 export const fetchUsers = () => async (dispatch, getState, api) => {
   const res = await api.get('/users');
