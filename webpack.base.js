@@ -1,13 +1,22 @@
+const webpack = require('webpack');
+const dotenv = require('dotenv');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const env = dotenv.config().parsed;
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {});
 
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   mode: process.env.NODE_ENV || 'none',
   plugins: [
+    new webpack.DefinePlugin(envKeys),
     new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[hash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+      filename: devMode ? '[name].css' : '[name].css',
+      chunkFilename: devMode ? '[id].css' : '[id].css'
     })
   ],
   module: {

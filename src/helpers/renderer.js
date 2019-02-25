@@ -29,6 +29,7 @@ export default (request, store, context) => {
         ${helmet.title.toString()}
         ${helmet.meta.toString()}
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,700i" rel="stylesheet">
+        ${process.env.NODE_ENV === 'production' && '<link href="/main.css" rel="stylesheet">'}
       </head>
       <body>
         <div id="root" class="outer-wrapper">${content}</div>
