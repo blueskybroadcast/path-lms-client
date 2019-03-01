@@ -36,3 +36,8 @@ export const currentAccountSlugSelector = createSelector(
   currentAccountSelector,
   currentAccount => currentAccount.attributes.slug
 );
+
+export const currentAccountFeaturesSelector = createSelector(
+  currentAccountSelector,
+  currentAccount => currentAccount.attributes.features
+);

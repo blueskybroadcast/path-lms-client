@@ -1,6 +1,8 @@
 import { createSelector } from 'reselect';
 
-export const coursesSelector = state => state.courses;
+export const coursesDescriptionTextSelector = state => state.courses.coursesDescriptionText;
+
+export const coursesSelector = state => state.courses.courses;
 
 export const coursesIdsSelector = createSelector(
   coursesSelector,

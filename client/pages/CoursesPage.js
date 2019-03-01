@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import queryString from 'query-string';
 
 import AccountBanner from '../components/AccountBanner';
 import CoursesHeader from '../components/Courses/CoursesHeader';
@@ -16,7 +17,10 @@ import { currentAccountSlugSelector, currentUserIsAdmin } from '../selectors/aut
 
 class CoursesPage extends React.Component {
   componentDidMount() {
-    this.props.fetchCourses();
+    const { location } = this.props;
+    this.props.fetchCourses(
+      queryString.parse(location.search, { arrayFormat: 'bracket' })
+    );
     this.props.fetchCategories();
   }
 
@@ -70,5 +74,10 @@ export const loadData = (store) => {
 
 export default {
   loadData,
-  component: connect(mapStateToProps, { fetchCourses, fetchCategories })(CoursesPage)
+  component: withRouter(
+    connect(
+      mapStateToProps,
+      { fetchCourses, fetchCategories }
+    )(CoursesPage)
+  )
 };
