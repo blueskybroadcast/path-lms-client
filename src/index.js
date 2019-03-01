@@ -10,6 +10,7 @@ import createStore from './helpers/createStore';
 const app = express();
 
 const apiHost = process.env.NODE_ENV === 'production' ? process.env.API_HOST_PROD : process.env.API_HOST_DEV;
+const host = process.env.NODE_ENV === 'production' ? process.env.HOST_SOCKET : 3000;
 
 app.use('/api_private', proxy(apiHost));
 app.use(express.static('public'));
@@ -45,6 +46,6 @@ app.get('/:account/*', (request, response) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Listening on port 3000');
+app.listen(host, () => {
+  console.log(`Listening ${host}`);
 });
