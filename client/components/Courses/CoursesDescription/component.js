@@ -1,81 +1,132 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Modal } from 'react-bootstrap';
 
-import EditCoursesDescription from './components/EditCoursesDescription';
+import HtmlEditor from '../../HtmlEditor';
 
 class CoursesDescription extends React.Component {
-  state = {
-    editMode: false
+  static propTypes = {
+    description: PropTypes.string,
+    isAdmin: PropTypes.bool.isRequired,
+    editCourseDescription: PropTypes.func.isRequired
   }
 
-  handleEnableEditMode = () => {
-    this.setState({ editMode: true });
+  static defaultProps = {
+    description: null
+  }
+
+  constructor(props) {
+    super(props);
+    if (typeof window !== 'undefined') {
+      this.ReactQuill = require('react-quill');
+    }
+  }
+
+  state = {
+    show: false,
+    description: null
+  }
+
+  handleShow = () => this.setState({ show: true })
+
+  handleClose = () => this.setState({ show: false })
+
+  handleDescriptionChange = description => this.setState({ description })
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { description } = this.state;
+    const { editCourseDescription } = this.props;
+    editCourseDescription(description).then(() => {
+      this.handleClose();
+    });
   }
 
   render() {
-    const { isAdmin } = this.props;
+    const { description, isAdmin } = this.props;
+    const { show } = this.state;
+
     return (
       <div
         className="description-wrapper"
         id="courses-description"
       >
         <div className="description">
-          <p>
-            <strong>
-              <img
-                src="https://s3.amazonaws.com//bluesky_portal_prod/uploads/redactor_images/1469121389.4410386_Blue_Sky_eLearn_Logo_Adobe.png"
-                style={{ width: 186, float: 'left', margin: '0px 10px 10px 0px' }}
-                alt=""
-              />
-              Our Solution Overview:
-              <br />
-              <br />
-            </strong>
-            Path Learning Platform-an intuitive, scalable, cloud-based,
-            award-winning platform that is cost-effective and quick to implement.
-            <br />
-            <br />
-          </p>
-          <ul>
-            <li>
-              Delivers content for on-demand access and is well suited for rich
-              media like webinars and meeting presentations.
-            </li>
-            <li>Includes robust registration for web events and full featured eCommerce.</li>
-            <li>
-              Scales to a full featured LMS with tools for testing, surveys, certificates, and tracking.
-            </li>
-            <li>Options for an integrated ad network for monetization.</li>
-            <li>Integrates with most AMS’s for a seamless user and administrator experience</li>
-          </ul>
-          <br />
-          <span style={{ fontSize: 18 }}>
-            (2 Min
-            <a href="http://blueskybroadcast.com/path1/">video overview</a>
-            ) and (
-            <a href="https://vimeo.com/user27074244/review/133701440/67d935bee1">4 Min Video from</a>
-            admin perspective) (
-            <a href="http://www.naylor.com/bluesky-path-learning-system/">Client Feedback Video</a>
-            )
-          </span>
-          <br />
-          <br />
-          We also provide managed web event services to streamline a
-          professional delivery of your education virtually that is integrated with the
-          Path LMS.  (
-          <a href="http://www.blueskyelearn.com/webinar-tour/">Video tour</a>
-          )&nbsp;
-          <br />
-          <p />
-          { isAdmin && <EditCoursesDescription /> }
+          <div dangerouslySetInnerHTML={{__html: description }} />
+          { isAdmin && (
+            <>
+              <div className="edit-info">
+                <a
+                  onClick={this.handleShow}
+                  data-role="set-description"
+                  data-type="courses-description"
+                  href="#"
+                >
+                  Edit Description
+                </a>
+              </div>
+
+              <Modal
+                show={show}
+                onHide={this.handleClose}
+                size="lg"
+                backdrop="static"
+              >
+                <div className="modal-inner">
+                  <section className="modal-form">
+                    <header>
+                      <h4>Edit Description</h4>
+                    </header>
+                    <div className="form-wrapper">
+                      <form
+                        onSubmit={this.handleSubmit}
+                        className="simple_form courses_description"
+                        acceptCharset="UTF-8"
+                        data-remote="true"
+                        method="post"
+                      >
+                        <HtmlEditor
+                          defaultValue={description}
+                          onChange={this.handleDescriptionChange}
+                        />
+                        <footer className="confirm">
+                          <div className="screen-readers-only">
+                            <span className="accessibility-action-info">
+                              To Update Description press button with label
+                              <strong>&quot;Update Description&quot;</strong>
+                              .
+                              For cancelling press button with label
+                              <strong>&quot;Cancel&quot;</strong>
+                              .
+                            </span>
+                          </div>
+                          <button
+                            name="button"
+                            type="submit"
+                            className="btn"
+                            data-processable-button="both"
+                          >
+                            Update Description
+                          </button>
+                          <button
+                            onClick={this.handleClose}
+                            className="cancel close-modal"
+                            type="button"
+                          >
+                            Cancel
+                          </button>
+                        </footer>
+                      </form>
+                    </div>
+                  </section>
+                </div>
+              </Modal>
+            </>
+          )}
         </div>
       </div>
     );
   }
-}
-
-CoursesDescription.propTypes = {
-  isAdmin: PropTypes.bool.isRequired
 }
 
 export default CoursesDescription;

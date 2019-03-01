@@ -7,6 +7,11 @@ export const categoriesSortedIdsSelector = createSelector(
   categories => categories.sorted
 );
 
+export const categoriesIdsSelector = createSelector(
+  categoriesSelector,
+  categories => categories.result.category
+);
+
 export const categoriesDataSelector = createSelector(
   categoriesSelector,
   categories => categories.entities.category

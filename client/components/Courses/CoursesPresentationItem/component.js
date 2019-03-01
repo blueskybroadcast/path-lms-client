@@ -70,10 +70,15 @@ const CoursesPresentationItem = ({
 );
 
 CoursesPresentationItem.propTypes = {
-  coverDescription: PropTypes.string.isRequired,
-  coverPhotoUrl: PropTypes.string.isRequired,
+  coverDescription: PropTypes.string,
+  coverPhotoUrl: PropTypes.string,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
+};
+
+CoursesPresentationItem.defaultProps = {
+  coverDescription: null,
+  coverPhotoUrl: null
 };
 
 export default CoursesPresentationItem;

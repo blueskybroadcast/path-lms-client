@@ -20,8 +20,13 @@ const CoursesContent = ({ coursesIds, coursesData }) => (
 );
 
 CoursesContent.propTypes = {
-  coursesIds: PropTypes.arrayOf(PropTypes.string).isRequired,
-  coursesData: PropTypes.objectOf(PropTypes.object).isRequired
+  coursesIds: PropTypes.arrayOf(PropTypes.string),
+  coursesData: PropTypes.objectOf(PropTypes.object)
+};
+
+CoursesContent.defaultProps = {
+  coursesIds: null,
+  coursesData: null
 };
 
 export default CoursesContent;

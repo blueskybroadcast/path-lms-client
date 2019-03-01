@@ -3,16 +3,22 @@ import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
 
 import AddCourseFormSection from './components/AddCourseFormSection';
+import AddCourseDescription from './components/AddCourseDescription';
+import AddCourseCoverPhoto from './components/AddCourseCoverPhoto';
 import AddCourseCategoriesList from './components/AddCourseCategoriesList';
 import AddCourseTracks from './components/AddCourseTracks';
 import AddCourseAdminsList from './components/AddCourseAdminsList';
-import AddCourseCoverPhoto from './components/AddCourseCoverPhoto';
+import AddCourseActive from './components/AddCourseActive';
+
+import AddCoursePurchasable from './components/AddCoursePurchasable';
+import AddCourseExpire from './components/AddCourseExpire';
+import AddCourseFullSizeCoverPhoto from './components/AddCourseFullSizeCoverPhoto';
 
 const initialState = {
   show: false,
   activeTab: 'basic',
   name: '',
-  description: '',
+  description: null,
   coverDescription: '',
   categoryIds: [],
   tracksAttributes: {
@@ -22,6 +28,12 @@ const initialState = {
     }
   },
   adminIds: [],
+  limitPurchaseAvailability: false,
+  selectedSellableItems: {},
+  expirable: false,
+  repurchasable: false,
+  expirationByDate: true,
+  expirationByDays: false,
   active: true,
   featured: false,
   showProgress: true,
@@ -43,7 +55,6 @@ class AddCourse extends React.Component {
     const {
       type, checked, value, name
     } = target;
-
     const val = type === 'checkbox' ? checked : value;
 
     this.setState({ [name]: val });
@@ -53,7 +64,7 @@ class AddCourse extends React.Component {
     e.preventDefault();
     if (!this.validateForm()) {
       const { addCourse } = this.props;
-      const { show, ...rest } = this.state;
+      const { show, activeTab, ...rest } = this.state;
       addCourse({ ...rest });
       this.handleClose();
     }
@@ -75,6 +86,20 @@ class AddCourse extends React.Component {
   handleCoverPhotoUrlChange = ({ filesUploaded }) => {
     const coverPhotoUrl = filesUploaded[0].url;
     this.setState({ coverPhotoUrl });
+  }
+
+  handleFullSizeCoverPhotoUrlToggle = () => {
+    const { fullSizeCoverPhotoUrl } = this.state;
+    if (fullSizeCoverPhotoUrl === '' || fullSizeCoverPhotoUrl) {
+      this.setState({ fullSizeCoverPhotoUrl: undefined });
+    } else {
+      this.setState({ fullSizeCoverPhotoUrl: '' });
+    }
+  }
+
+  handleFullSizeCoverPhotoUrlChange = ({ filesUploaded }) => {
+    const fullSizeCoverPhotoUrl = filesUploaded[0].url;
+    this.setState({ fullSizeCoverPhotoUrl });
   }
 
   handleCategoryToggle = (catId, catIndex, isChecked) => {
@@ -146,6 +171,107 @@ class AddCourse extends React.Component {
     });
   }
 
+  handleExpirationTypeChange = () => {
+    const { expirationByDate, expirationByDays } = this.state;
+    this.setState({
+      expirationByDate: !expirationByDate,
+      expirationByDays: !expirationByDays
+    });
+  }
+
+  handleExpirationDateChange = (expirationDate) => {
+    this.setState({ expirationDate });
+  }
+
+  handlePurchaseAvailabilityDateChange = (purchaseAvailabilityDate) => {
+    this.setState({ purchaseAvailabilityDate });
+  }
+
+
+  handleToggleSellableItem = (index) => {
+    const { selectedSellableItems } = this.state;
+    const selectedInState = !!selectedSellableItems[index];
+    if (selectedInState) {
+      const result = { ...selectedSellableItems };
+      delete result[index];
+
+      this.setState({
+        selectedSellableItems: result
+      });
+    } else {
+      const { sellableItems } = this.props;
+      const itemToAdd = sellableItems[index];
+
+      this.setState({
+        selectedSellableItems: {
+          ...selectedSellableItems,
+          [index]: itemToAdd
+        }
+      });
+    }
+  }
+
+  handleSellableItemPriceChange = (index, price) => {
+    const { selectedSellableItems } = this.state;
+    const sellableItem = selectedSellableItems[index];
+
+    this.setState({
+      selectedSellableItems: {
+        ...selectedSellableItems,
+        [index]: {
+          ...sellableItem,
+          pricesAttributes: {
+            0: {
+              ...sellableItem.pricesAttributes[0],
+              price
+            }
+          }
+        }
+      }
+    });
+  }
+
+  handleSellableItemLabelChange = (index, label) => {
+    const { selectedSellableItems } = this.state;
+    const sellableItem = selectedSellableItems[index];
+    this.setState({
+      selectedSellableItems: {
+        ...selectedSellableItems,
+        [index]: {
+          ...sellableItem,
+          pricesAttributes: {
+            0: {
+              ...sellableItem.pricesAttributes[0],
+              label
+            }
+          }
+        }
+      }
+    });
+  }
+
+  handleSellableItemLabelToggle = (index) => {
+    const { selectedSellableItems } = this.state;
+    const sellableItem = selectedSellableItems[index];
+    const { labelEnabled } = sellableItem;
+
+    this.setState({
+      selectedSellableItems: {
+        ...selectedSellableItems,
+        [index]: {
+          ...sellableItem,
+          labelEnabled: !labelEnabled,
+          pricesAttributes: {
+            0: {
+              ...sellableItem.pricesAttributes[0],
+              label: ''
+            }
+          }
+        }
+      }
+    });
+  }
+
   validateForm = () => {
     const { name } = this.state;
     const isInvalid = !name;
@@ -155,11 +281,14 @@ class AddCourse extends React.Component {
   render() {
     const {
       show, activeTab, name, description, coverPhotoUrl, coverDescription, active,
-      categoryIds, tracksAttributes, featured, showProgress, searchKeywords, adminIds
+      categoryIds, tracksAttributes, featured, showProgress, searchKeywords, adminIds,
+      fullSizeCoverPhotoUrl, selectedSellableItems, expirable, repurchasable, expirationByDate,
+      expirationByDays, expirationDate, limitPurchaseAvailability, purchaseAvailabilityDate
     } = this.state;
 
     const {
-      visibleCategories, hiddenCategories, usersIds, usersData, history: { push }, slug
+      visibleCategories, hiddenCategories, usersIds, usersData, history: { push },
+      slug, groupsIds, sellableItems
     } = this.props;
 
     const usersForDropdown = usersIds.filter(id => adminIds.indexOf(id) === -1);
@@ -242,20 +371,10 @@ class AddCourse extends React.Component {
                             </div>
                           </AddCourseFormSection>
 
-                          <AddCourseFormSection
-                            label="Description"
-                          >
-                            <div className="controls">
-                              <textarea
-                                value={description}
-                                onChange={this.handleChange}
-                                rows="2"
-                                className="text optional"
-                                name="description"
-                                id="Description"
-                              />
-                            </div>
-                          </AddCourseFormSection>
+                          <AddCourseDescription
+                            description={description}
+                            handleChange={this.handleDescriptionChange}
+                          />
 
                           <AddCourseCoverPhoto
                             coverPhotoUrl={coverPhotoUrl}
@@ -340,58 +459,82 @@ class AddCourse extends React.Component {
                             handleAdminRemove={this.handleAdminRemove}
                           />
 
-                          <AddCourseFormSection
-                            label="Active"
-                            tooltip=""
-                          >
-                            <div className="controls">
-                              <label
-                                className="label-switch"
-                                tabIndex="0"
-                                htmlFor="index_course_active"
-                              >
-                                <input
-                                  className="boolean optional switcher optional "
-                                  id="index_course_active"
-                                  type="checkbox"
-                                  onChange={this.handleChange}
-                                  checked={active}
-                                  name="active"
-                                />
-                                <div className="checkbox" />
-                              </label>
-                              <p className="help-block">Users can view this content.</p>
-                            </div>
-                          </AddCourseFormSection>
+                          <AddCourseActive
+                            active={active}
+                            handleChange={this.handleChange}
+                          />
                         </>
                       )}
 
                       { activeTab === 'advanced' && (
                         <>
-                          <AddCourseFormSection
-                            label="Featured"
-                          >
-                            <div className="controls">
-                              <label
-                                className="label-switch"
-                                role="checkbox"
-                                tabIndex="0"
-                                htmlFor="Featured"
-                                aria-checked="false"
-                              >
-                                <input
-                                  checked={featured}
-                                  onChange={this.handleChange}
-                                  className="boolean optional switcher optional"
-                                  id="Featured"
-                                  type="checkbox"
-                                  name="featured"
-                                />
-                                <div className="checkbox" />
+                          <AddCoursePurchasable
+                            sellableItems={sellableItems}
+                            selectedSellableItems={selectedSellableItems}
+                            groupsIds={groupsIds}
+                            limitPurchaseAvailability={limitPurchaseAvailability}
+                            purchaseAvailabilityDate={purchaseAvailabilityDate}
+                            handleChange={this.handleChange}
+                            handlePurchaseAvailabilityDateChange={
+                              this.handlePurchaseAvailabilityDateChange
+                            }
+                            handleToggleSellableItem={this.handleToggleSellableItem}
+                            handleSellableItemPriceChange={this.handleSellableItemPriceChange}
+                            handleSellableItemLabelChange={this.handleSellableItemLabelChange}
+                            handleSellableItemLabelToggle={this.handleSellableItemLabelToggle}
+                          />
+
+                          <AddCourseExpire
+                            expirable={expirable}
+                            repurchasable={repurchasable}
+                            expirationDate={expirationDate}
+                            expirationByDate={expirationByDate}
+                            expirationByDays={expirationByDays}
+                            handleChange={this.handleChange}
+                            handleExpirationTypeChange={this.handleExpirationTypeChange}
+                            handleExpirationDateChange={this.handleExpirationDateChange}
+                          />
+
+                          <fieldset>
+                            <legend>
+                              <span>Featured</span>
+                            </legend>
+                            <div className="control-group featured">
+                              <label htmlFor="featured">
+                                Featured
                               </label>
-                              <p className="help-block">Course is displayed on the home page.</p>
+                              <div className="controls">
+                                <label
+                                  className="label-switch"
+                                  role="checkbox"
+                                  tabIndex="0"
+                                  htmlFor="Featured"
+                                  aria-checked="false"
+                                >
+                                  <input
+                                    checked={featured}
+                                    onChange={this.handleChange}
+                                    className="boolean optional switcher optional"
+                                    id="Featured"
+                                    type="checkbox"
+                                    name="featured"
+                                  />
+                                  <div className="checkbox" />
+                                </label>
+                                <p className="help-block">Course is displayed on the home page.</p>
+                              </div>
                             </div>
-                          </AddCourseFormSection>
+                          </fieldset>
+
+                          <AddCourseFullSizeCoverPhoto
+                            fullSizeCoverPhotoUrl={fullSizeCoverPhotoUrl}
+                            handleFullSizeCoverPhotoUrlChange={
+                              this.handleFullSizeCoverPhotoUrlChange
+                            }
+                            handleFullSizeCoverPhotoUrlToggle={
+                              this.handleFullSizeCoverPhotoUrlToggle
+                            }
+                          />
 
                           <AddCourseFormSection
                             label="Show course progress"
@@ -485,7 +628,13 @@ AddCourse.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,
-  slug: PropTypes.string.isRequired
+  slug: PropTypes.string.isRequired,
+  groupsIds: PropTypes.arrayOf(PropTypes.string),
+  sellableItems: PropTypes.objectOf(PropTypes.object).isRequired
+};
+
+AddCourse.defaultProps = {
+  groupsIds: []
 };
 
 export default AddCourse;

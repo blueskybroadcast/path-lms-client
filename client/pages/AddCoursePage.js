@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import AddCourse from '../components/Courses/AddCourse';
 
 import { fetchUsers } from '../actions/users';
+import { fetchGroups } from '../actions/groups';
 
 class AddCoursePage extends React.Component {
   componentDidMount() {
     this.props.fetchUsers();
+    this.props.fetchGroups();
   }
 
   render() {
@@ -17,11 +19,12 @@ class AddCoursePage extends React.Component {
   }
 }
 
-export const loadData = store => (
-  store.dispatch(fetchUsers())
-);
+export const loadData = (store) => {
+  store.dispatch(fetchUsers());
+  store.dispatch(fetchGroups());
+};
 
 export default {
   loadData,
-  component: connect(null, { fetchUsers })(AddCoursePage)
+  component: connect(null, { fetchUsers, fetchGroups })(AddCoursePage)
 };

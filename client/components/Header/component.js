@@ -43,24 +43,24 @@ const Header = ({ currentUser: { guest, admin, firstName }, slug, accountName })
         )}
         <HeaderNavDropdown />
         <div className="item">
-          <a
+          <NavLink
             className="courses"
             title="Programs"
-            href={`/${slug}/courses`}
+            to={`/${slug}/courses`}
           >
             <i className="icon icon-course" />
             &nbsp;Courses
-          </a>
+          </NavLink>
         </div>
         <div className="item">
-          <NavLink
+          <a
             className="content-library"
             title="Video Go"
-            to={`/${slug}/library`}
+            href={`/${slug}/library`}
           >
             <i className="icon icon-library" />
             &nbsp;Content Library
-          </NavLink>
+          </a>
         </div>
         <div className="item">
           <a

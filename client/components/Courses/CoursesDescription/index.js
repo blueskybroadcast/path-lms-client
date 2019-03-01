@@ -1,3 +1,3 @@
-import CoursesDescription from './component';
+import CoursesDescription from './container';
 
 export default CoursesDescription;

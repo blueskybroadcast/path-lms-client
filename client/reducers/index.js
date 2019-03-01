@@ -2,13 +2,15 @@ import { combineReducers } from 'redux';
 import authReducer from './authReducer';
 import categoriesReducer from './categoriesReducer';
 import coursesReducer from './coursesReducer';
-import userReducer from './usersReducer';
+import usersReducer from './usersReducer';
+import groupsReducer from './groupsReducer';
 import adminsReducer from './stubs/adminsReducer';
 
 export default combineReducers({
   auth: authReducer,
   categories: categoriesReducer,
   courses: coursesReducer,
-  users: userReducer,
+  users: usersReducer,
+  groups: groupsReducer,
   admins: adminsReducer
 });
