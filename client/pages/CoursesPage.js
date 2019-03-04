@@ -1,21 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { renderRoutes } from 'react-router-config';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 
 import AccountBanner from '../components/AccountBanner';
 import CoursesHeader from '../components/Courses/CoursesHeader';
 import CoursesDescription from '../components/Courses/CoursesDescription';
 import CoursesFilters from '../components/Courses/CoursesFilters';
+import AddCourse from '../components/Courses/AddCourse';
 import CoursesContent from '../components/Courses/CoursesContent';
 
 import { fetchCourses } from '../actions/courses';
 import { fetchCategories } from '../actions/categories';
-import { currentAccountSlugSelector, currentUserIsAdmin } from '../selectors/authSelectors';
+import { currentUserIsAdmin } from '../selectors/authSelectors';
 
 class CoursesPage extends React.Component {
+  state = { show: false }
+
   componentDidMount() {
     const { location } = this.props;
     this.props.fetchCourses(
@@ -24,8 +26,14 @@ class CoursesPage extends React.Component {
     this.props.fetchCategories();
   }
 
+  handleShow = () => this.setState({ show: true })
+
+  handleClose = () => this.setState({ show: false })
+
   render() {
-    const { isAdmin, route, slug } = this.props;
+    const { isAdmin, route } = this.props;
+    const { show } = this.state;
+
     return (
       <div className="courses courses-index">
         <AccountBanner />
@@ -35,14 +43,16 @@ class CoursesPage extends React.Component {
           <CoursesFilters isAdmin={isAdmin} />
           <section className="library-content">
             <div className="admin-tools">
-              <Link
-                className="add-course"
-                to={`/${slug}/courses/add`}
+              <a
+                className="add-course cursor-pointer"
                 onClick={this.handleShow}
               >
                 Add New Course
-              </Link>
-              {renderRoutes(route.routes)}
+              </a>
+              <AddCourse
+                show={show}
+                handleClose={this.handleClose}
+              />
             </div>
             <CoursesContent isAdmin={isAdmin} />
           </section>
@@ -54,14 +64,12 @@ class CoursesPage extends React.Component {
 
 CoursesPage.propTypes = {
   isAdmin: PropTypes.bool.isRequired,
-  slug: PropTypes.string.isRequired,
   fetchCourses: PropTypes.func.isRequired,
   fetchCategories: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  isAdmin: currentUserIsAdmin(state),
-  slug: currentAccountSlugSelector(state)
+  isAdmin: currentUserIsAdmin(state)
 });
 
 export const loadData = (store) => {

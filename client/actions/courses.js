@@ -80,8 +80,8 @@ export const addCourse = data => async (dispatch, getState, api) => {
       cover_description: data.coverDescription,
       category_ids: data.categoryIds,
       tracks_attributes: data.trackAttributes,
-      // start_date: ,
-      // end_date: ,
+      start_date: formatDate(data.startDate) || undefined,
+      end_date: formatDate(data.endDate) || undefined,
       featured: convertBoolToNumber(data.featured),
       fullsize_cover_photo_url: data.fullSizeCoverPhotoUrl,
       show_progress: convertBoolToNumber(data.showProgress),
@@ -91,10 +91,10 @@ export const addCourse = data => async (dispatch, getState, api) => {
       admin_ids: data.adminIds
     },
     sellable_items: sellableItems,
-    // free_cle_settings: {
-    //   use_credits: "1",
-    //   credits_amount: "15"
-    // }
+    free_cle_settings: {
+      use_credits: convertBoolToNumber(data.freeCleEnabled),
+      credits_amount: data.freeCleAmount
+    },
     sellable_item: {
       disable_purchase: convertBoolToNumber(data.limitPurchaseAvailability),
       disable_purchase_after: data.purchaseAvailabilityDate
@@ -104,9 +104,9 @@ export const addCourse = data => async (dispatch, getState, api) => {
     expiration: {
       expirable: convertBoolToNumber(data.expirable),
       repurchasable: convertBoolToNumber(data.repurchasable),
-      expires_at_strategy: convertBoolToNumber(data.expirationByDate),
+      expires_at_strategy: data.expirationByDate ? '1' : '',
       expires_at: formatDate(data.expirationDate),
-      days_before_expire_strategy: convertBoolToNumber(data.expirationByDays),
+      days_before_expire_strategy: data.expirationByDays ? '1' : '',
       days_before_expire: data.expirationDays
     }
   });

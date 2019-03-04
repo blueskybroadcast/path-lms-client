@@ -30,3 +30,7 @@ header.account a.content-library.active {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.react-datepicker-popper {
+  z-index: 3 !important;
+}

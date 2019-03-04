@@ -1,7 +1,6 @@
 import App from './App';
 import NotFoundPage from './pages/NotFoundPage';
 import CoursesPage from './pages/CoursesPage';
-import AddCoursePage from './pages/AddCoursePage';
 import CategoriesPage from './pages/CategoriesPage';
 
 import UsersListPage from './pages/stubs/UsersListPage';
@@ -13,13 +12,7 @@ const routes = [
     routes: [
       {
         ...CoursesPage,
-        path: '/:account/courses',
-        routes: [
-          {
-            ...AddCoursePage,
-            path: '/:account/courses/add'
-          }
-        ]
+        path: '/:account/courses'
       }, {
         ...CategoriesPage,
         path: '/:account/categories'

@@ -8,6 +8,7 @@ import AddCourseCoverPhoto from './components/AddCourseCoverPhoto';
 import AddCourseCategoriesList from './components/AddCourseCategoriesList';
 import AddCourseTracks from './components/AddCourseTracks';
 import AddCourseAdminsList from './components/AddCourseAdminsList';
+import AddCourseStartEndDates from './components/AddCourseStartEndDates';
 import AddCourseActive from './components/AddCourseActive';
 
 import AddCoursePurchasable from './components/AddCoursePurchasable';
@@ -15,7 +16,6 @@ import AddCourseExpire from './components/AddCourseExpire';
 import AddCourseFullSizeCoverPhoto from './components/AddCourseFullSizeCoverPhoto';
 
 const initialState = {
-  show: false,
   activeTab: 'basic',
   name: '',
   description: null,
@@ -30,10 +30,14 @@ const initialState = {
   adminIds: [],
   limitPurchaseAvailability: false,
   selectedSellableItems: {},
+  freeCleEnabled: false,
+  freeCleAmount: '',
   expirable: false,
   repurchasable: false,
   expirationByDate: true,
   expirationByDays: false,
+  startDate: null,
+  endDate: null,
   active: true,
   featured: false,
   showProgress: true,
@@ -44,12 +48,10 @@ class AddCourse extends React.Component {
   state = initialState
 
   componentDidMount() {
-    this.handleShow();
+    const { fetchUsers, fetchGroups } = this.props;
+    fetchUsers();
+    fetchGroups();
   }
-
-  handleShow = () => this.setState({ show: true })
-
-  handleClose = () => this.setState(initialState)
 
   handleChange = ({ target }) => {
     const {
@@ -61,12 +63,13 @@ class AddCourse extends React.Component {
   }
 
   handleSubmit = (e) => {
+    const { handleClose } = this.props;
     e.preventDefault();
     if (!this.validateForm()) {
       const { addCourse } = this.props;
       const { show, activeTab, ...rest } = this.state;
       addCourse({ ...rest });
-      this.handleClose();
+      handleClose();
     }
   }
 
@@ -272,6 +275,14 @@ class AddCourse extends React.Component {
     });
   }
 
+  handleStartDateChange = (startDate) => {
+    this.setState({ startDate });
+  }
+
+  handleEndDateChange = (endDate) => {
+    this.setState({ endDate });
+  }
+
   validateForm = () => {
     const { name } = this.state;
     const isInvalid = !name;
@@ -280,15 +291,16 @@ class AddCourse extends React.Component {
 
   render() {
     const {
-      show, activeTab, name, description, coverPhotoUrl, coverDescription, active,
+      activeTab, name, description, coverPhotoUrl, coverDescription, active,
       categoryIds, tracksAttributes, featured, showProgress, searchKeywords, adminIds,
       fullSizeCoverPhotoUrl, selectedSellableItems, expirable, repurchasable, expirationByDate,
-      expirationByDays, expirationDate, limitPurchaseAvailability, purchaseAvailabilityDate
+      expirationByDays, expirationDate, limitPurchaseAvailability, purchaseAvailabilityDate,
+      startDate, endDate, freeCleEnabled, freeCleAmount
     } = this.state;
 
     const {
       visibleCategories, hiddenCategories, usersIds, usersData, history: { push },
-      slug, groupsIds, sellableItems
+      slug, groupsIds, sellableItems, show, handleClose
     } = this.props;
 
     const usersForDropdown = usersIds.filter(id => adminIds.indexOf(id) === -1);
@@ -296,7 +308,7 @@ class AddCourse extends React.Component {
     return (
       <Modal
         show={show}
-        onHide={this.handleClose}
+        onHide={handleClose}
         size="lg"
         backdrop="static"
         onExited={() => push(`/${slug}/courses`)}
@@ -459,6 +471,13 @@ class AddCourse extends React.Component {
                             handleAdminRemove={this.handleAdminRemove}
                           />
 
+                          <AddCourseStartEndDates
+                            startDate={startDate}
+                            endDate={endDate}
+                            handleStartDateChange={this.handleStartDateChange}
+                            handleEndDateChange={this.handleEndDateChange}
+                          />
+
                           <AddCourseActive
                             active={active}
                             handleChange={this.handleChange}
@@ -482,6 +501,9 @@ class AddCourse extends React.Component {
                             handleSellableItemPriceChange={this.handleSellableItemPriceChange}
                             handleSellableItemLabelChange={this.handleSellableItemLabelChange}
                             handleSellableItemLabelToggle={this.handleSellableItemLabelToggle}
+
+                            freeCleEnabled={freeCleEnabled}
+                            freeCleAmount={freeCleAmount}
                           />
 
                           <AddCourseExpire
@@ -605,7 +627,7 @@ class AddCourse extends React.Component {
                   <button
                     className="cancel close-modal"
                     type="button"
-                    onClick={this.handleClose}
+                    onClick={handleClose}
                   >
                     Cancel
                   </button>
@@ -630,7 +652,11 @@ AddCourse.propTypes = {
   }).isRequired,
   slug: PropTypes.string.isRequired,
   groupsIds: PropTypes.arrayOf(PropTypes.string),
-  sellableItems: PropTypes.objectOf(PropTypes.object).isRequired
+  sellableItems: PropTypes.objectOf(PropTypes.object).isRequired,
+  show: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  fetchUsers: PropTypes.func.isRequired,
+  fetchGroups: PropTypes.func.isRequired
 };
 
 AddCourse.defaultProps = {
