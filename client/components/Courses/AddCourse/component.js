@@ -15,7 +15,6 @@ import AddCourseExpire from './components/AddCourseExpire';
 import AddCourseFullSizeCoverPhoto from './components/AddCourseFullSizeCoverPhoto';
 
 const initialState = {
-  show: false,
   activeTab: 'basic',
   name: '',
   description: null,
@@ -44,12 +43,10 @@ class AddCourse extends React.Component {
   state = initialState
 
   componentDidMount() {
-    this.handleShow();
+    const { fetchUsers, fetchGroups } = this.props;
+    fetchUsers();
+    fetchGroups();
   }
-
-  handleShow = () => this.setState({ show: true })
-
-  handleClose = () => this.setState(initialState)
 
   handleChange = ({ target }) => {
     const {
@@ -61,12 +58,13 @@ class AddCourse extends React.Component {
   }
 
   handleSubmit = (e) => {
+    const { handleClose } = this.props;
     e.preventDefault();
     if (!this.validateForm()) {
       const { addCourse } = this.props;
       const { show, activeTab, ...rest } = this.state;
       addCourse({ ...rest });
-      this.handleClose();
+      handleClose();
     }
   }
 
@@ -280,7 +278,7 @@ class AddCourse extends React.Component {
 
   render() {
     const {
-      show, activeTab, name, description, coverPhotoUrl, coverDescription, active,
+      activeTab, name, description, coverPhotoUrl, coverDescription, active,
       categoryIds, tracksAttributes, featured, showProgress, searchKeywords, adminIds,
       fullSizeCoverPhotoUrl, selectedSellableItems, expirable, repurchasable, expirationByDate,
       expirationByDays, expirationDate, limitPurchaseAvailability, purchaseAvailabilityDate
@@ -288,7 +286,7 @@ class AddCourse extends React.Component {
 
     const {
       visibleCategories, hiddenCategories, usersIds, usersData, history: { push },
-      slug, groupsIds, sellableItems
+      slug, groupsIds, sellableItems, show, handleClose
     } = this.props;
 
     const usersForDropdown = usersIds.filter(id => adminIds.indexOf(id) === -1);
@@ -296,7 +294,7 @@ class AddCourse extends React.Component {
     return (
       <Modal
         show={show}
-        onHide={this.handleClose}
+        onHide={handleClose}
         size="lg"
         backdrop="static"
         onExited={() => push(`/${slug}/courses`)}
@@ -605,7 +603,7 @@ class AddCourse extends React.Component {
                   <button
                     className="cancel close-modal"
                     type="button"
-                    onClick={this.handleClose}
+                    onClick={handleClose}
                   >
                     Cancel
                   </button>
@@ -630,7 +628,11 @@ AddCourse.propTypes = {
   }).isRequired,
   slug: PropTypes.string.isRequired,
   groupsIds: PropTypes.arrayOf(PropTypes.string),
-  sellableItems: PropTypes.objectOf(PropTypes.object).isRequired
+  sellableItems: PropTypes.objectOf(PropTypes.object).isRequired,
+  show: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  fetchUsers: PropTypes.func.isRequired,
+  fetchGroups: PropTypes.func.isRequired
 };
 
 AddCourse.defaultProps = {

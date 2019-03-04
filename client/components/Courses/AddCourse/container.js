@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 import { addCourse } from '../../../actions/courses';
+import { fetchUsers } from '../../../actions/users';
+import { fetchGroups } from '../../../actions/groups';
 
 import { categoriesSortedIdsSelector } from '../../../selectors/categoriesSelectors';
 import { usersIdsSelector, usersDataSelector } from '../../../selectors/usersSelectors';
@@ -28,4 +30,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, { addCourse })(AddCourse));
+export default withRouter(
+  connect(mapStateToProps, { addCourse, fetchUsers, fetchGroups })(AddCourse)
+);
