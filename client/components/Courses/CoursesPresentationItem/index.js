@@ -1,3 +1,3 @@
-import LibraryPresentationItem from './component';
+import CoursesPresentationItem from './component';
 
-export default LibraryPresentationItem;
+export default CoursesPresentationItem;

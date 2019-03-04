@@ -28,10 +28,7 @@ class CoursesPage extends React.Component {
     const { isAdmin, route, slug } = this.props;
     return (
       <div className="courses courses-index">
-        <AccountBanner
-          title="Blue Sky eLearn Path LMS"
-          url="https://cdn.filestackcontent.com/3vaDv4XTXmKh3K5EWnZS/convert?cache=true&fit=scale&format=jpeg&h=220&quality=100&w=1200"
-        />
+        <AccountBanner />
         <section className="library">
           <CoursesHeader />
           <CoursesDescription isAdmin={isAdmin} />

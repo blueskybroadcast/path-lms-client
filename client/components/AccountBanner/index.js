@@ -1,3 +1,3 @@
-import AccountBanner from './component';
+import AccountBanner from './container';
 
 export default AccountBanner;

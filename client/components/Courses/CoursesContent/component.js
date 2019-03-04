@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 import CoursesPresentationItem from '../CoursesPresentationItem';
 
-const CoursesContent = ({ coursesIds, coursesData }) => (
+const CoursesContent = ({
+  coursesIds, coursesData, slug, currency
+}) => (
   <div
     className="courses-container"
     data-role="courses-container"
@@ -12,6 +14,8 @@ const CoursesContent = ({ coursesIds, coursesData }) => (
       {coursesIds && coursesIds.map(id => (
         <CoursesPresentationItem
           key={id}
+          slug={slug}
+          currency={currency}
           {...coursesData[id]}
         />
       ))}
@@ -21,7 +25,9 @@ const CoursesContent = ({ coursesIds, coursesData }) => (
 
 CoursesContent.propTypes = {
   coursesIds: PropTypes.arrayOf(PropTypes.string),
-  coursesData: PropTypes.objectOf(PropTypes.object)
+  coursesData: PropTypes.objectOf(PropTypes.object),
+  slug: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired
 };
 
 CoursesContent.defaultProps = {

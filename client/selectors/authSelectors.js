@@ -24,20 +24,25 @@ export const currentUserIsAdmin = createSelector(
 
 export const currentAccountSelector = createSelector(
   authSelector,
-  auth => auth.currentAccount
+  auth => auth.currentAccount.attributes
 );
 
 export const currentAccountNameSelector = createSelector(
   currentAccountSelector,
-  currentAccount => currentAccount.attributes.name
+  currentAccount => currentAccount.name
 );
 
 export const currentAccountSlugSelector = createSelector(
   currentAccountSelector,
-  currentAccount => currentAccount.attributes.slug
+  currentAccount => currentAccount.slug
 );
 
 export const currentAccountFeaturesSelector = createSelector(
   currentAccountSelector,
-  currentAccount => currentAccount.attributes.features
+  currentAccount => currentAccount.features
+);
+
+export const currentAccountCurrencySelector = createSelector(
+  currentAccountSelector,
+  currentAccount => currentAccount.currency
 );
