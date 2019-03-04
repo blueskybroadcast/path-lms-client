@@ -1,14 +1,49 @@
+import normalize from 'jsonapi-normalizer';
+
 import { FETCH_COURSES } from './types';
 
 import { convertBoolToNumber, formatDate } from '../helpers';
+import { updateCoursesWithIcons } from '../helpers/courses';
+
+export const fetchCoursesUserInfo = ids => async (dispatch, getState, api) => {
+  const formattedParams = ids.map(id => ({
+    id: [id],
+    type: 'Course'
+  }));
+  const res = await api.post('/user_info/load', { icons: formattedParams });
+  return res.data.icons;
+};
 
 export const fetchCourses = params => async (dispatch, getState, api) => {
-  const res = await api.get('/courses', { params });
+  await api.get('/courses', { params })
+    .then(({ data }) => {
+      const courses = normalize(data);
+      const { meta } = data;
 
-  dispatch({
-    type: FETCH_COURSES,
-    payload: res.data
-  });
+      const coursesWithIcons = updateCoursesWithIcons(
+        courses.entities.course,
+        Object.entries(meta.permittedContentCount)
+      );
+
+      courses.entities.category = coursesWithIcons;
+
+      dispatch(fetchCoursesUserInfo(courses.result.course)).then((icons) => {
+        icons.forEach((icon) => {
+          courses.entities.category[icon.id].statuses = {
+            purchase: icon.statuses.purchase
+          };
+        });
+
+        dispatch({
+          type: FETCH_COURSES,
+          payload: {
+            courses,
+            accountBanner: meta.accountBanner,
+            coursesDescriptionText: meta.coursesDescriptionText
+          }
+        });
+      });
+    });
 };
 
 export const addCourse = data => async (dispatch, getState, api) => {

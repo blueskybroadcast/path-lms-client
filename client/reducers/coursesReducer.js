@@ -1,8 +1,7 @@
-import normalize from 'jsonapi-normalizer';
-
 import { FETCH_COURSES } from '../actions/types';
 
 const initialState = {
+  accountBanner: {},
   coursesDescriptionText: '',
   courses: {
     result: {
@@ -19,8 +18,7 @@ const coursesReducer = (state = initialState, action) => {
     case FETCH_COURSES:
       return {
         ...state,
-        coursesDescriptionText: action.payload.meta.coursesDescriptionText,
-        courses: normalize(action.payload)
+        ...action.payload
       };
 
     default:
