@@ -9,10 +9,11 @@ const AddCoursePurchasable = ({
   sellableItems, selectedSellableItems, limitPurchaseAvailability, handleChange,
   handlePurchaseAvailabilityDateChange, groupsIds, handleToggleSellableItem,
   handleSellableItemPriceChange, handleSellableItemLabelChange,
-  handleSellableItemLabelToggle, purchaseAvailabilityDate
+  handleSellableItemLabelToggle, purchaseAvailabilityDate, freeCleEnabled,
+  freeCleAmount
 }) => {
-  const sellableItemEnabled = sellableItems[0]
-    && Object.values(sellableItems).filter(item => item.sellable).length > 0;
+  const sellableItemEnabled = Object.keys(selectedSellableItems).length > 0;
+  const freeCleAmountIsInvalid = freeCleAmount.length < 1;
 
   return (
     <fieldset className="group-pricing" data-role="group-pricing">
@@ -122,57 +123,114 @@ const AddCoursePurchasable = ({
         </div>
       </div>
       { sellableItemEnabled && (
-        <div
-          className="control-group disable-purchase featured optional text"
-          data-role="disable-purchase-fields"
-        >
-          <label htmlFor="limitPurchaseAvailability">
-            Limit purchase availability
-          </label>
-          <div className="controls">
-            <label
-              className="label-switch"
-              role="checkbox"
-              tabIndex="0"
-              htmlFor="limitPurchaseAvailability"
-              aria-checked="true"
-            >
-              <input
-                checked={limitPurchaseAvailability}
-                onChange={handleChange}
-                label="false"
-                id="limitPurchaseAvailability"
-                name="limitPurchaseAvailability"
-                data-role="disable-purchase-toggler"
-                className="boolean optional switcher optional"
-                type="checkbox"
-              />
-              <div className="checkbox" />
+        <>
+          <div
+            className="control-group featured free-cle optional text"
+            data-role="free-cle-fields"
+          >
+            <label htmlFor="freeCleEnabled">
+              Free CLE
             </label>
-            <p className="help-block">This item is available to purchase until 11:59pm on...</p>
-          </div>
-          { limitPurchaseAvailability && (
-            <div
-              className="controls disable-purchase-after-date-fields"
-              data-role="disable-purchase-after-date-fields"
-            >
+            <div className="controls">
               <label
-                className="label required"
-                htmlFor="purchaseAvailabilityDate"
+                className="label-switch"
+                role="checkbox"
+                tabIndex="0"
+                htmlFor="freeCleEnabled"
+                aria-checked="true"
               >
-                Date
-              </label>
-              <div className="input-wrapper">
-                <DatePicker
-                  selected={purchaseAvailabilityDate}
-                  onChange={handlePurchaseAvailabilityDateChange}
-                  id="purchaseAvailabilityDate"
-                  className="disable_purchase_after_datepicker picker__input"
+                <input
+                  checked={freeCleEnabled}
+                  onChange={handleChange}
+                  label="false"
+                  id="freeCleEnabled"
+                  name="freeCleEnabled"
+                  data-role="free-cle-toggler"
+                  className="boolean optional switcher optional"
+                  type="checkbox"
                 />
-              </div>
+                <div className="checkbox" />
+              </label>
+              <p className="help-block">
+                Users can &quot;purchase&quot; this item using Free CLE credits
+              </p>
             </div>
-          )}
-        </div>
+            { freeCleEnabled && (
+              <div className="controls free-cle-amount-fields" data-role="free-cle-amount-fields">
+                <label
+                  className="label required"
+                  htmlFor="freeCleAmount"
+                >
+                  Amount
+                </label>
+                <div className="input-wrapper">
+                  <input
+                    value={freeCleAmount}
+                    onChange={handleChange}
+                    data-role="free-cle-amount-input"
+                    id="freeCleAmount"
+                    name="freeCleAmount"
+                    type="text"
+                    className={classNames(freeCleAmountIsInvalid && 'error-border')}
+                  />
+                  { freeCleAmountIsInvalid && <span className="help-inline">should be set</span> }
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div
+            className="control-group disable-purchase featured optional text"
+            data-role="disable-purchase-fields"
+          >
+            <label htmlFor="limitPurchaseAvailability">
+              Limit purchase availability
+            </label>
+            <div className="controls">
+              <label
+                className="label-switch"
+                role="checkbox"
+                tabIndex="0"
+                htmlFor="limitPurchaseAvailability"
+                aria-checked="true"
+              >
+                <input
+                  checked={limitPurchaseAvailability}
+                  onChange={handleChange}
+                  label="false"
+                  id="limitPurchaseAvailability"
+                  name="limitPurchaseAvailability"
+                  data-role="disable-purchase-toggler"
+                  className="boolean optional switcher optional"
+                  type="checkbox"
+                />
+                <div className="checkbox" />
+              </label>
+              <p className="help-block">This item is available to purchase until 11:59pm on...</p>
+            </div>
+            { limitPurchaseAvailability && (
+              <div
+                className="controls disable-purchase-after-date-fields"
+                data-role="disable-purchase-after-date-fields"
+              >
+                <label
+                  className="label required"
+                  htmlFor="purchaseAvailabilityDate"
+                >
+                  Date
+                </label>
+                <div className="input-wrapper">
+                  <DatePicker
+                    selected={purchaseAvailabilityDate}
+                    onChange={handlePurchaseAvailabilityDateChange}
+                    id="purchaseAvailabilityDate"
+                    className="disable_purchase_after_datepicker picker__input"
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+        </>
       )}
     </fieldset>
   );
@@ -182,10 +240,12 @@ AddCoursePurchasable.propTypes = {
   sellableItems: PropTypes.objectOf(PropTypes.object).isRequired,
   selectedSellableItems: PropTypes.objectOf(PropTypes.object).isRequired,
   limitPurchaseAvailability: PropTypes.bool.isRequired,
-  handleChange: PropTypes.func.isRequired,
   purchaseAvailabilityDate: PropTypes.instanceOf(Date),
-  handlePurchaseAvailabilityDateChange: PropTypes.func.isRequired,
   groupsIds: PropTypes.arrayOf(PropTypes.string),
+  freeCleEnabled: PropTypes.bool.isRequired,
+  freeCleAmount: PropTypes.string,
+  handleChange: PropTypes.func.isRequired,
+  handlePurchaseAvailabilityDateChange: PropTypes.func.isRequired,
   handleToggleSellableItem: PropTypes.func.isRequired,
   handleSellableItemPriceChange: PropTypes.func.isRequired,
   handleSellableItemLabelChange: PropTypes.func.isRequired,
@@ -194,7 +254,8 @@ AddCoursePurchasable.propTypes = {
 
 AddCoursePurchasable.defaultProps = {
   groupsIds: [],
-  purchaseAvailabilityDate: null
+  purchaseAvailabilityDate: null,
+  freeCleAmount: ''
 };
 
 export default AddCoursePurchasable;

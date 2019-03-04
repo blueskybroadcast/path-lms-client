@@ -7,7 +7,9 @@ import { fetchGroups } from '../../../actions/groups';
 
 import { categoriesSortedIdsSelector } from '../../../selectors/categoriesSelectors';
 import { usersIdsSelector, usersDataSelector } from '../../../selectors/usersSelectors';
-import { currentAccountSlugSelector } from '../../../selectors/authSelectors';
+import {
+  currentAccountSlugSelector, currentAccountFeaturesSelector
+} from '../../../selectors/authSelectors';
 import { groupsIdsSelector, groupsDataSelector } from '../../../selectors/groupsSelectors';
 
 import { convertGroupsToSellableItems } from '../../../helpers/courses';
@@ -26,7 +28,9 @@ const mapStateToProps = (state) => {
     usersData: usersDataSelector(state),
     groupsIds,
     sellableItems,
-    slug: currentAccountSlugSelector(state)
+    slug: currentAccountSlugSelector(state),
+    startEndDateFeatureEnabled:
+      currentAccountFeaturesSelector(state).indexOf('course_start_and_end_dates') > -1
   };
 };
 

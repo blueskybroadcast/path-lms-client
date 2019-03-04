@@ -8,6 +8,7 @@ import AddCourseCoverPhoto from './components/AddCourseCoverPhoto';
 import AddCourseCategoriesList from './components/AddCourseCategoriesList';
 import AddCourseTracks from './components/AddCourseTracks';
 import AddCourseAdminsList from './components/AddCourseAdminsList';
+import AddCourseStartEndDates from './components/AddCourseStartEndDates';
 import AddCourseActive from './components/AddCourseActive';
 
 import AddCoursePurchasable from './components/AddCoursePurchasable';
@@ -29,10 +30,14 @@ const initialState = {
   adminIds: [],
   limitPurchaseAvailability: false,
   selectedSellableItems: {},
+  freeCleEnabled: false,
+  freeCleAmount: '',
   expirable: false,
   repurchasable: false,
   expirationByDate: true,
   expirationByDays: false,
+  startDate: null,
+  endDate: null,
   active: true,
   featured: false,
   showProgress: true,
@@ -270,6 +275,14 @@ class AddCourse extends React.Component {
     });
   }
 
+  handleStartDateChange = (startDate) => {
+    this.setState({ startDate });
+  }
+
+  handleEndDateChange = (endDate) => {
+    this.setState({ endDate });
+  }
+
   validateForm = () => {
     const { name } = this.state;
     const isInvalid = !name;
@@ -281,7 +294,8 @@ class AddCourse extends React.Component {
       activeTab, name, description, coverPhotoUrl, coverDescription, active,
       categoryIds, tracksAttributes, featured, showProgress, searchKeywords, adminIds,
       fullSizeCoverPhotoUrl, selectedSellableItems, expirable, repurchasable, expirationByDate,
-      expirationByDays, expirationDate, limitPurchaseAvailability, purchaseAvailabilityDate
+      expirationByDays, expirationDate, limitPurchaseAvailability, purchaseAvailabilityDate,
+      startDate, endDate, freeCleEnabled, freeCleAmount
     } = this.state;
 
     const {
@@ -457,6 +471,13 @@ class AddCourse extends React.Component {
                             handleAdminRemove={this.handleAdminRemove}
                           />
 
+                          <AddCourseStartEndDates
+                            startDate={startDate}
+                            endDate={endDate}
+                            handleStartDateChange={this.handleStartDateChange}
+                            handleEndDateChange={this.handleEndDateChange}
+                          />
+
                           <AddCourseActive
                             active={active}
                             handleChange={this.handleChange}
@@ -480,6 +501,9 @@ class AddCourse extends React.Component {
                             handleSellableItemPriceChange={this.handleSellableItemPriceChange}
                             handleSellableItemLabelChange={this.handleSellableItemLabelChange}
                             handleSellableItemLabelToggle={this.handleSellableItemLabelToggle}
+
+                            freeCleEnabled={freeCleEnabled}
+                            freeCleAmount={freeCleAmount}
                           />
 
                           <AddCourseExpire
