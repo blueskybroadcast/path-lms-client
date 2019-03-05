@@ -1,4 +1,4 @@
-import { FETCH_USERS } from '../actions/types';
+import { FETCH_USERS_SUCCESS } from '../actions/types';
 
 const initialState = {
   result: {
@@ -11,7 +11,7 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_USERS:
+    case FETCH_USERS_SUCCESS:
       return action.payload;
     default:
       return state;

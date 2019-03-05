@@ -21,7 +21,9 @@ app.get('/:account/*', (request, response) => {
   const accountSlug = request.params.account || '';
 
   const promises = matchRoutes(routes, request.path).map(({ route }) => {
-    return route.loadData ? route.loadData(store, accountSlug) : null;
+    return route.loadData
+      ? route.loadData(store, accountSlug, request.query)
+      : null;
   }).map((promise) => {
     if (promise) {
       return new Promise((resolve, reject) => {

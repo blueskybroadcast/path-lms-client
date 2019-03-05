@@ -42,18 +42,20 @@ class CoursesPage extends React.Component {
           <CoursesDescription isAdmin={isAdmin} />
           <CoursesFilters isAdmin={isAdmin} />
           <section className="library-content">
-            <div className="admin-tools">
-              <a
-                className="add-course cursor-pointer"
-                onClick={this.handleShow}
-              >
-                Add New Course
-              </a>
-              <AddCourse
-                show={show}
-                handleClose={this.handleClose}
-              />
-            </div>
+            { isAdmin && (
+              <div className="admin-tools">
+                <a
+                  className="add-course cursor-pointer"
+                  onClick={this.handleShow}
+                >
+                  Add New Course
+                </a>
+                <AddCourse
+                  show={show}
+                  handleClose={this.handleClose}
+                />
+              </div>
+            )}
             <CoursesContent isAdmin={isAdmin} />
           </section>
         </section>
@@ -72,8 +74,8 @@ const mapStateToProps = state => ({
   isAdmin: currentUserIsAdmin(state)
 });
 
-export const loadData = (store) => {
-  store.dispatch(fetchCourses());
+export const loadData = (store, slug, query) => {
+  store.dispatch(fetchCourses(query));
   store.dispatch(fetchCategories());
 };
 

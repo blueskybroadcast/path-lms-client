@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Modal } from 'react-bootstrap';
 
 import AddCourseFormSection from './components/AddCourseFormSection';
@@ -17,6 +18,7 @@ import AddCourseFullSizeCoverPhoto from './components/AddCourseFullSizeCoverPhot
 
 const initialState = {
   activeTab: 'basic',
+  errors: {},
   name: '',
   description: null,
   coverDescription: '',
@@ -65,9 +67,9 @@ class AddCourse extends React.Component {
   handleSubmit = (e) => {
     const { handleClose } = this.props;
     e.preventDefault();
-    if (!this.validateForm()) {
+    if (!this.isFormInvalid()) {
       const { addCourse } = this.props;
-      const { show, activeTab, ...rest } = this.state;
+      const { errors, activeTab, ...rest } = this.state;
       addCourse({ ...rest });
       handleClose();
     }
@@ -283,15 +285,23 @@ class AddCourse extends React.Component {
     this.setState({ endDate });
   }
 
-  validateForm = () => {
-    const { name } = this.state;
+  isFormInvalid = () => {
+    const { name, errors } = this.state;
+    if (!name) {
+      this.setState({
+        errors: {
+          ...errors,
+          name: "can't be blank"
+        }
+      });
+    }
     const isInvalid = !name;
     return isInvalid;
   }
 
   render() {
     const {
-      activeTab, name, description, coverPhotoUrl, coverDescription, active,
+      errors, activeTab, name, description, coverPhotoUrl, coverDescription, active,
       categoryIds, tracksAttributes, featured, showProgress, searchKeywords, adminIds,
       fullSizeCoverPhotoUrl, selectedSellableItems, expirable, repurchasable, expirationByDate,
       expirationByDays, expirationDate, limitPurchaseAvailability, purchaseAvailabilityDate,
@@ -300,7 +310,7 @@ class AddCourse extends React.Component {
 
     const {
       visibleCategories, hiddenCategories, usersIds, usersData, history: { push },
-      slug, groupsIds, sellableItems, show, handleClose
+      slug, groupsIds, sellableItems, show, handleClose, submitting
     } = this.props;
 
     const usersForDropdown = usersIds.filter(id => adminIds.indexOf(id) === -1);
@@ -335,7 +345,7 @@ class AddCourse extends React.Component {
                         <ul>
                           <li className={activeTab === 'basic' ? 'active' : null}>
                             <a
-                              href="#"
+                              className="cursor-pointer"
                               onClick={() => this.setState({ activeTab: 'basic' })}
                             >
                               Basic
@@ -343,7 +353,7 @@ class AddCourse extends React.Component {
                           </li>
                           <li className={activeTab === 'advanced' ? 'active' : null}>
                             <a
-                              href="#"
+                              className="cursor-pointer"
                               onClick={() => this.setState({ activeTab: 'advanced' })}
                             >
                               Advanced
@@ -363,25 +373,35 @@ class AddCourse extends React.Component {
 
                       { activeTab === 'basic' && (
                         <>
-                          <AddCourseFormSection
-                            label="Name"
-                            isRequired
-                          >
-                            <div className="controls">
-                              <input
-                                onChange={this.handleChange}
-                                value={name}
-                                maxLength="255"
-                                className="string required"
-                                aria-required="true"
-                                placeholder="Blue Sky Course"
-                                size="255"
-                                type="text"
-                                name="name"
-                                id="Name"
-                              />
+                          <fieldset>
+                            <legend>
+                              <span>Name</span>
+                            </legend>
+                            <div className={classNames('control-group', errors.name && 'error')}>
+                              <label htmlFor="Name">
+                                Name
+                                <abbr title="required" className="required">*</abbr>
+                              </label>
+                              <div className="controls">
+                                <input
+                                  onChange={this.handleChange}
+                                  value={name}
+                                  maxLength="255"
+                                  className="string required"
+                                  aria-required="true"
+                                  placeholder="Blue Sky Course"
+                                  size="255"
+                                  type="text"
+                                  name="name"
+                                  id="Name"
+                                />
+                                { errors.name && !name.length > 0
+                                  ? <span className="help-inline">{errors.name}</span>
+                                  : null
+                                }
+                              </div>
                             </div>
-                          </AddCourseFormSection>
+                          </fieldset>
 
                           <AddCourseDescription
                             description={description}
@@ -619,11 +639,15 @@ class AddCourse extends React.Component {
                     name="button"
                     type="submit"
                     id="submit-course"
-                    className="btn"
-                    data-processable-button="both"
+                    className={classNames({
+                      btn: true,
+                      disabled: submitting,
+                      submitting
+                    })}
                   >
-                    Create Course
+                    { submitting ? 'Processing...' : 'Create Course' }
                   </button>
+
                   <button
                     className="cancel close-modal"
                     type="button"
@@ -642,6 +666,7 @@ class AddCourse extends React.Component {
 }
 
 AddCourse.propTypes = {
+  submitting: PropTypes.bool.isRequired,
   addCourse: PropTypes.func.isRequired,
   visibleCategories: PropTypes.arrayOf(PropTypes.object).isRequired,
   hiddenCategories: PropTypes.arrayOf(PropTypes.object).isRequired,

@@ -1,5 +1,5 @@
 import { omit } from 'lodash';
-import { FETCH_CATEGORIES, DELETE_CATEGORY } from '../actions/types';
+import { FETCH_CATEGORIES_SUCCESS, DELETE_CATEGORY_SUCCESS } from '../actions/types';
 import { getSortedCategories } from '../helpers/categories';
 
 const initialState = {
@@ -14,7 +14,7 @@ const initialState = {
 
 const categoriesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_CATEGORIES:
+    case FETCH_CATEGORIES_SUCCESS:
       return {
         ...action.payload,
         sorted: getSortedCategories(
@@ -23,7 +23,7 @@ const categoriesReducer = (state = initialState, action) => {
         )
       };
 
-    case DELETE_CATEGORY:
+    case DELETE_CATEGORY_SUCCESS:
       return {
         ...state,
         result: {

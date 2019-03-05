@@ -65,11 +65,12 @@ class CategoryFormModal extends React.Component {
 
   render() {
     const { name, parentId, hidden } = this.state;
-    const { show, mode, categoriesSortedList } = this.props;
+    const { show, mode, categoriesSortedList, submitting } = this.props;
     const isFormInvalid = this.validateForm();
 
     const parentListLevelZero = categoriesSortedList.filter(cat => cat.level === 0);
     const parentListLevelOne = getParentListLevelOne(categoriesSortedList);
+    const submitButtonLabel = mode === 'create' ? 'Create Category' : 'Update Category';
 
     return (
       <Modal
@@ -190,12 +191,20 @@ class CategoryFormModal extends React.Component {
                 <footer className="confirm">
                   <button
                     type="submit"
-                    className={classNames('btn', isFormInvalid && 'disabled')}
+                    className={classNames({
+                      btn: true,
+                      disabled: isFormInvalid || submitting,
+                      submitting
+                    })}
                     onClick={this.handleSubmit}
-                    disabled={isFormInvalid}
+                    disabled={isFormInvalid || submitting}
                   >
-                    {mode === 'create' ? 'Create Category' : 'Update Category'}
+                    { submitting
+                      ? 'Processing...'
+                      : submitButtonLabel
+                    }
                   </button>
+
                   <button
                     className="cancel close-modal"
                     type="button"
@@ -221,6 +230,7 @@ CategoryFormModal.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleClose: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
+  submitting: PropTypes.bool.isRequired,
   categoriesSortedList: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 

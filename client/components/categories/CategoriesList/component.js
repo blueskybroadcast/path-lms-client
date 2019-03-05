@@ -3,21 +3,34 @@ import PropTypes from 'prop-types';
 
 import CategoriesItem from '../CategoriesItem';
 
-const CategoriesList = ({ categoriesSortedList, categoriesData }) => (
+const CategoriesList = ({ loading, categoriesSortedList, categoriesData }) => (
   <section className="list">
-    <ul>
-      {categoriesSortedList && categoriesSortedList.map(({ id, level }) => (
-        <CategoriesItem
-          key={id}
-          level={level}
-          {...categoriesData[id]}
-        />
-      ))}
-    </ul>
+    { loading ? (
+      <div className="bsb-loader-container" data-role="courses-container">
+        <div className="bsb-loader">
+          <div className="loader-wrapper">
+            <div className="spinner">
+              <i className="icon icon-spinner icon-spin icon-large" />
+            </div>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <ul>
+        {categoriesSortedList && categoriesSortedList.map(({ id, level }) => (
+          <CategoriesItem
+            key={id}
+            level={level}
+            {...categoriesData[id]}
+          />
+        ))}
+      </ul>
+    )}
   </section>
 );
 
 CategoriesList.propTypes = {
+  loading: PropTypes.bool.isRequired,
   categoriesSortedList: PropTypes.arrayOf(PropTypes.object).isRequired,
   categoriesData: PropTypes.objectOf(PropTypes.object).isRequired
 };

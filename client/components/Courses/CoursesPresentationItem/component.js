@@ -23,7 +23,6 @@ const CoursesPresentationItem = ({
             currency && `icon-purchasable-${currency}`,
             statuses.purchase && `${statuses.purchase}`
           )}
-          aria-label={statuses.purchase}
         />
       </h3>
       <div className="info">
