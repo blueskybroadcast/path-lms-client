@@ -32,7 +32,11 @@ const CategoriesList = ({ loading, categoriesSortedList, categoriesData }) => (
 CategoriesList.propTypes = {
   loading: PropTypes.bool.isRequired,
   categoriesSortedList: PropTypes.arrayOf(PropTypes.object).isRequired,
-  categoriesData: PropTypes.objectOf(PropTypes.object).isRequired
+  categoriesData: PropTypes.objectOf(PropTypes.object)
+};
+
+CategoriesList.defaultProps = {
+  categoriesData: {}
 };
 
 export default CategoriesList;

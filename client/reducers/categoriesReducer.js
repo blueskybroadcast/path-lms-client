@@ -17,10 +17,10 @@ const categoriesReducer = (state = initialState, action) => {
     case FETCH_CATEGORIES_SUCCESS:
       return {
         ...action.payload,
-        sorted: getSortedCategories(
+        sorted: action.payload.result.category ? getSortedCategories(
           action.payload.result.category,
           action.payload.entities.category
-        )
+        ) : []
       };
 
     case DELETE_CATEGORY_SUCCESS:
