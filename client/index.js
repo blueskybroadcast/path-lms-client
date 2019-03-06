@@ -14,6 +14,7 @@ import 'semantic-ui-css/components/dropdown.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-quill/dist/quill.snow.css';
 
+import ScrollToTop from './components/common/ScrollToTop';
 import routes from './routes';
 import reducers from './reducers';
 
@@ -53,7 +54,9 @@ const store = createStore(
 ReactDOM.hydrate(
   <Provider store={store}>
     <BrowserRouter>
-      {renderRoutes(routes)}
+      <ScrollToTop>
+        {renderRoutes(routes)}
+      </ScrollToTop>
     </BrowserRouter>
   </Provider>,
   document.querySelector('#root')
