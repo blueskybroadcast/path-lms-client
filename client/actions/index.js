@@ -1,10 +1,10 @@
-import { FETCH_USERS, FETCH_ADMINS } from './types';
+import { FETCH_USERS_SUCCESS, FETCH_ADMINS } from './types';
 
 export const fetchUsers = () => async (dispatch, getState, api) => {
   const res = await api.get('/users');
 
   dispatch({
-    type: FETCH_USERS,
+    type: FETCH_USERS_SUCCESS,
     payload: res
   });
 };

@@ -1,4 +1,4 @@
-import { FETCH_COURSES } from '../actions/types';
+import { FETCH_COURSES_SUCCESS } from '../actions/types';
 
 const initialState = {
   accountBanner: {},
@@ -15,7 +15,7 @@ const initialState = {
 
 const coursesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_COURSES:
+    case FETCH_COURSES_SUCCESS:
       return {
         ...state,
         ...action.payload

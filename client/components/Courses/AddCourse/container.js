@@ -5,6 +5,7 @@ import { addCourse } from '../../../actions/courses';
 import { fetchUsers } from '../../../actions/users';
 import { fetchGroups } from '../../../actions/groups';
 
+import { addingNewCourseSelector } from '../../../selectors/loadingSelectors';
 import { categoriesSortedIdsSelector } from '../../../selectors/categoriesSelectors';
 import { usersIdsSelector, usersDataSelector } from '../../../selectors/usersSelectors';
 import {
@@ -22,6 +23,7 @@ const mapStateToProps = (state) => {
   const groupsData = groupsDataSelector(state);
   const sellableItems = convertGroupsToSellableItems(groupsIds, groupsData);
   return {
+    submitting: addingNewCourseSelector(state),
     visibleCategories: categories.filter(cat => !cat.hidden),
     hiddenCategories: categories.filter(cat => cat.hidden),
     usersIds: usersIdsSelector(state),

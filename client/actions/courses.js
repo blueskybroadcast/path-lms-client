@@ -1,6 +1,9 @@
 import normalize from 'jsonapi-normalizer';
 
-import { FETCH_COURSES } from './types';
+import {
+  ADD_COURSE_REQUEST, ADD_COURSE_SUCCESS,
+  FETCH_COURSES_REQUEST, FETCH_COURSES_SUCCESS
+} from './types';
 
 import { convertBoolToNumber, formatDate } from '../helpers';
 import { updateCoursesWithIcons } from '../helpers/courses';
@@ -15,6 +18,8 @@ export const fetchCoursesUserInfo = ids => async (dispatch, getState, api) => {
 };
 
 export const fetchCourses = params => async (dispatch, getState, api) => {
+  dispatch({ type: FETCH_COURSES_REQUEST });
+
   await api.get('/courses', { params })
     .then(({ data }) => {
       const courses = normalize(data);
@@ -27,26 +32,39 @@ export const fetchCourses = params => async (dispatch, getState, api) => {
 
       courses.entities.category = coursesWithIcons;
 
-      dispatch(fetchCoursesUserInfo(courses.result.course)).then((icons) => {
-        icons.forEach((icon) => {
-          courses.entities.category[icon.id].statuses = {
-            purchase: icon.statuses.purchase
-          };
-        });
+      if (courses.result.course) {
+        dispatch(fetchCoursesUserInfo(courses.result.course)).then((icons) => {
+          icons.forEach((icon) => {
+            courses.entities.category[icon.id].statuses = {
+              purchase: icon.statuses.purchase
+            };
+          });
 
+          dispatch({
+            type: FETCH_COURSES_SUCCESS,
+            payload: {
+              courses,
+              accountBanner: meta.accountBanner,
+              coursesDescriptionText: meta.coursesDescriptionText
+            }
+          });
+        });
+      } else {
         dispatch({
-          type: FETCH_COURSES,
+          type: FETCH_COURSES_SUCCESS,
           payload: {
             courses,
             accountBanner: meta.accountBanner,
             coursesDescriptionText: meta.coursesDescriptionText
           }
         });
-      });
+      }
     });
 };
 
 export const addCourse = data => async (dispatch, getState, api) => {
+  dispatch({ type: ADD_COURSE_REQUEST });
+
   let sellableItems;
   if (data.selectedSellableItems) {
     sellableItems = {
@@ -109,9 +127,10 @@ export const addCourse = data => async (dispatch, getState, api) => {
       days_before_expire_strategy: data.expirationByDays ? '1' : '',
       days_before_expire: data.expirationDays
     }
+  }).then(() => {
+    dispatch({ type: ADD_COURSE_SUCCESS });
+    dispatch(fetchCourses());
   });
-
-  dispatch(fetchCourses());
 };
 
 export const editCourseDescription = text => async (dispatch, getState, api) => {
@@ -119,7 +138,5 @@ export const editCourseDescription = text => async (dispatch, getState, api) => 
     courses_description: {
       text
     }
-  });
-
-  dispatch(fetchCourses());
+  }).then(() => dispatch(fetchCourses()));
 };

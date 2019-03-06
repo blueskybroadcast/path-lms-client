@@ -1,12 +1,12 @@
 import normalize from 'jsonapi-normalizer';
 
-import { FETCH_GROUPS } from './types';
+import { FETCH_GROUPS_SUCCESS } from './types';
 
 export const fetchGroups = () => async (dispatch, getState, api) => {
   const res = await api.get('/groups');
 
   dispatch({
-    type: FETCH_GROUPS,
+    type: FETCH_GROUPS_SUCCESS,
     payload: normalize(res.data)
   });
 };

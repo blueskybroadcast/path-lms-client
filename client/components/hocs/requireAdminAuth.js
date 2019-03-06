@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-const requireAuth = (ChildComponent) => {
-  class RequireAuth extends React.Component {
+const requireAdminAuth = (ChildComponent) => {
+  class requireAdminAuth extends React.Component {
     render() {
-      switch (this.props.auth) {
+      switch (this.props.isAdmin) {
         case false:
           return <Redirect to="/" />
         case null:
-          return <div>Loading...</div>
+          return null;
         default:
           return <ChildComponent {...this.props} />;
       }
@@ -17,10 +17,10 @@ const requireAuth = (ChildComponent) => {
   }
 
   const mapStateToProps = ({ auth }) => ({
-    auth
+    isAdmin: auth.currentUser.attributes.admin || false
   });
 
-  return connect(mapStateToProps)(RequireAuth);
+  return connect(mapStateToProps)(requireAdminAuth);
 };
 
-export default requireAuth;
+export default requireAdminAuth;

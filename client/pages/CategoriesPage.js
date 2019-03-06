@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import requireAuth from '../components/hocs/requireAuth';
+import requireAdminAuth from '../components/hocs/requireAdminAuth';
 import AddCategory from '../components/categories/AddCategory';
 import CategoriesList from '../components/categories/CategoriesList';
 import { fetchCategories } from '../actions/categories';
@@ -59,5 +59,5 @@ export const loadData = store => (
 
 export default {
   loadData,
-  component: connect(null, { fetchCategories })(requireAuth(CategoriesPage))
+  component: connect(null, { fetchCategories })(requireAdminAuth(CategoriesPage))
 };
