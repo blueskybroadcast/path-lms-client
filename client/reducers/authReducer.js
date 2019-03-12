@@ -1,6 +1,6 @@
 import { FETCH_CURRENT_USER } from '../actions/types';
 
-const initialState = {
+export const initialState = {
   currentUser: {
     attributes: {}
   },

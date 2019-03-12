@@ -65,7 +65,9 @@ class CategoryFormModal extends React.Component {
 
   render() {
     const { name, parentId, hidden } = this.state;
-    const { show, mode, categoriesSortedList, submitting } = this.props;
+    const {
+      show, mode, categoriesSortedList, submitting
+    } = this.props;
     const isFormInvalid = this.validateForm();
 
     const parentListLevelZero = categoriesSortedList.filter(cat => cat.level === 0);

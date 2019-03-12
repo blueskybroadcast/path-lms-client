@@ -1,4 +1,6 @@
-const initialState = {
+export const initialState = {
+  ADD_COURSE: false,
+  ADD_CATEGORY: false,
   FETCH_COURSES: false,
   FETCH_CATEGORIES: false
 };

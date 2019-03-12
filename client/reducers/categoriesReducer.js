@@ -2,7 +2,7 @@ import { omit } from 'lodash';
 import { FETCH_CATEGORIES_SUCCESS, DELETE_CATEGORY_SUCCESS } from '../actions/types';
 import { getSortedCategories } from '../helpers/categories';
 
-const initialState = {
+export const initialState = {
   result: {
     category: []
   },
