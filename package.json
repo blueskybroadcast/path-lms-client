@@ -8,7 +8,8 @@
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "dev:build-server": "webpack --config webpack.server.js --watch",
     "dev:build-client": "webpack --config webpack.client.js --watch",
-    "prod": "NODE_ENV=production npm-run-all --parallel dev:*"
+    "prod": "NODE_ENV=production npm-run-all --parallel dev:*",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +32,7 @@
     "express-http-proxy": "^1.5.1",
     "filestack-js": "^1.14.3",
     "filestack-react": "^2.0.0",
+    "jest": "^24.1.0",
     "jsonapi-normalizer": "^2.0.1",
     "lodash": "^4.17.11",
     "mini-css-extract-plugin": "^0.5.0",
@@ -66,6 +68,7 @@
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.3.4",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.4.0",
     "eslint": "^5.14.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",

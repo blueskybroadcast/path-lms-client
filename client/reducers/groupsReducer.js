@@ -1,6 +1,6 @@
 import { FETCH_GROUPS_SUCCESS } from '../actions/types';
 
-const initialState = {
+export const initialState = {
   result: {
     group: []
   },

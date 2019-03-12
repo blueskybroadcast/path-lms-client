@@ -17,25 +17,15 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].css',
       chunkFilename: devMode ? '[id].css' : '[id].css'
-    })
+    }),
+
   ],
   module: {
     rules: [
       {
         test: /\.js?$/,
         loader: 'babel-loader',
-        exclude: /node_modules/,
-        options: {
-          presets: [
-            ['@babel/env', { targets: { browsers: ['last 4 versions'] } }],
-            '@babel/react'
-          ],
-          plugins: [
-            '@babel/plugin-proposal-class-properties',
-            '@babel/plugin-proposal-object-rest-spread',
-            '@babel/plugin-transform-runtime'
-          ]
-        }
+        exclude: /node_modules/
       },
       {
         test: /\.(sa|sc|c)ss$/,

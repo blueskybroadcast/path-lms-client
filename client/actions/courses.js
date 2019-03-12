@@ -39,7 +39,6 @@ export const fetchCourses = params => async (dispatch, getState, api) => {
               purchase: icon.statuses.purchase
             };
           });
-
           dispatch({
             type: FETCH_COURSES_SUCCESS,
             payload: {

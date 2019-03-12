@@ -5,7 +5,7 @@ export const createLoadingSelector = actions => state => (
 );
 
 export const addingNewCourseSelector = state => (
-  createLoadingSelector(['ADD_CATEGORY'])(state)
+  createLoadingSelector(['ADD_COURSE'])(state)
 );
 export const loadingCoursesSelector = state => (
   createLoadingSelector(['FETCH_COURSES'])(state)
