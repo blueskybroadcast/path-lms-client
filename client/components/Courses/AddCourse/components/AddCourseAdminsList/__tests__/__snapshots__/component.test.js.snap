@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddCourseAdminsList should render AddCourseAdminsList with data correctly 1`] = `
+<AddCourseFormSection
+  isRequired={false}
+  label="Course Administrators"
+  tooltip="You can assign administrator(s) for the course. Course administrators can manage the course and all course items related to the course."
+>
+  <div
+    className="controls"
+  >
+    <div
+      className="admin-tools add-admins"
+      data-role="add-admins"
+    >
+      <div
+        className="admin-actions-wrapper"
+        data-role="admin-controls"
+      >
+        <div
+          className="select-existing-users"
+        >
+          <Dropdown
+            additionLabel="Add "
+            additionPosition="top"
+            closeOnBlur={true}
+            deburr={false}
+            icon={false}
+            inline={true}
+            minCharacters={1}
+            multiple={true}
+            noResultsMessage="No results found."
+            openOnFocus={true}
+            renderLabel={[Function]}
+            searchInput="text"
+            selectOnBlur={true}
+            selectOnNavigation={true}
+            trigger={
+              <a
+                className="launch-select"
+                href="#"
+              >
+                Add Course Administrator
+                <div
+                  className="arrow"
+                />
+              </a>
+            }
+            wrapSelection={true}
+          >
+            <DropdownMenu>
+              <DropdownMenu
+                scrolling={true}
+              >
+                <DropdownItem
+                  key="2"
+                  onClick={[Function]}
+                  text="Ted Baker (test@test.com)"
+                />
+                <DropdownItem
+                  key="3"
+                  onClick={[Function]}
+                  text="Tom Ford (test2@test.com)"
+                />
+              </DropdownMenu>
+            </DropdownMenu>
+          </Dropdown>
+        </div>
+      </div>
+    </div>
+    <div
+      className="option-list course-admins"
+    >
+      <div
+        className="header"
+      >
+        <span>
+          Users
+        </span>
+      </div>
+      <ul
+        data-role="course-admin-list"
+      >
+        <li
+          key="2"
+        >
+          <span
+            className="full-name"
+          >
+            Ted Baker
+          </span>
+          <span
+            className="email"
+          >
+            (
+            test@test.com
+            )
+          </span>
+          <span
+            className="remove-course-admin"
+            onClick={[Function]}
+          >
+            <i
+              className="icon icon-times"
+            />
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</AddCourseFormSection>
+`;
+
+exports[`AddCourseAdminsList should render AddCourseAdminsList without data correctly 1`] = `
+<AddCourseFormSection
+  isRequired={false}
+  label="Course Administrators"
+  tooltip="You can assign administrator(s) for the course. Course administrators can manage the course and all course items related to the course."
+>
+  <div
+    className="controls"
+  >
+    <div
+      className="admin-tools add-admins"
+      data-role="add-admins"
+    >
+      <div
+        className="admin-actions-wrapper"
+        data-role="admin-controls"
+      >
+        <div
+          className="select-existing-users"
+        >
+          <Dropdown
+            additionLabel="Add "
+            additionPosition="top"
+            closeOnBlur={true}
+            deburr={false}
+            icon={false}
+            inline={true}
+            minCharacters={1}
+            multiple={true}
+            noResultsMessage="No results found."
+            openOnFocus={true}
+            renderLabel={[Function]}
+            searchInput="text"
+            selectOnBlur={true}
+            selectOnNavigation={true}
+            trigger={
+              <a
+                className="launch-select"
+                href="#"
+              >
+                Add Course Administrator
+                <div
+                  className="arrow"
+                />
+              </a>
+            }
+            wrapSelection={true}
+          >
+            <DropdownMenu>
+              <DropdownMenu
+                scrolling={true}
+              />
+            </DropdownMenu>
+          </Dropdown>
+        </div>
+      </div>
+    </div>
+    <div
+      className="option-list course-admins"
+    >
+      <div
+        className="header"
+      >
+        <span>
+          Users
+        </span>
+      </div>
+      <ul
+        data-role="course-admin-list"
+      />
+    </div>
+  </div>
+</AddCourseFormSection>
+`;

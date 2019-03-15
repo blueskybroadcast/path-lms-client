@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render AccountBanner correctly 1`] = `
+<section
+  className="account-banner"
+>
+  <div
+    className="wrapper"
+  >
+    <a
+      href="banner redirect url"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="Banner Alt Text"
+        src="banner url"
+      />
+    </a>
+  </div>
+</section>
+`;

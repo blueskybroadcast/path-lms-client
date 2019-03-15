@@ -101,8 +101,6 @@ class CoursesFilters extends React.Component {
     </li>
   )
 
-  delayTimer
-
   render() {
     const {
       isAdmin, slug, categoriesIds, categoriesData
@@ -176,5 +174,23 @@ class CoursesFilters extends React.Component {
     );
   }
 }
+
+CoursesFilters.propTypes = {
+  location: PropTypes.objectOf(PropTypes.string).isRequired,
+  categoriesIds: PropTypes.arrayOf(PropTypes.string),
+  categoriesData: PropTypes.objectOf(PropTypes.object),
+  currentAccountFeatures: PropTypes.arrayOf(PropTypes.string).isRequired,
+  slug: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func
+  }).isRequired,
+  fetchCourses: PropTypes.func.isRequired,
+  isAdmin: PropTypes.bool.isRequired
+};
+
+CoursesFilters.defaultProps = {
+  categoriesIds: [],
+  categoriesData: {}
+};
 
 export default CoursesFilters;

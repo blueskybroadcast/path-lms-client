@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Footer correctly 1`] = `
+<div>
+  <div
+    className="footer-spacer"
+  />
+  <footer
+    className="account"
+  >
+    <div
+      className="wrapper pull-left"
+    >
+      <ul
+        className="navigation"
+      >
+        <li>
+          <a
+            className="events"
+            href="/testing/events"
+          >
+            Events
+          </a>
+        </li>
+        <li>
+          <a
+            className="courses"
+            href="/testing/courses"
+          >
+            Programs
+          </a>
+        </li>
+        <li>
+          <a
+            className="searches"
+            href="/testing/searches"
+          >
+            Search
+          </a>
+        </li>
+        <li>
+          <a
+            className="support"
+            href="/testing/support"
+          >
+            Support
+          </a>
+        </li>
+        <li>
+          <a
+            href="/testing/sign_up"
+          >
+            Sign Up
+          </a>
+        </li>
+        <li
+          className="footer-login"
+        >
+          <a
+            href="/testing/sign_in"
+          >
+            Sign In
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="wrapper pull-right"
+    >
+      <ul
+        className="navigation font-size-08-em"
+      >
+        <li>
+          <a
+            className="custom-privacy-policy-url"
+            href="http://www.blueskyelearn.com/privacy/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Privacy Policy
+          </a>
+           | 
+          <a
+            className="custom-cookies-policy-url"
+            href="http://www.blueskyelearn.com/cookies/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Cookies Policy
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</div>
+`;

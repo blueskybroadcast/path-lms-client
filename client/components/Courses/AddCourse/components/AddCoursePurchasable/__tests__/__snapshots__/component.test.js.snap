@@ -1,0 +1,573 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddCoursePurchasable should render AddCoursePurchasable correctly if there is no purchaseable items 1`] = `
+<fieldset
+  className="group-pricing"
+  data-role="group-pricing"
+>
+  <legend>
+    <span>
+      Group Pricing
+    </span>
+  </legend>
+  <div
+    className="control-group group-prices"
+  >
+    <label>
+      Purchasable
+    </label>
+    <ul
+      className="pricings controls"
+    />
+    <div
+      className="controls"
+    >
+      <div
+        className="hint-container"
+      >
+        <p
+          className="hint"
+        >
+          Make sure you set the appropriate items in the group permissions
+        </p>
+      </div>
+    </div>
+  </div>
+</fieldset>
+`;
+
+exports[`AddCoursePurchasable should render AddCoursePurchasable correctly with purchaseable items and limitPurchaseAvailability + freeCleEnabled turned off 1`] = `
+<fieldset
+  className="group-pricing"
+  data-role="group-pricing"
+>
+  <legend>
+    <span>
+      Group Pricing
+    </span>
+  </legend>
+  <div
+    className="control-group group-prices"
+  >
+    <label>
+      Purchasable
+    </label>
+    <ul
+      className="pricings controls"
+    >
+      <li
+        className="group"
+        data-role="price-row"
+        key="4"
+      >
+        <div
+          className="price-row-content"
+          data-role="price-row-content"
+        >
+          <label
+            aria-checked="true"
+            className="checkbox control label-switch"
+            htmlFor={0}
+            role="checkbox"
+            tabIndex="0"
+          >
+            <input
+              checked={true}
+              id={0}
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <div
+              className="checkbox"
+            />
+          </label>
+          <div
+            className="group-price"
+          >
+            <div
+              className="group-name"
+            >
+              <input
+                aria-label="Groups"
+                className="name"
+                readOnly={true}
+                type="text"
+                value="Test Group 2"
+              />
+            </div>
+            <div
+              className="price"
+              data-currency="$"
+            >
+              <input
+                aria-label="Price"
+                className="error-border price-field"
+                disabled={false}
+                onChange={[Function]}
+                type="text"
+                value=""
+              />
+              <a
+                className="price-label-trigger"
+                data-role="price-label-trigger"
+                href="#"
+                onClick={[Function]}
+              >
+                <div
+                  className="controls"
+                >
+                  <i
+                    className="icon icon-plus"
+                  />
+                  <i
+                    className="icon icon-tag icon-lg"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <span
+          className="help-inline"
+        >
+          should be set
+        </span>
+      </li>
+      <li
+        className="group"
+        data-role="price-row"
+        key="3"
+      >
+        <div
+          className="price-row-content"
+          data-role="price-row-content"
+        >
+          <label
+            aria-checked="true"
+            className="checkbox control label-switch"
+            htmlFor={1}
+            role="checkbox"
+            tabIndex="0"
+          >
+            <input
+              checked={false}
+              id={1}
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <div
+              className="checkbox"
+            />
+          </label>
+          <div
+            className="group-price"
+          >
+            <div
+              className="group-name"
+            >
+              <input
+                aria-label="Groups"
+                className="name"
+                readOnly={true}
+                type="text"
+                value="Test Group 1"
+              />
+            </div>
+            <div
+              className="price"
+              data-currency="$"
+            >
+              <input
+                aria-label="Price"
+                className="price-field"
+                disabled={true}
+                onChange={[Function]}
+                type="text"
+                value=""
+              />
+              <a
+                className="price-label-trigger disabled"
+                data-role="price-label-trigger"
+                href="#"
+                onClick={[Function]}
+              >
+                <div
+                  className="controls"
+                >
+                  <i
+                    className="icon icon-plus"
+                  />
+                  <i
+                    className="icon icon-tag icon-lg"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div
+      className="controls"
+    >
+      <div
+        className="hint-container"
+      >
+        <p
+          className="hint"
+        >
+          Make sure you set the appropriate items in the group permissions
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="control-group featured free-cle optional text"
+    data-role="free-cle-fields"
+  >
+    <label
+      htmlFor="freeCleEnabled"
+    >
+      Free CLE
+    </label>
+    <div
+      className="controls"
+    >
+      <label
+        aria-checked="true"
+        className="label-switch"
+        htmlFor="freeCleEnabled"
+        role="checkbox"
+        tabIndex="0"
+      >
+        <input
+          checked={false}
+          className="boolean optional switcher optional"
+          data-role="free-cle-toggler"
+          id="freeCleEnabled"
+          label="false"
+          name="freeCleEnabled"
+          onChange={[MockFunction]}
+          type="checkbox"
+        />
+        <div
+          className="checkbox"
+        />
+      </label>
+      <p
+        className="help-block"
+      >
+        Users can "purchase" this item using Free CLE credits
+      </p>
+    </div>
+  </div>
+  <div
+    className="control-group disable-purchase featured optional text"
+    data-role="disable-purchase-fields"
+  >
+    <label
+      htmlFor="limitPurchaseAvailability"
+    >
+      Limit purchase availability
+    </label>
+    <div
+      className="controls"
+    >
+      <label
+        aria-checked="true"
+        className="label-switch"
+        htmlFor="limitPurchaseAvailability"
+        role="checkbox"
+        tabIndex="0"
+      >
+        <input
+          checked={false}
+          className="boolean optional switcher optional"
+          data-role="disable-purchase-toggler"
+          id="limitPurchaseAvailability"
+          label="false"
+          name="limitPurchaseAvailability"
+          onChange={[MockFunction]}
+          type="checkbox"
+        />
+        <div
+          className="checkbox"
+        />
+      </label>
+      <p
+        className="help-block"
+      >
+        This item is available to purchase until 11:59pm on...
+      </p>
+    </div>
+  </div>
+</fieldset>
+`;
+
+exports[`AddCoursePurchasable should render AddCoursePurchasable correctly with purchaseable items and limitPurchaseAvailability + freeCleEnabled turned on 1`] = `
+<fieldset
+  className="group-pricing"
+  data-role="group-pricing"
+>
+  <legend>
+    <span>
+      Group Pricing
+    </span>
+  </legend>
+  <div
+    className="control-group group-prices"
+  >
+    <label>
+      Purchasable
+    </label>
+    <ul
+      className="pricings controls"
+    >
+      <li
+        className="group"
+        data-role="price-row"
+        key="4"
+      >
+        <div
+          className="price-row-content"
+          data-role="price-row-content"
+        >
+          <label
+            aria-checked="true"
+            className="checkbox control label-switch"
+            htmlFor={0}
+            role="checkbox"
+            tabIndex="0"
+          >
+            <input
+              checked={true}
+              id={0}
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <div
+              className="checkbox"
+            />
+          </label>
+          <div
+            className="group-price"
+          >
+            <div
+              className="group-name"
+            >
+              <input
+                aria-label="Groups"
+                className="name"
+                readOnly={true}
+                type="text"
+                value="Test Group 2"
+              />
+            </div>
+            <div
+              className="price"
+              data-currency="$"
+            >
+              <input
+                aria-label="Price"
+                className="error-border price-field"
+                disabled={false}
+                onChange={[Function]}
+                type="text"
+                value=""
+              />
+              <a
+                className="price-label-trigger"
+                data-role="price-label-trigger"
+                href="#"
+                onClick={[Function]}
+              >
+                <div
+                  className="controls"
+                >
+                  <i
+                    className="icon icon-plus"
+                  />
+                  <i
+                    className="icon icon-tag icon-lg"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <span
+          className="help-inline"
+        >
+          should be set
+        </span>
+      </li>
+      <li
+        className="group"
+        data-role="price-row"
+        key="3"
+      >
+        <div
+          className="price-row-content"
+          data-role="price-row-content"
+        >
+          <label
+            aria-checked="true"
+            className="checkbox control label-switch"
+            htmlFor={1}
+            role="checkbox"
+            tabIndex="0"
+          >
+            <input
+              checked={false}
+              id={1}
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <div
+              className="checkbox"
+            />
+          </label>
+          <div
+            className="group-price"
+          >
+            <div
+              className="group-name"
+            >
+              <input
+                aria-label="Groups"
+                className="name"
+                readOnly={true}
+                type="text"
+                value="Test Group 1"
+              />
+            </div>
+            <div
+              className="price"
+              data-currency="$"
+            >
+              <input
+                aria-label="Price"
+                className="price-field"
+                disabled={true}
+                onChange={[Function]}
+                type="text"
+                value=""
+              />
+              <a
+                className="price-label-trigger disabled"
+                data-role="price-label-trigger"
+                href="#"
+                onClick={[Function]}
+              >
+                <div
+                  className="controls"
+                >
+                  <i
+                    className="icon icon-plus"
+                  />
+                  <i
+                    className="icon icon-tag icon-lg"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div
+      className="controls"
+    >
+      <div
+        className="hint-container"
+      >
+        <p
+          className="hint"
+        >
+          Make sure you set the appropriate items in the group permissions
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="control-group featured free-cle optional text"
+    data-role="free-cle-fields"
+  >
+    <label
+      htmlFor="freeCleEnabled"
+    >
+      Free CLE
+    </label>
+    <div
+      className="controls"
+    >
+      <label
+        aria-checked="true"
+        className="label-switch"
+        htmlFor="freeCleEnabled"
+        role="checkbox"
+        tabIndex="0"
+      >
+        <input
+          checked={false}
+          className="boolean optional switcher optional"
+          data-role="free-cle-toggler"
+          id="freeCleEnabled"
+          label="false"
+          name="freeCleEnabled"
+          onChange={[MockFunction]}
+          type="checkbox"
+        />
+        <div
+          className="checkbox"
+        />
+      </label>
+      <p
+        className="help-block"
+      >
+        Users can "purchase" this item using Free CLE credits
+      </p>
+    </div>
+  </div>
+  <div
+    className="control-group disable-purchase featured optional text"
+    data-role="disable-purchase-fields"
+  >
+    <label
+      htmlFor="limitPurchaseAvailability"
+    >
+      Limit purchase availability
+    </label>
+    <div
+      className="controls"
+    >
+      <label
+        aria-checked="true"
+        className="label-switch"
+        htmlFor="limitPurchaseAvailability"
+        role="checkbox"
+        tabIndex="0"
+      >
+        <input
+          checked={false}
+          className="boolean optional switcher optional"
+          data-role="disable-purchase-toggler"
+          id="limitPurchaseAvailability"
+          label="false"
+          name="limitPurchaseAvailability"
+          onChange={[MockFunction]}
+          type="checkbox"
+        />
+        <div
+          className="checkbox"
+        />
+      </label>
+      <p
+        className="help-block"
+      >
+        This item is available to purchase until 11:59pm on...
+      </p>
+    </div>
+  </div>
+</fieldset>
+`;

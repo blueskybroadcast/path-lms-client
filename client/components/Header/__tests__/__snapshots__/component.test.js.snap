@@ -1,0 +1,411 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render Header correctly if user is admin 1`] = `
+<header
+  className="account"
+>
+  <nav>
+    <div
+      className="pull-left logo"
+    >
+      <div
+        className="item"
+      />
+      <div
+        className="item"
+      >
+        <h1>
+          <a
+            className="home"
+            href="/testing"
+          >
+            <i
+              className="icon icon-home"
+            />
+             
+            account name
+          </a>
+        </h1>
+      </div>
+      <div
+        className="item toggle-nav"
+      >
+        <button
+          className="toggle-header-nav transparent"
+          title="Toggle navigation menu"
+          type="button"
+        >
+          <i
+            className="icon icon-reorder"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      className="pull-left flexible"
+    >
+      <div
+        className="item admin-edit-account"
+      >
+        <a
+          className="settings"
+          href="/testing/account/edit"
+          title="Admin Settings"
+        >
+          <i
+            className="icon icon-wrench"
+          />
+          <span
+            className="admin-text"
+          >
+             Admin
+          </span>
+        </a>
+      </div>
+      <HeaderNavDropdown />
+      <div
+        className="item"
+      >
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="courses"
+          title="Programs"
+          to="/testing/courses"
+        >
+          <i
+            className="icon icon-course"
+          />
+           Courses
+        </NavLink>
+      </div>
+      <div
+        className="item"
+      >
+        <a
+          className="content-library"
+          href="/testing/library"
+          title="Video Go"
+        >
+          <i
+            className="icon icon-library"
+          />
+           Content Library
+        </a>
+      </div>
+      <div
+        className="item"
+      >
+        <a
+          className="product-bundles"
+          href="/testing/product_bundles"
+          title="Product Bundles"
+        >
+          <i
+            className="icon icon-product-bundle"
+          />
+           Product Bundles
+        </a>
+      </div>
+      <div
+        className="item search"
+      >
+        <a
+          className="searches"
+          href="/testing/searches"
+          title="Search"
+        >
+          <i
+            className="icon icon-search"
+          />
+          <span
+            className="search-text"
+          >
+            Search
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      className="pull-right flexible"
+    >
+      <div
+        className="item global-searching"
+      >
+        <form
+          className="search"
+        >
+          <input
+            aria-label="Search"
+            className="global-search"
+            defaultValue=""
+            id="global-search-field"
+            name="query"
+            placeholder="Search..."
+            type="text"
+          />
+          <button
+            aria-label="Submit search form"
+            id="search-submit"
+            title="Submit search form"
+            type="button"
+          >
+            <i
+              className="icon icon-search"
+            />
+          </button>
+        </form>
+      </div>
+      <div
+        className="item cart"
+      >
+        <a
+          href="/testing/cart"
+          title="Cart"
+        >
+          <i
+            className="icon icon-shopping-cart"
+          />
+          <span
+            className="cart-text"
+          >
+             Cart 
+          </span>
+          <span
+            className="filled"
+            data-role="cart-total"
+          >
+            0
+          </span>
+        </a>
+      </div>
+      <div
+        className="item avatar-wrapper"
+      >
+        <a
+          href="/testing/profile"
+          title="Profile Settings"
+        >
+          <i
+            className="icon icon-user"
+          />
+          <span
+            className="profile-text"
+          >
+             
+            User
+          </span>
+        </a>
+      </div>
+      <div
+        className="item sign-out-wrapper"
+      >
+        <a
+          href="/testing/sign_out"
+          title="Sign Out"
+        >
+          <i
+            className="icon icon-sign-out"
+          />
+          <span
+            className="sign-out-text"
+          >
+             Sign Out
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+`;
+
+exports[`Header should render Header correctly if user is guest 1`] = `
+<header
+  className="account"
+>
+  <nav>
+    <div
+      className="pull-left logo"
+    >
+      <div
+        className="item"
+      />
+      <div
+        className="item"
+      >
+        <h1>
+          <a
+            className="home"
+            href="/testing"
+          >
+            <i
+              className="icon icon-home"
+            />
+             
+            account name
+          </a>
+        </h1>
+      </div>
+      <div
+        className="item toggle-nav"
+      >
+        <button
+          className="toggle-header-nav transparent"
+          title="Toggle navigation menu"
+          type="button"
+        >
+          <i
+            className="icon icon-reorder"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      className="pull-left flexible"
+    >
+      <HeaderNavDropdown />
+      <div
+        className="item"
+      >
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="courses"
+          title="Programs"
+          to="/testing/courses"
+        >
+          <i
+            className="icon icon-course"
+          />
+           Courses
+        </NavLink>
+      </div>
+      <div
+        className="item"
+      >
+        <a
+          className="content-library"
+          href="/testing/library"
+          title="Video Go"
+        >
+          <i
+            className="icon icon-library"
+          />
+           Content Library
+        </a>
+      </div>
+      <div
+        className="item"
+      >
+        <a
+          className="product-bundles"
+          href="/testing/product_bundles"
+          title="Product Bundles"
+        >
+          <i
+            className="icon icon-product-bundle"
+          />
+           Product Bundles
+        </a>
+      </div>
+      <div
+        className="item search"
+      >
+        <a
+          className="searches"
+          href="/testing/searches"
+          title="Search"
+        >
+          <i
+            className="icon icon-search"
+          />
+          <span
+            className="search-text"
+          >
+            Search
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      className="pull-right flexible"
+    >
+      <div
+        className="item global-searching"
+      >
+        <form
+          className="search"
+        >
+          <input
+            aria-label="Search"
+            className="global-search"
+            defaultValue=""
+            id="global-search-field"
+            name="query"
+            placeholder="Search..."
+            type="text"
+          />
+          <button
+            aria-label="Submit search form"
+            id="search-submit"
+            title="Submit search form"
+            type="button"
+          >
+            <i
+              className="icon icon-search"
+            />
+          </button>
+        </form>
+      </div>
+      <div
+        className="item cart"
+      >
+        <a
+          href="/testing/cart"
+          title="Cart"
+        >
+          <i
+            className="icon icon-shopping-cart"
+          />
+          <span
+            className="cart-text"
+          >
+             Cart 
+          </span>
+          <span
+            className="filled"
+            data-role="cart-total"
+          >
+            0
+          </span>
+        </a>
+      </div>
+      <div
+        className="item"
+      >
+        <a
+          href="/testing/sign_up"
+        >
+          <i
+            className="icon icon-asterisk"
+          />
+           Sign Up
+        </a>
+      </div>
+      <div
+        className="item"
+      >
+        <a
+          data-role="login"
+          href="/testing/sign_in"
+        >
+          <i
+            className="icon icon-sign-in"
+          />
+           Sign In
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+`;

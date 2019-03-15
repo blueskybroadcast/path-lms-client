@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CategoriesItem correctly 1`] = `
+<li
+  className="level-1"
+>
+  <span
+    className="category"
+  >
+    <i
+      className="icon icon-level-up icon-rotated-90"
+    />
+     
+    <span
+      className="italic"
+    >
+      Category
+    </span>
+  </span>
+  <div
+    className="actions"
+  >
+    <a
+      className="edit"
+      href="#edit-category"
+      onClick={[Function]}
+    >
+      <i
+        className="icon icon-cog"
+      />
+       Edit 
+    </a>
+    <a
+      className="delete"
+      href="#"
+      onClick={[Function]}
+    >
+      <i
+        className="icon icon-times"
+      />
+       Delete
+    </a>
+  </div>
+</li>
+`;

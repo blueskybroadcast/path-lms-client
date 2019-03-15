@@ -1,0 +1,662 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddCourse should render AddCourse correctly with advanced tab enabled 1`] = `
+<ForwardRef(Bootstrap(Modal))
+  backdrop="static"
+  onExited={[Function]}
+  onHide={[MockFunction]}
+  show={true}
+  size="lg"
+>
+  <div
+    className="modal-inner"
+  >
+    <section
+      className="modal-form"
+    >
+      <header>
+        <div
+          className="icon"
+        >
+          <i
+            className="icon-course"
+          />
+        </div>
+        <h4>
+          Add New Course
+        </h4>
+      </header>
+      <div
+        className="form-wrapper"
+      >
+        <form
+          className="simple_form new_course"
+          encType="multipart/form-data"
+          id="new_course"
+          onSubmit={[Function]}
+        >
+          <div
+            className="form-inner horizontally-align courses-new"
+          >
+            <section
+              className="secondary-content"
+            >
+              <section
+                className="active secondary-content-section"
+                id="course-core-content"
+              >
+                <nav
+                  className="content-tabs"
+                >
+                  <ul>
+                    <li
+                      className={null}
+                    >
+                      <a
+                        className="cursor-pointer"
+                        onClick={[Function]}
+                      >
+                        Basic
+                      </a>
+                    </li>
+                    <li
+                      className="active"
+                    >
+                      <a
+                        className="cursor-pointer"
+                        onClick={[Function]}
+                      >
+                        Advanced
+                      </a>
+                    </li>
+                  </ul>
+                  <div
+                    className="form-hint"
+                  >
+                    <div
+                      className="asterisk-explanation"
+                    >
+                      <p>
+                        Required fields are marked with an asterisk (
+                        <abbr
+                          className="required"
+                          title="required"
+                        >
+                          *
+                        </abbr>
+                        ).
+                      </p>
+                    </div>
+                  </div>
+                </nav>
+                <AddCoursePurchasable
+                  freeCleAmount=""
+                  freeCleEnabled={false}
+                  groupsIds={
+                    Array [
+                      "4",
+                      "3",
+                    ]
+                  }
+                  handleChange={[Function]}
+                  handlePurchaseAvailabilityDateChange={[Function]}
+                  handleSellableItemLabelChange={[Function]}
+                  handleSellableItemLabelToggle={[Function]}
+                  handleSellableItemPriceChange={[Function]}
+                  handleToggleSellableItem={[Function]}
+                  limitPurchaseAvailability={false}
+                  purchaseAvailabilityDate={null}
+                  selectedSellableItems={Object {}}
+                  sellableItems={
+                    Object {
+                      "0": Object {
+                        "groupId": "4",
+                        "groupName": "Test Group 2",
+                        "labelEnabled": false,
+                        "pricesAttributes": Object {
+                          "0": Object {
+                            "currency": "usd",
+                            "label": "",
+                            "price": "",
+                          },
+                        },
+                        "sellable": true,
+                      },
+                      "1": Object {
+                        "groupId": "3",
+                        "groupName": "Test Group 1",
+                        "labelEnabled": false,
+                        "pricesAttributes": Object {
+                          "0": Object {
+                            "currency": "usd",
+                            "label": "",
+                            "price": "",
+                          },
+                        },
+                        "sellable": true,
+                      },
+                    }
+                  }
+                />
+                <AddCourseExpire
+                  expirable={false}
+                  expirationByDate={true}
+                  expirationByDays={false}
+                  expirationDate={Date { NaN }}
+                  handleChange={[Function]}
+                  handleExpirationDateChange={[Function]}
+                  handleExpirationTypeChange={[Function]}
+                  repurchasable={false}
+                />
+                <fieldset>
+                  <legend>
+                    <span>
+                      Featured
+                    </span>
+                  </legend>
+                  <div
+                    className="control-group featured"
+                  >
+                    <label
+                      htmlFor="featured"
+                    >
+                      Featured
+                    </label>
+                    <div
+                      className="controls"
+                    >
+                      <label
+                        aria-checked="false"
+                        className="label-switch"
+                        htmlFor="Featured"
+                        role="checkbox"
+                        tabIndex="0"
+                      >
+                        <input
+                          checked={false}
+                          className="boolean optional switcher optional"
+                          id="Featured"
+                          name="featured"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          className="checkbox"
+                        />
+                      </label>
+                      <p
+                        className="help-block"
+                      >
+                        Course is displayed on the home page.
+                      </p>
+                    </div>
+                  </div>
+                </fieldset>
+                <AddCourseFullSizeCoverPhoto
+                  handleFullSizeCoverPhotoUrlChange={[Function]}
+                  handleFullSizeCoverPhotoUrlToggle={[Function]}
+                />
+                <AddCourseFormSection
+                  isRequired={false}
+                  label="Show course progress"
+                  tooltip={null}
+                >
+                  <div
+                    className="controls"
+                  >
+                    <label
+                      className="label-switch"
+                      htmlFor="Show course progress"
+                      tabIndex="0"
+                    >
+                      <input
+                        checked={true}
+                        className="boolean optional switcher optional"
+                        id="Show course progress"
+                        name="showProgress"
+                        onChange={[Function]}
+                        type="checkbox"
+                      />
+                      <div
+                        className="checkbox"
+                      />
+                    </label>
+                    <p
+                      className="help-block"
+                    >
+                      Show progress bars for this course and its sections in activity feeds
+                    </p>
+                  </div>
+                </AddCourseFormSection>
+                <AddCourseFormSection
+                  isRequired={false}
+                  label="Search Keywords"
+                  tooltip="Titles and descriptions are automatically placed in search. However, you may add any additional keywords here."
+                >
+                  <div
+                    className="controls"
+                  >
+                    <input
+                      aria-label="Search Keywords"
+                      aria-required="false"
+                      className="string optional"
+                      id="Search Keywords"
+                      name="searchKeywords"
+                      onChange={[Function]}
+                      placeholder="quiz, first, exam, blue sky"
+                      type="text"
+                      value=""
+                    />
+                    <p
+                      className="help-block"
+                    >
+                      separate with commas
+                    </p>
+                  </div>
+                </AddCourseFormSection>
+              </section>
+            </section>
+          </div>
+          <footer
+            className="confirm"
+          >
+            <div
+              className="screen-readers-only"
+            >
+              <span
+                className="accessibility-action-info"
+              >
+                To create Course press button with label
+                <strong>
+                  "Create Course"
+                </strong>
+                . For cancelling press button with label
+                <strong>
+                  "Cancel"
+                </strong>
+                .
+              </span>
+            </div>
+            <button
+              className="btn"
+              id="submit-course"
+              name="button"
+              type="submit"
+            >
+              Create Course
+            </button>
+            <button
+              className="cancel close-modal"
+              onClick={[MockFunction]}
+              type="button"
+            >
+              Cancel
+            </button>
+          </footer>
+        </form>
+      </div>
+    </section>
+  </div>
+</ForwardRef(Bootstrap(Modal))>
+`;
+
+exports[`AddCourse should render AddCourse correctly with basic tab enabled 1`] = `
+<ForwardRef(Bootstrap(Modal))
+  backdrop="static"
+  onExited={[Function]}
+  onHide={[MockFunction]}
+  show={true}
+  size="lg"
+>
+  <div
+    className="modal-inner"
+  >
+    <section
+      className="modal-form"
+    >
+      <header>
+        <div
+          className="icon"
+        >
+          <i
+            className="icon-course"
+          />
+        </div>
+        <h4>
+          Add New Course
+        </h4>
+      </header>
+      <div
+        className="form-wrapper"
+      >
+        <form
+          className="simple_form new_course"
+          encType="multipart/form-data"
+          id="new_course"
+          onSubmit={[Function]}
+        >
+          <div
+            className="form-inner horizontally-align courses-new"
+          >
+            <section
+              className="secondary-content"
+            >
+              <section
+                className="active secondary-content-section"
+                id="course-core-content"
+              >
+                <nav
+                  className="content-tabs"
+                >
+                  <ul>
+                    <li
+                      className="active"
+                    >
+                      <a
+                        className="cursor-pointer"
+                        onClick={[Function]}
+                      >
+                        Basic
+                      </a>
+                    </li>
+                    <li
+                      className={null}
+                    >
+                      <a
+                        className="cursor-pointer"
+                        onClick={[Function]}
+                      >
+                        Advanced
+                      </a>
+                    </li>
+                  </ul>
+                  <div
+                    className="form-hint"
+                  >
+                    <div
+                      className="asterisk-explanation"
+                    >
+                      <p>
+                        Required fields are marked with an asterisk (
+                        <abbr
+                          className="required"
+                          title="required"
+                        >
+                          *
+                        </abbr>
+                        ).
+                      </p>
+                    </div>
+                  </div>
+                </nav>
+                <fieldset>
+                  <legend>
+                    <span>
+                      Name
+                    </span>
+                  </legend>
+                  <div
+                    className="control-group"
+                  >
+                    <label
+                      htmlFor="Name"
+                    >
+                      Name
+                      <abbr
+                        className="required"
+                        title="required"
+                      >
+                        *
+                      </abbr>
+                    </label>
+                    <div
+                      className="controls"
+                    >
+                      <input
+                        aria-required="true"
+                        className="string required"
+                        id="Name"
+                        maxLength="255"
+                        name="name"
+                        onChange={[Function]}
+                        placeholder="Blue Sky Course"
+                        size="255"
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </fieldset>
+                <AddCourseDescription
+                  description={null}
+                  handleChange={[Function]}
+                />
+                <AddCourseCoverPhoto
+                  handleCoverPhotoUrlChange={[Function]}
+                  handleCoverPhotoUrlToggle={[Function]}
+                />
+                <AddCourseFormSection
+                  isRequired={false}
+                  label="Cover Description"
+                  tooltip="This shorter description will display on the homepage or course listing page only."
+                >
+                  <div
+                    className="controls"
+                  >
+                    <textarea
+                      aria-label="Cover Description"
+                      aria-required="false"
+                      className="text optional"
+                      id="Cover Description"
+                      name="coverDescription"
+                      onChange={[Function]}
+                      placeholder="What is the purpose of this course?"
+                      rows="2"
+                      value=""
+                    />
+                  </div>
+                </AddCourseFormSection>
+                <AddCourseFormSection
+                  isRequired={false}
+                  label="Categories"
+                  tooltip=""
+                >
+                  <div
+                    className="controls"
+                  >
+                    <div
+                      className="option-list categories"
+                    >
+                      <div
+                        className="header"
+                      >
+                        <span>
+                          Available Categories
+                        </span>
+                      </div>
+                      <AddCourseCategoriesList
+                        categories={
+                          Array [
+                            Object {
+                              "childCount": 1,
+                              "hidden": false,
+                              "id": "36",
+                              "level": 0,
+                              "name": "sda",
+                            },
+                            Object {
+                              "childCount": 0,
+                              "hidden": false,
+                              "id": "37",
+                              "level": 1,
+                              "name": "gffdsg",
+                              "parentId": "36",
+                            },
+                            Object {
+                              "childCount": 1,
+                              "hidden": false,
+                              "id": "32",
+                              "level": 0,
+                              "name": "Test Test",
+                            },
+                            Object {
+                              "hidden": false,
+                              "id": "34",
+                              "level": 2,
+                              "name": "Tea sadasd s",
+                            },
+                          ]
+                        }
+                        categoryIds={Array []}
+                        handleCategoryToggle={[Function]}
+                      />
+                    </div>
+                  </div>
+                </AddCourseFormSection>
+                <AddCourseFormSection
+                  isRequired={false}
+                  label="Hidden Categories"
+                  tooltip=""
+                >
+                  <div
+                    className="controls"
+                  >
+                    <div
+                      className="option-list categories"
+                    >
+                      <div
+                        className="header"
+                      >
+                        <span>
+                          Available Hidden Categories
+                        </span>
+                      </div>
+                      <AddCourseCategoriesList
+                        categories={Array []}
+                        categoryIds={Array []}
+                        handleCategoryToggle={[Function]}
+                      />
+                    </div>
+                  </div>
+                </AddCourseFormSection>
+                <AddCourseFormSection
+                  isRequired={false}
+                  label="Tracks"
+                  tooltip="Items within this course can be filtered to specific tracks. Click on the + sign to add new tracks."
+                >
+                  <div
+                    className="controls"
+                  >
+                    <AddCourseTracks
+                      handleTrackAdd={[Function]}
+                      handleTrackChange={[Function]}
+                      handleTrackDelete={[Function]}
+                      tracks={
+                        Object {
+                          "0": Object {
+                            "_destroy": false,
+                            "name": "",
+                          },
+                        }
+                      }
+                    />
+                  </div>
+                </AddCourseFormSection>
+                <AddCourseAdminsList
+                  adminIds={Array []}
+                  handleAdminRemove={[Function]}
+                  handleAdminSelect={[Function]}
+                  usersData={
+                    Object {
+                      "2": Object {
+                        "accountId": 1,
+                        "admin": false,
+                        "adminAccessLevels": Array [],
+                        "email": "test@test.com",
+                        "firstName": "Ted",
+                        "guest": false,
+                        "id": "2",
+                        "language": "en",
+                        "lastName": "Baker",
+                        "platformAdmin": false,
+                        "timeZone": "Hawaii",
+                        "username": "test@test.com",
+                      },
+                      "3": Object {
+                        "accountId": 1,
+                        "admin": false,
+                        "adminAccessLevels": Array [],
+                        "email": "test2@test.com",
+                        "firstName": "Tom",
+                        "guest": false,
+                        "id": "3",
+                        "language": "en",
+                        "lastName": "Ford",
+                        "platformAdmin": false,
+                        "timeZone": "Hawaii",
+                        "username": "test2@test.com",
+                      },
+                    }
+                  }
+                  usersForDropdown={
+                    Array [
+                      "2",
+                      "3",
+                    ]
+                  }
+                />
+                <AddCourseStartEndDates
+                  endDate={null}
+                  handleEndDateChange={[Function]}
+                  handleStartDateChange={[Function]}
+                  startDate={null}
+                />
+                <AddCourseActive
+                  active={true}
+                  handleChange={[Function]}
+                />
+              </section>
+            </section>
+          </div>
+          <footer
+            className="confirm"
+          >
+            <div
+              className="screen-readers-only"
+            >
+              <span
+                className="accessibility-action-info"
+              >
+                To create Course press button with label
+                <strong>
+                  "Create Course"
+                </strong>
+                . For cancelling press button with label
+                <strong>
+                  "Cancel"
+                </strong>
+                .
+              </span>
+            </div>
+            <button
+              className="btn"
+              id="submit-course"
+              name="button"
+              type="submit"
+            >
+              Create Course
+            </button>
+            <button
+              className="cancel close-modal"
+              onClick={[MockFunction]}
+              type="button"
+            >
+              Cancel
+            </button>
+          </footer>
+        </form>
+      </div>
+    </section>
+  </div>
+</ForwardRef(Bootstrap(Modal))>
+`;

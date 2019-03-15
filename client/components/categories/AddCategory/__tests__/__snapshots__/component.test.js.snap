@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render AddCategory correctly 1`] = `
+<Fragment>
+  <a
+    className="add"
+    href="#new-category"
+    onClick={[Function]}
+  >
+    Add Category
+  </a>
+  <Connect(CategoryFormModal)
+    handleClose={[Function]}
+    handleSubmit={[Function]}
+    show={false}
+  />
+</Fragment>
+`;

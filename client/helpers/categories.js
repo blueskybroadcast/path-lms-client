@@ -78,6 +78,7 @@ export const getSortedCategories = (categoriesIds, categoriesData) => {
 };
 
 export const getCategoriesForSelect = (categoriesIds, categoriesData) => {
+  if (!categoriesIds.length) return [];
   const remainingCategories = [...categoriesIds];
   const categories = [];
 

@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddCourseCoverPhoto should render AddCourseCoverPhoto with cover photo url correctly 1`] = `
+<fieldset>
+  <legend>
+    <span>
+      Cover Photo
+    </span>
+  </legend>
+  <div
+    className="control-group cover-photo-wrapper"
+  >
+    <label
+      htmlFor="Cover photo"
+    >
+      Cover photo
+      <span
+        className="has-tooltip"
+      >
+        <span
+          className="tooltiped"
+          data-original-title="This photo will be displayed on the homepage or course listing page to entice customers to click and find out more about the course."
+          data-toggle="tooltip"
+        >
+          <i
+            className="icon icon-question-circle"
+          />
+        </span>
+      </span>
+    </label>
+    <div
+      className="control-pair"
+    >
+      <div
+        className="controls"
+      >
+        <label
+          className="label-switch"
+          htmlFor="cover_photo"
+          tabIndex="0"
+        >
+          <input
+            className="boolean optional switcher optional"
+            defaultChecked={false}
+            id="cover_photo"
+            label="false"
+            name="course[cover_photo]"
+            onChange={[MockFunction]}
+            type="checkbox"
+            value="1"
+          />
+          <div
+            className="checkbox"
+          />
+        </label>
+      </div>
+      <div
+        className="control-group file optional disabled course_cover_photo_url file-wrapper table-cell"
+      >
+        <div
+          className="controls"
+        >
+          <span
+            className="upload-completed"
+          >
+            Upload Complete
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="controls hint-container"
+    >
+      <p
+        className="hint"
+      >
+        Optimal photo size: 320px wide and 152px tall
+      </p>
+    </div>
+  </div>
+</fieldset>
+`;
+
+exports[`AddCourseCoverPhoto should render AddCourseCoverPhoto without cover photo correctly 1`] = `
+<fieldset>
+  <legend>
+    <span>
+      Cover Photo
+    </span>
+  </legend>
+  <div
+    className="control-group cover-photo-wrapper"
+  >
+    <label
+      htmlFor="Cover photo"
+    >
+      Cover photo
+      <span
+        className="has-tooltip"
+      >
+        <span
+          className="tooltiped"
+          data-original-title="This photo will be displayed on the homepage or course listing page to entice customers to click and find out more about the course."
+          data-toggle="tooltip"
+        >
+          <i
+            className="icon icon-question-circle"
+          />
+        </span>
+      </span>
+    </label>
+    <div
+      className="control-pair"
+    >
+      <div
+        className="controls"
+      >
+        <label
+          className="label-switch"
+          htmlFor="cover_photo"
+          tabIndex="0"
+        >
+          <input
+            className="boolean optional switcher optional"
+            defaultChecked={false}
+            id="cover_photo"
+            label="false"
+            name="course[cover_photo]"
+            onChange={[MockFunction]}
+            type="checkbox"
+            value="1"
+          />
+          <div
+            className="checkbox"
+          />
+        </label>
+      </div>
+      <div
+        className="control-group file optional disabled course_cover_photo_url file-wrapper table-cell"
+      >
+        <div
+          className="controls"
+        />
+      </div>
+    </div>
+    <div
+      className="controls hint-container"
+    >
+      <p
+        className="hint"
+      >
+        Optimal photo size: 320px wide and 152px tall
+      </p>
+    </div>
+  </div>
+</fieldset>
+`;

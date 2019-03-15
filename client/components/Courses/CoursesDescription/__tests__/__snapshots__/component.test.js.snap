@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Courses description should render CoursesDescription with edit button correctly 1`] = `
+<div
+  className="description-wrapper"
+  id="courses-description"
+>
+  <div
+    className="description"
+  >
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<ul></ul>",
+        }
+      }
+    />
+    <div
+      className="edit-info"
+    >
+      <a
+        data-role="set-description"
+        data-type="courses-description"
+        href="#"
+        onClick={[Function]}
+      >
+        Edit Description
+      </a>
+    </div>
+    <ForwardRef(Bootstrap(Modal))
+      backdrop="static"
+      onHide={[Function]}
+      show={false}
+      size="lg"
+    >
+      <div
+        className="modal-inner"
+      >
+        <section
+          className="modal-form"
+        >
+          <header>
+            <h4>
+              Edit Description
+            </h4>
+          </header>
+          <div
+            className="form-wrapper"
+          >
+            <form
+              acceptCharset="UTF-8"
+              className="simple_form courses_description"
+              data-remote="true"
+              method="post"
+              onSubmit={[Function]}
+            >
+              <HtmlEditor
+                defaultValue="<ul></ul>"
+                onChange={[Function]}
+              />
+              <footer
+                className="confirm"
+              >
+                <div
+                  className="screen-readers-only"
+                >
+                  <span
+                    className="accessibility-action-info"
+                  >
+                    To Update Description press button with label
+                    <strong>
+                      "Update Description"
+                    </strong>
+                    . For cancelling press button with label
+                    <strong>
+                      "Cancel"
+                    </strong>
+                    .
+                  </span>
+                </div>
+                <button
+                  className="btn"
+                  data-processable-button="both"
+                  name="button"
+                  type="submit"
+                >
+                  Update Description
+                </button>
+                <button
+                  className="cancel close-modal"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Cancel
+                </button>
+              </footer>
+            </form>
+          </div>
+        </section>
+      </div>
+    </ForwardRef(Bootstrap(Modal))>
+  </div>
+</div>
+`;
+
+exports[`Courses description should render CoursesDescription without edit button correctly 1`] = `
+<div
+  className="description-wrapper"
+  id="courses-description"
+>
+  <div
+    className="description"
+  >
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<ul></ul>",
+        }
+      }
+    />
+  </div>
+</div>
+`;

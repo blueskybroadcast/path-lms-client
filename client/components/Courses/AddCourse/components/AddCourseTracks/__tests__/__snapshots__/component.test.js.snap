@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddCourseTracks should render AddCourseTracks correctly 1`] = `
+<div
+  className="option-list tracks"
+>
+  <div
+    className="header"
+  >
+    <span>
+      Available tracks
+    </span>
+    <a
+      className="add-option add-track tooltiped"
+      data-original-title="Add new track"
+      data-placement="left"
+      data-toggle="tooltip"
+      onClick={[MockFunction]}
+      title=""
+    />
+  </div>
+  <ul>
+    <li
+      key="0"
+    >
+      <input
+        aria-label="Track Name"
+        className="track-name"
+        id="course_tracks_attributes_0_name"
+        name="course[tracks_attributes][0][name]"
+        onChange={[Function]}
+        placeholder="Enter name"
+        type="text"
+        value="Track 1"
+      />
+      <div
+        className="track-actions"
+      >
+        <span>
+          0 items
+        </span>
+        <a
+          className="remove-track"
+          href="#"
+          onClick={[Function]}
+        >
+          <i
+            className="icon icon-times"
+          />
+        </a>
+      </div>
+    </li>
+    <li
+      key="1"
+    >
+      <input
+        aria-label="Track Name"
+        className="track-name"
+        id="course_tracks_attributes_0_name"
+        name="course[tracks_attributes][0][name]"
+        onChange={[Function]}
+        placeholder="Enter name"
+        type="text"
+        value="Track 2"
+      />
+      <div
+        className="track-actions"
+      >
+        <span>
+          0 items
+        </span>
+        <a
+          className="remove-track"
+          href="#"
+          onClick={[Function]}
+        >
+          <i
+            className="icon icon-times"
+          />
+        </a>
+      </div>
+    </li>
+  </ul>
+</div>
+`;

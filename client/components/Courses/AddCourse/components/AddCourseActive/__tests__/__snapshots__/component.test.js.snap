@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render AddCourseActive correctly 1`] = `
+<fieldset>
+  <legend>
+    <span>
+      Active
+    </span>
+  </legend>
+  <div
+    className="control-group active-toggle"
+  >
+    <label
+      htmlFor="active"
+    >
+      Active
+    </label>
+    <div
+      className="controls"
+    >
+      <label
+        className="label-switch"
+        htmlFor="active"
+        tabIndex="0"
+      >
+        <input
+          checked={true}
+          className="boolean optional switcher optional "
+          id="active"
+          name="active"
+          onChange={[MockFunction]}
+          type="checkbox"
+        />
+        <div
+          className="checkbox"
+        />
+      </label>
+      <p
+        className="help-block"
+      >
+        Users can view this content.
+      </p>
+    </div>
+  </div>
+</fieldset>
+`;

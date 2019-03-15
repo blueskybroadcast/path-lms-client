@@ -53,6 +53,7 @@ class CategoryFormModal extends React.Component {
       const { handleSubmit } = this.props;
       const { name, parentId, hidden } = this.state;
       handleSubmit({ name, parentId, hidden });
+      this.setState(initialState);
       this.handleClose();
     }
   }

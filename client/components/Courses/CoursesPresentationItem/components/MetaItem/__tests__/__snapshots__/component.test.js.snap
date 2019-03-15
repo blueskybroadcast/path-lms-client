@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Meta item should render MetaItem correctly 1`] = `
+<li>
+  <i
+    className="icon icon-name"
+  />
+  <span>
+    5
+  </span>
+</li>
+`;
