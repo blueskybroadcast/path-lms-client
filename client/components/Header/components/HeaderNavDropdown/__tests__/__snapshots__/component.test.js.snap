@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderNavDropdown should render HeaderNavDropdown correctly 1`] = `
+<div
+  className="item dropdown"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <a
+    className="dropdown-toggle"
+    href="/showroom/events"
+    id="events-drop"
+    role="button"
+    title="Events"
+  >
+    <i
+      className="icon icon-event"
+    />
+     Events 
+    <b
+      className="caret"
+    />
+  </a>
+  <ul
+    className="dropdown-menu"
+    role="menu"
+  >
+    <li
+      role="presentation"
+    >
+      <a
+        href="/showroom/events#live-events-content"
+        id="live-events"
+        role="menuitem"
+        tabIndex="-1"
+      >
+        Live Events
+      </a>
+    </li>
+    <li
+      role="presentation"
+    >
+      <a
+        href="/showroom/events#on-demand-events-content"
+        id="on-demand-events"
+        role="menuitem"
+        tabIndex="-1"
+      >
+        On-Demand Events
+      </a>
+    </li>
+  </ul>
+</div>
+`;

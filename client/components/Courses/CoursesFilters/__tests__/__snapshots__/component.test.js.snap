@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Courses filters should render CoursesFilters with data and admin rights correctly 1`] = `
+<div
+  className="filtering-panel"
+>
+  <div
+    className="filtering-controls"
+  >
+    <div
+      className="categories-list with-manage-button"
+    >
+      <CoursesFiltersCategories
+        categories={
+          Array [
+            Object {
+              "children": Array [
+                Object {
+                  "children": Array [],
+                  "hidden": false,
+                  "id": "30",
+                  "name": "Another Level 0 child",
+                },
+              ],
+              "hidden": false,
+              "id": "28",
+              "name": "Another Level 0",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "children": Array [
+                    Object {
+                      "children": Array [],
+                      "hidden": false,
+                      "id": "27",
+                      "name": "Level 0 child child",
+                    },
+                  ],
+                  "hidden": false,
+                  "id": "26",
+                  "name": "Level 0 child",
+                },
+              ],
+              "hidden": false,
+              "id": "25",
+              "name": "Level 0",
+            },
+            Object {
+              "children": Array [],
+              "hidden": false,
+              "id": "29",
+              "name": "Super Level 0",
+            },
+          ]
+        }
+        handleCategoriesReset={[Function]}
+        handleCategorySelect={[Function]}
+      />
+      <Link
+        className="manage-categories tooltiped"
+        replace={false}
+        to="/testing/categories"
+      >
+        <i
+          className="icon icon-cog"
+        />
+      </Link>
+    </div>
+    <form
+      className="search-courses-form"
+      data-role="search-form"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Search in programs..."
+        type="text"
+        value=""
+      />
+    </form>
+    <ul
+      className="filters-list"
+    >
+      <li>
+        <a
+          className="filter cursor-pointer active"
+          onClick={[Function]}
+        >
+          All
+        </a>
+      </li>
+      <li>
+        <a
+          className="filter cursor-pointer"
+          onClick={[Function]}
+        >
+          Free CLE
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Courses filters should render CoursesFilters without data and admin rights, with search term correctly 1`] = `
+<div
+  className="filtering-panel"
+>
+  <div
+    className="filtering-controls"
+  >
+    <div
+      className="categories-list"
+    >
+      <CoursesFiltersCategories
+        categories={Array []}
+        handleCategoriesReset={[Function]}
+        handleCategorySelect={[Function]}
+      />
+    </div>
+    <form
+      className="search-courses-form"
+      data-role="search-form"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Search in programs..."
+        type="text"
+        value="asdasd"
+      />
+    </form>
+    <ul
+      className="filters-list"
+    >
+      <li>
+        <a
+          className="filter cursor-pointer active"
+          onClick={[Function]}
+        >
+          All
+        </a>
+      </li>
+      <li>
+        <a
+          className="filter cursor-pointer"
+          onClick={[Function]}
+        >
+          Free CLE
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

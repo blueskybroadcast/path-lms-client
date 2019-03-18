@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CategoryFormModal correctly 1`] = `
+<ForwardRef(Bootstrap(Modal))
+  onHide={[Function]}
+  show={true}
+  size="lg"
+>
+  <div
+    className="modal-inner"
+  >
+    <section
+      className="modal-form"
+    >
+      <header>
+        <h4>
+          Add Category
+        </h4>
+      </header>
+      <div
+        className="form-wrapper"
+      >
+        <form
+          className="simple_form edit_category"
+          noValidate="novalidate"
+          onSubmit={[Function]}
+        >
+          <div
+            className="form-inner"
+          >
+            <fieldset>
+              <div
+                className="control-group string required category_name"
+              >
+                <label
+                  className="string required control-label"
+                  htmlFor="category_name"
+                >
+                  Name
+                  <abbr
+                    className="required"
+                    title="required"
+                  >
+                    *
+                  </abbr>
+                </label>
+                <div
+                  className="controls"
+                >
+                  <input
+                    aria-required="true"
+                    className="string required"
+                    id="category_name"
+                    name="name"
+                    onChange={[Function]}
+                    required="required"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <div
+                className="control-group integer optional category_parent_id"
+              >
+                <label
+                  className="integer optional control-label"
+                  htmlFor="parentId"
+                >
+                  Parent
+                </label>
+                <div
+                  className="controls"
+                >
+                  <ForwardRef(ContextTransform)
+                    as="select"
+                    name="parentId"
+                    onChange={[Function]}
+                    value=""
+                  >
+                    <option
+                      value=""
+                    >
+                      -------------
+                    </option>
+                    <optgroup
+                      label="Top Level Categories"
+                    >
+                      <option
+                        key="28"
+                        value="28"
+                      >
+                        Another Level 0
+                      </option>
+                      <option
+                        key="25"
+                        value="25"
+                      >
+                        Level 0
+                      </option>
+                      <option
+                        key="29"
+                        value="29"
+                      >
+                        Super Level 0
+                      </option>
+                    </optgroup>
+                    <optgroup
+                      key="Another Level 0"
+                      label="Another Level 0"
+                    >
+                      <option
+                        key="30"
+                        value="30"
+                      >
+                        Another Level 0 child
+                      </option>
+                    </optgroup>
+                    <optgroup
+                      key="Level 0"
+                      label="Level 0"
+                    >
+                      <option
+                        key="26"
+                        value="26"
+                      >
+                        Level 0 child
+                      </option>
+                    </optgroup>
+                  </ForwardRef(ContextTransform)>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <div
+                className="control-group active-toggle"
+              >
+                <label
+                  htmlFor="category_hidden"
+                >
+                  Hidden
+                </label>
+                <div
+                  className="controls"
+                >
+                  <label
+                    aria-checked="false"
+                    className="label-switch"
+                    htmlFor="category_hidden"
+                    role="checkbox"
+                    tabIndex="0"
+                  >
+                    <input
+                      checked={false}
+                      className="boolean optional switcher optional"
+                      id="category_hidden"
+                      name="hidden"
+                      onChange={[Function]}
+                      type="checkbox"
+                    />
+                    <div
+                      className="checkbox"
+                    />
+                  </label>
+                  <p
+                    className="help-block"
+                  >
+                    Hidden categories only display to admins. These also display in reports
+                  </p>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <footer
+            className="confirm"
+          >
+            <button
+              className="btn disabled"
+              disabled={true}
+              onClick={[Function]}
+              type="submit"
+            >
+              Create Category
+            </button>
+            <button
+              className="cancel close-modal"
+              onClick={[Function]}
+              type="button"
+            >
+              Cancel
+            </button>
+          </footer>
+        </form>
+      </div>
+    </section>
+  </div>
+</ForwardRef(Bootstrap(Modal))>
+`;

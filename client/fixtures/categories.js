@@ -92,3 +92,56 @@ export const categoriesSortedList = [{
   childCount: 0,
   hidden: false
 }];
+
+export const categoriesForSelect = [{
+  id: '36',
+  name: 'Cat Top 1',
+  hidden: true,
+  children: [{
+    id: '37',
+    name: 'Cat Top 1 child',
+    hidden: false,
+    children: []
+  }]
+}, {
+  id: '32',
+  name: 'Cat Top 2',
+  hidden: false,
+  children: [{
+    id: '33',
+    name: 'Cat Top 2 child',
+    hidden: false,
+    children: [{
+      id: '34',
+      name: 'Cat Top 2 child child',
+      hidden: false,
+      children: []
+    }]
+  }]
+}];
+
+export const visibleCategories = [{
+  id: '36',
+  level: 0,
+  name: 'sda',
+  childCount: 1,
+  hidden: false
+}, {
+  id: '37',
+  level: 1,
+  name: 'gffdsg',
+  childCount: 0,
+  parentId: '36',
+  hidden: false
+}, {
+  id: '32',
+  level: 0,
+  name: 'Test Test',
+  childCount: 1,
+  hidden: false
+}, {
+  id: '34',
+  level: 2,
+  name: 'Tea sadasd s',
+  hidden: false
+}];

@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Courses filters categories should render CoursesFiltersCategories with data correctly 1`] = `
+<Dropdown
+  additionLabel="Add "
+  additionPosition="top"
+  className="category-filter-trigger dropdown-trigger"
+  closeOnBlur={true}
+  deburr={false}
+  icon="dropdown"
+  minCharacters={1}
+  noResultsMessage="No results found."
+  openOnFocus={true}
+  renderLabel={[Function]}
+  searchInput="text"
+  selectOnBlur={true}
+  selectOnNavigation={true}
+  text="Browse..."
+  wrapSelection={true}
+>
+  <DropdownMenu>
+    <ul
+      className="dropdown-menu"
+    >
+      <li>
+        <a
+          onClick={[MockFunction]}
+        >
+          View all
+        </a>
+      </li>
+      <li
+        className="divider"
+      />
+      <DropdownCategory
+        category={
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [],
+                "hidden": false,
+                "id": "37",
+                "name": "Cat Top 1 child",
+              },
+            ],
+            "hidden": true,
+            "id": "36",
+            "name": "Cat Top 1",
+          }
+        }
+        key="36"
+      >
+        <ul
+          className="dropdown-menu"
+        >
+          <DropdownCategory
+            category={
+              Object {
+                "children": Array [],
+                "hidden": false,
+                "id": "37",
+                "name": "Cat Top 1 child",
+              }
+            }
+            key="37"
+          />
+        </ul>
+      </DropdownCategory>
+      <DropdownCategory
+        category={
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  Object {
+                    "children": Array [],
+                    "hidden": false,
+                    "id": "34",
+                    "name": "Cat Top 2 child child",
+                  },
+                ],
+                "hidden": false,
+                "id": "33",
+                "name": "Cat Top 2 child",
+              },
+            ],
+            "hidden": false,
+            "id": "32",
+            "name": "Cat Top 2",
+          }
+        }
+        key="32"
+      >
+        <ul
+          className="dropdown-menu"
+        >
+          <DropdownCategory
+            category={
+              Object {
+                "children": Array [
+                  Object {
+                    "children": Array [],
+                    "hidden": false,
+                    "id": "34",
+                    "name": "Cat Top 2 child child",
+                  },
+                ],
+                "hidden": false,
+                "id": "33",
+                "name": "Cat Top 2 child",
+              }
+            }
+            key="33"
+          >
+            <ul
+              className="dropdown-menu"
+            >
+              <DropdownCategory
+                category={
+                  Object {
+                    "children": Array [],
+                    "hidden": false,
+                    "id": "34",
+                    "name": "Cat Top 2 child child",
+                  }
+                }
+                key="34"
+              />
+            </ul>
+          </DropdownCategory>
+        </ul>
+      </DropdownCategory>
+    </ul>
+  </DropdownMenu>
+</Dropdown>
+`;
+
+exports[`Courses filters categories should render CoursesFiltersCategories without data correctly 1`] = `
+<Dropdown
+  additionLabel="Add "
+  additionPosition="top"
+  className="category-filter-trigger dropdown-trigger"
+  closeOnBlur={true}
+  deburr={false}
+  icon="dropdown"
+  minCharacters={1}
+  noResultsMessage="No results found."
+  openOnFocus={true}
+  renderLabel={[Function]}
+  searchInput="text"
+  selectOnBlur={true}
+  selectOnNavigation={true}
+  text="Browse..."
+  wrapSelection={true}
+>
+  <DropdownMenu>
+    <ul
+      className="dropdown-menu"
+    >
+      <li>
+        <a
+          onClick={[MockFunction]}
+        >
+          View all
+        </a>
+      </li>
+    </ul>
+  </DropdownMenu>
+</Dropdown>
+`;

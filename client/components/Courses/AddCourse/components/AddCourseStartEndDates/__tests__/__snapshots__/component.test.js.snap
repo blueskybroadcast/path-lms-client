@@ -1,0 +1,249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddCourseStartEndDates should render AddCourseStartEndDates with dates correctly 1`] = `
+<fieldset>
+  <legend>
+    <span>
+      Start Date
+    </span>
+  </legend>
+  <div
+    className="control-group string optional course_start_date"
+  >
+    <label
+      className="string optional control-label"
+      htmlFor="course_start_date"
+    >
+      Start Date
+    </label>
+    <div
+      className="controls"
+    >
+      <DatePicker
+        allowSameDay={false}
+        className="course_end_date_datepicker picker__input"
+        dateFormat="MM/dd/yyyy"
+        dateFormatCalendar="LLLL yyyy"
+        disabled={false}
+        disabledKeyboardNavigation={false}
+        dropdownMode="scroll"
+        id="course_start_date"
+        inlineFocusSelectedMonth={false}
+        monthsShown={1}
+        name="startDate"
+        nextMonthButtonLabel="Next month"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onClickOutside={[Function]}
+        onFocus={[Function]}
+        onInputClick={[Function]}
+        onInputError={[Function]}
+        onKeyDown={[Function]}
+        onMonthChange={[Function]}
+        onSelect={[Function]}
+        onYearChange={[Function]}
+        preventOpenOnFocus={false}
+        previousMonthButtonLabel="Previous Month"
+        readOnly={false}
+        renderDayContents={[Function]}
+        selected={2019-04-10T00:00:00.000Z}
+        shouldCloseOnSelect={true}
+        showTimeSelect={false}
+        timeCaption="Time"
+        timeIntervals={30}
+        withPortal={false}
+      />
+    </div>
+  </div>
+  <legend>
+    <span>
+      End Date
+    </span>
+  </legend>
+  <div
+    className="control-group string optional course_end_date"
+  >
+    <label
+      className="string optional control-label"
+      htmlFor="course_end_date"
+    >
+      End Date
+    </label>
+    <div
+      className="controls"
+    >
+      <DatePicker
+        allowSameDay={false}
+        className="course_end_date_datepicker picker__input"
+        dateFormat="MM/dd/yyyy"
+        dateFormatCalendar="LLLL yyyy"
+        disabled={false}
+        disabledKeyboardNavigation={false}
+        dropdownMode="scroll"
+        id="course_end_date"
+        inlineFocusSelectedMonth={false}
+        monthsShown={1}
+        name="endDate"
+        nextMonthButtonLabel="Next month"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onClickOutside={[Function]}
+        onFocus={[Function]}
+        onInputClick={[Function]}
+        onInputError={[Function]}
+        onKeyDown={[Function]}
+        onMonthChange={[Function]}
+        onSelect={[Function]}
+        onYearChange={[Function]}
+        preventOpenOnFocus={false}
+        previousMonthButtonLabel="Previous Month"
+        readOnly={false}
+        renderDayContents={[Function]}
+        selected={2019-04-20T00:00:00.000Z}
+        shouldCloseOnSelect={true}
+        showTimeSelect={false}
+        timeCaption="Time"
+        timeIntervals={30}
+        withPortal={false}
+      />
+    </div>
+  </div>
+  <div
+    className="control-group cover-photo-wrapper"
+  >
+    <div
+      className="controls hint-container"
+    >
+      <p
+        className="hint"
+      >
+        Course start and end dates are visible to admins and included in reports
+      </p>
+    </div>
+  </div>
+</fieldset>
+`;
+
+exports[`AddCourseStartEndDates should render AddCourseStartEndDates without dates correctly 1`] = `
+<fieldset>
+  <legend>
+    <span>
+      Start Date
+    </span>
+  </legend>
+  <div
+    className="control-group string optional course_start_date"
+  >
+    <label
+      className="string optional control-label"
+      htmlFor="course_start_date"
+    >
+      Start Date
+    </label>
+    <div
+      className="controls"
+    >
+      <DatePicker
+        allowSameDay={false}
+        className="course_end_date_datepicker picker__input"
+        dateFormat="MM/dd/yyyy"
+        dateFormatCalendar="LLLL yyyy"
+        disabled={false}
+        disabledKeyboardNavigation={false}
+        dropdownMode="scroll"
+        id="course_start_date"
+        inlineFocusSelectedMonth={false}
+        monthsShown={1}
+        name="startDate"
+        nextMonthButtonLabel="Next month"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onClickOutside={[Function]}
+        onFocus={[Function]}
+        onInputClick={[Function]}
+        onInputError={[Function]}
+        onKeyDown={[Function]}
+        onMonthChange={[Function]}
+        onSelect={[Function]}
+        onYearChange={[Function]}
+        preventOpenOnFocus={false}
+        previousMonthButtonLabel="Previous Month"
+        readOnly={false}
+        renderDayContents={[Function]}
+        selected={null}
+        shouldCloseOnSelect={true}
+        showTimeSelect={false}
+        timeCaption="Time"
+        timeIntervals={30}
+        withPortal={false}
+      />
+    </div>
+  </div>
+  <legend>
+    <span>
+      End Date
+    </span>
+  </legend>
+  <div
+    className="control-group string optional course_end_date"
+  >
+    <label
+      className="string optional control-label"
+      htmlFor="course_end_date"
+    >
+      End Date
+    </label>
+    <div
+      className="controls"
+    >
+      <DatePicker
+        allowSameDay={false}
+        className="course_end_date_datepicker picker__input"
+        dateFormat="MM/dd/yyyy"
+        dateFormatCalendar="LLLL yyyy"
+        disabled={false}
+        disabledKeyboardNavigation={false}
+        dropdownMode="scroll"
+        id="course_end_date"
+        inlineFocusSelectedMonth={false}
+        monthsShown={1}
+        name="endDate"
+        nextMonthButtonLabel="Next month"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onClickOutside={[Function]}
+        onFocus={[Function]}
+        onInputClick={[Function]}
+        onInputError={[Function]}
+        onKeyDown={[Function]}
+        onMonthChange={[Function]}
+        onSelect={[Function]}
+        onYearChange={[Function]}
+        preventOpenOnFocus={false}
+        previousMonthButtonLabel="Previous Month"
+        readOnly={false}
+        renderDayContents={[Function]}
+        selected={null}
+        shouldCloseOnSelect={true}
+        showTimeSelect={false}
+        timeCaption="Time"
+        timeIntervals={30}
+        withPortal={false}
+      />
+    </div>
+  </div>
+  <div
+    className="control-group cover-photo-wrapper"
+  >
+    <div
+      className="controls hint-container"
+    >
+      <p
+        className="hint"
+      >
+        Course start and end dates are visible to admins and included in reports
+      </p>
+    </div>
+  </div>
+</fieldset>
+`;

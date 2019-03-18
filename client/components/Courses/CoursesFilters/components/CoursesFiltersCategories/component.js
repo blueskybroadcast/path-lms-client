@@ -33,7 +33,7 @@ const CoursesFiltersCategories = ({
               View all
             </a>
           </li>
-          <li className="divider" />
+          { categories.length > 0 && <li className="divider" /> }
           { categories.map(levelZero => (
             <DropdownCategory category={levelZero} key={levelZero.id}>
               { levelZero.children.length ? (
@@ -60,9 +60,13 @@ const CoursesFiltersCategories = ({
 };
 
 CoursesFiltersCategories.propTypes = {
-  categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+  categories: PropTypes.arrayOf(PropTypes.object),
   handleCategorySelect: PropTypes.func.isRequired,
   handleCategoriesReset: PropTypes.func.isRequired
+};
+
+CoursesFiltersCategories.defaultProps = {
+  categories: []
 };
 
 export default CoursesFiltersCategories;

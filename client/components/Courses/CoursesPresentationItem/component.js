@@ -86,7 +86,7 @@ CoursesPresentationItem.defaultProps = {
   coverDescription: null,
   resizedCoverPhotoUrl: null,
   permittedContent: null,
-  statuses: null
+  statuses: {}
 };
 
 export default CoursesPresentationItem;

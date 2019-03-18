@@ -2,7 +2,7 @@ import normalize from 'jsonapi-normalizer';
 
 import {
   FETCH_CATEGORIES_SUCCESS, DELETE_CATEGORY_SUCCESS, FETCH_CATEGORIES_REQUEST,
-  ADD_CATEGORY_REQUEST, ADD_CATEGORY_SUCCESS
+  ADD_CATEGORY_REQUEST, ADD_CATEGORY_SUCCESS, ADD_CATEGORY_FAILURE
 } from './types';
 
 export const fetchCategories = () => async (dispatch, getState, api) => {
@@ -27,6 +27,8 @@ export const addCategory = category => async (dispatch, getState, api) => {
   }).then(() => {
     dispatch({ type: ADD_CATEGORY_SUCCESS });
     dispatch(fetchCategories());
+  }).catch(() => {
+    dispatch({ type: ADD_CATEGORY_FAILURE });
   });
 };
 

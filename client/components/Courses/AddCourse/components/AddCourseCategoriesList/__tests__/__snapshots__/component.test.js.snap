@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddCourseCategoriesList should render AddCourseCategoriesList with data correctly 1`] = `
+<ul>
+  <li
+    className="level-0"
+    key="36"
+  >
+    <label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="checkbox"
+      />
+      sda
+    </label>
+  </li>
+  <li
+    className="level-1"
+    key="37"
+  >
+    <label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="checkbox"
+      />
+      gffdsg
+    </label>
+  </li>
+  <li
+    className="level-0"
+    key="32"
+  >
+    <label>
+      <input
+        checked={true}
+        onChange={[Function]}
+        type="checkbox"
+      />
+      Test Test
+    </label>
+  </li>
+  <li
+    className="level-2"
+    key="34"
+  >
+    <label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="checkbox"
+      />
+      Tea sadasd s
+    </label>
+  </li>
+</ul>
+`;
+
+exports[`AddCourseCategoriesList should render AddCourseCategoriesList without data correctly 1`] = `<ul />`;

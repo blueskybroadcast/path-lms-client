@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddCourseFormSection should render AddCourseFormSection with all props correctly 1`] = `
+<fieldset>
+  <legend>
+    <span>
+      Label
+    </span>
+  </legend>
+  <div
+    className="control-group"
+  >
+    <label
+      htmlFor="Label"
+    >
+      Label
+      <span
+        className="has-tooltip"
+      >
+        <span
+          className="tooltiped"
+          data-original-title="Tooltip text"
+          data-toggle="tooltip"
+        >
+          <i
+            className="icon icon-question-circle"
+          />
+        </span>
+      </span>
+      <abbr
+        className="required"
+        title="required"
+      >
+        *
+      </abbr>
+    </label>
+    <div>
+      Children
+    </div>
+  </div>
+</fieldset>
+`;

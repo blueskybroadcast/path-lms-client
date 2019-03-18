@@ -1,0 +1,438 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddCourseExpire should render AddCourseExpire correctly if it turned on and expirationByDate enabled 1`] = `
+<fieldset
+  data-expirable="false"
+  id="expirable_field"
+>
+  <legend>
+    <span>
+      Expiry Data
+    </span>
+  </legend>
+  <div
+    className="control-group featured"
+  >
+    <label
+      htmlFor="index_course_expiration_expirable"
+    >
+      Expires
+    </label>
+    <div
+      className="controls"
+    >
+      <label
+        aria-checked="true"
+        className="label-switch"
+        htmlFor="index_course_expiration_expirable"
+        role="checkbox"
+        tabIndex="0"
+      >
+        <input
+          checked={true}
+          data-role="expiration_expirable"
+          id="index_course_expiration_expirable"
+          name="expirable"
+          onChange={[MockFunction]}
+          type="checkbox"
+        />
+        <div
+          className="checkbox"
+        />
+      </label>
+      <p
+        className="help-block"
+      >
+        Access to this item expires
+      </p>
+    </div>
+  </div>
+  <div
+    id="expiration_strategies_fields"
+  >
+    <div
+      className="control-group featured"
+    >
+      <label
+        htmlFor="index_course_expiration_repurchasable"
+      >
+        Repurchasable
+      </label>
+      <div
+        className="controls"
+      >
+        <label
+          aria-checked="true"
+          className=" label-switch"
+          htmlFor="index_course_expiration_repurchasable"
+          role="checkbox"
+          tabIndex="0"
+        >
+          <input
+            checked={true}
+            id="index_course_expiration_repurchasable"
+            name="repurchasable"
+            onChange={[MockFunction]}
+            type="checkbox"
+          />
+          <div
+            className="checkbox"
+          />
+        </label>
+        <p
+          className="help-block"
+        >
+          This item can be repurchased after expiration
+        </p>
+      </div>
+    </div>
+    <div
+      className="control-group featured expiration-strategy"
+    >
+      <div
+        className="controls"
+      >
+        <label
+          aria-checked="false"
+          className="label-switch"
+          htmlFor="index_course_expiration_expires_at_strategy"
+          role="checkbox"
+          tabIndex="0"
+        >
+          <input
+            checked={true}
+            data-role="expiration_expires_at_strategy"
+            id="index_course_expiration_expires_at_strategy"
+            name="expiration[expires_at_strategy]"
+            onChange={[MockFunction]}
+            type="checkbox"
+          />
+          <div
+            className="checkbox"
+          />
+        </label>
+        <p
+          className="help-block"
+        >
+          Pick the expiration date...
+        </p>
+      </div>
+      <div
+        className="controls"
+        id="expires_at_fields"
+      >
+        <label
+          htmlFor="expiration_expires_at"
+        >
+          Expiration Date
+        </label>
+        <div
+          className="controls"
+        >
+          <DatePicker
+            allowSameDay={false}
+            className="expires_at_datepicker picker__input"
+            dateFormat="MM/dd/yyyy"
+            dateFormatCalendar="LLLL yyyy"
+            disabled={false}
+            disabledKeyboardNavigation={false}
+            dropdownMode="scroll"
+            id="expiration_expires_at"
+            inlineFocusSelectedMonth={false}
+            monthsShown={1}
+            name="expirationDate"
+            nextMonthButtonLabel="Next month"
+            onBlur={[Function]}
+            onChange={[MockFunction]}
+            onClickOutside={[Function]}
+            onFocus={[Function]}
+            onInputClick={[Function]}
+            onInputError={[Function]}
+            onKeyDown={[Function]}
+            onMonthChange={[Function]}
+            onSelect={[Function]}
+            onYearChange={[Function]}
+            preventOpenOnFocus={false}
+            previousMonthButtonLabel="Previous Month"
+            readOnly={false}
+            renderDayContents={[Function]}
+            selected={2019-04-12T00:00:00.000Z}
+            shouldCloseOnSelect={true}
+            showTimeSelect={false}
+            timeCaption="Time"
+            timeIntervals={30}
+            withPortal={false}
+          />
+          <div
+            aria-hidden="true"
+            className="picker"
+            id="expiration_expires_at_root"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="control-group featured expiration-strategy"
+    >
+      <div
+        className="controls"
+      >
+        <label
+          aria-checked="true"
+          className="label-switch"
+          htmlFor="index_course_expiration_days_before_expire_strategy"
+          role="checkbox"
+          tabIndex="0"
+        >
+          <input
+            checked={false}
+            data-role="expiration_days_before_expire_strategy"
+            id="index_course_expiration_days_before_expire_strategy"
+            name="expiration[days_before_expire_strategy]"
+            onChange={[MockFunction]}
+            type="checkbox"
+          />
+          <div
+            className="checkbox"
+          />
+        </label>
+        <p
+          className="help-block"
+        >
+          ...or select the number of days before expiration
+        </p>
+      </div>
+    </div>
+  </div>
+</fieldset>
+`;
+
+exports[`AddCourseExpire should render AddCourseExpire correctly if it turned on and expirationByDays enabled 1`] = `
+<fieldset
+  data-expirable="false"
+  id="expirable_field"
+>
+  <legend>
+    <span>
+      Expiry Data
+    </span>
+  </legend>
+  <div
+    className="control-group featured"
+  >
+    <label
+      htmlFor="index_course_expiration_expirable"
+    >
+      Expires
+    </label>
+    <div
+      className="controls"
+    >
+      <label
+        aria-checked="true"
+        className="label-switch"
+        htmlFor="index_course_expiration_expirable"
+        role="checkbox"
+        tabIndex="0"
+      >
+        <input
+          checked={true}
+          data-role="expiration_expirable"
+          id="index_course_expiration_expirable"
+          name="expirable"
+          onChange={[MockFunction]}
+          type="checkbox"
+        />
+        <div
+          className="checkbox"
+        />
+      </label>
+      <p
+        className="help-block"
+      >
+        Access to this item expires
+      </p>
+    </div>
+  </div>
+  <div
+    id="expiration_strategies_fields"
+  >
+    <div
+      className="control-group featured"
+    >
+      <label
+        htmlFor="index_course_expiration_repurchasable"
+      >
+        Repurchasable
+      </label>
+      <div
+        className="controls"
+      >
+        <label
+          aria-checked="true"
+          className=" label-switch"
+          htmlFor="index_course_expiration_repurchasable"
+          role="checkbox"
+          tabIndex="0"
+        >
+          <input
+            checked={true}
+            id="index_course_expiration_repurchasable"
+            name="repurchasable"
+            onChange={[MockFunction]}
+            type="checkbox"
+          />
+          <div
+            className="checkbox"
+          />
+        </label>
+        <p
+          className="help-block"
+        >
+          This item can be repurchased after expiration
+        </p>
+      </div>
+    </div>
+    <div
+      className="control-group featured expiration-strategy"
+    >
+      <div
+        className="controls"
+      >
+        <label
+          aria-checked="false"
+          className="label-switch"
+          htmlFor="index_course_expiration_expires_at_strategy"
+          role="checkbox"
+          tabIndex="0"
+        >
+          <input
+            checked={false}
+            data-role="expiration_expires_at_strategy"
+            id="index_course_expiration_expires_at_strategy"
+            name="expiration[expires_at_strategy]"
+            onChange={[MockFunction]}
+            type="checkbox"
+          />
+          <div
+            className="checkbox"
+          />
+        </label>
+        <p
+          className="help-block"
+        >
+          Pick the expiration date...
+        </p>
+      </div>
+    </div>
+    <div
+      className="control-group featured expiration-strategy"
+    >
+      <div
+        className="controls"
+      >
+        <label
+          aria-checked="true"
+          className="label-switch"
+          htmlFor="index_course_expiration_days_before_expire_strategy"
+          role="checkbox"
+          tabIndex="0"
+        >
+          <input
+            checked={true}
+            data-role="expiration_days_before_expire_strategy"
+            id="index_course_expiration_days_before_expire_strategy"
+            name="expiration[days_before_expire_strategy]"
+            onChange={[MockFunction]}
+            type="checkbox"
+          />
+          <div
+            className="checkbox"
+          />
+        </label>
+        <p
+          className="help-block"
+        >
+          ...or select the number of days before expiration
+        </p>
+      </div>
+      <div
+        className="controls"
+        id="days_before_expire_fields"
+      >
+        <label
+          htmlFor="expiration_days_before_expire"
+        >
+          Expires after
+        </label>
+        <div
+          className="controls"
+        >
+          <div
+            className="expires-after-days-input-before"
+          >
+            days
+          </div>
+          <input
+            className="days_before_expire"
+            id="expiration_days_before_expire"
+            name="expirationDays"
+            onChange={[MockFunction]}
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>
+`;
+
+exports[`AddCourseExpire should render AddCourseExpire if it turned off correctly 1`] = `
+<fieldset
+  data-expirable="false"
+  id="expirable_field"
+>
+  <legend>
+    <span>
+      Expiry Data
+    </span>
+  </legend>
+  <div
+    className="control-group featured"
+  >
+    <label
+      htmlFor="index_course_expiration_expirable"
+    >
+      Expires
+    </label>
+    <div
+      className="controls"
+    >
+      <label
+        aria-checked="true"
+        className="label-switch"
+        htmlFor="index_course_expiration_expirable"
+        role="checkbox"
+        tabIndex="0"
+      >
+        <input
+          checked={false}
+          data-role="expiration_expirable"
+          id="index_course_expiration_expirable"
+          name="expirable"
+          onChange={[MockFunction]}
+          type="checkbox"
+        />
+        <div
+          className="checkbox"
+        />
+      </label>
+      <p
+        className="help-block"
+      >
+        Access to this item expires
+      </p>
+    </div>
+  </div>
+</fieldset>
+`;

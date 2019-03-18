@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Courses header should render CoursesHeader correctly 1`] = `
+<header
+  className="with-banner"
+  id="main-container-header"
+>
+  <hgroup>
+    <h2>
+      <i
+        className="icon icon-course"
+      />
+      <span>
+         Explore Programs
+      </span>
+    </h2>
+  </hgroup>
+</header>
+`;

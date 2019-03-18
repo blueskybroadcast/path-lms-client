@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CategoriesList correctly 1`] = `
+<section
+  className="list"
+>
+  <ul>
+    <Connect(CategoriesItem)
+      courses={Array []}
+      hidden={false}
+      id="28"
+      key="28"
+      level={0}
+      name="Another Level 0"
+      parent={Object {}}
+    />
+    <Connect(CategoriesItem)
+      courses={Array []}
+      hidden={false}
+      id="30"
+      key="30"
+      level={1}
+      name="Another Level 0 child"
+      parent={
+        Object {
+          "id": "28",
+          "type": "category",
+        }
+      }
+    />
+    <Connect(CategoriesItem)
+      courses={Array []}
+      hidden={false}
+      id="25"
+      key="25"
+      level={0}
+      name="Level 0"
+      parent={Object {}}
+    />
+    <Connect(CategoriesItem)
+      courses={Array []}
+      hidden={false}
+      id="26"
+      key="26"
+      level={1}
+      name="Level 0 child"
+      parent={
+        Object {
+          "id": "25",
+          "type": "category",
+        }
+      }
+    />
+    <Connect(CategoriesItem)
+      courses={Array []}
+      hidden={false}
+      id="27"
+      key="27"
+      level={2}
+      name="Level 0 child child"
+      parent={
+        Object {
+          "id": "26",
+          "type": "category",
+        }
+      }
+    />
+    <Connect(CategoriesItem)
+      courses={Array []}
+      hidden={false}
+      id="29"
+      key="29"
+      level={0}
+      name="Super Level 0"
+      parent={Object {}}
+    />
+  </ul>
+</section>
+`;
+
+exports[`should render CategoriesList in loading state correctly 1`] = `
+<section
+  className="list"
+>
+  <div
+    className="bsb-loader-container"
+    data-role="courses-container"
+  >
+    <div
+      className="bsb-loader"
+    >
+      <div
+        className="loader-wrapper"
+      >
+        <div
+          className="spinner"
+        >
+          <i
+            className="icon icon-spinner icon-spin icon-large"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;
