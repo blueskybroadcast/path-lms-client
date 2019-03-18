@@ -7,6 +7,23 @@ const clientConfig = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public')
+  },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
+  },
+  devServer: {
+    contentBase: path.join(__dirname, '/public'),
+    watchContentBase: true,
+    proxy: [
+      {
+        context: ['**'],
+        target: 'http://localhost:3000', // server and port to redirect to
+        secure: false
+      }
+    ],
+    port: 8000
   }
 };
 
