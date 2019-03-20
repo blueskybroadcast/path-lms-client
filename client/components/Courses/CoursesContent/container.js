@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import CoursesContent from './component';
 
+import { sortCoursesInUI } from '../../../actions/courses';
+
 import { loadingCoursesSelector } from '../../../selectors/loadingSelectors';
 import {
   currentAccountSlugSelector, currentAccountCurrencySelector
@@ -18,5 +20,5 @@ const mapStateToProps = state => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps)(CoursesContent)
+  connect(mapStateToProps, { sortCoursesInUI })(CoursesContent)
 );

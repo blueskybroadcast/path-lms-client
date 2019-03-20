@@ -2,7 +2,8 @@ import normalize from 'jsonapi-normalizer';
 
 import {
   ADD_COURSE_REQUEST, ADD_COURSE_SUCCESS,
-  FETCH_COURSES_REQUEST, FETCH_COURSES_SUCCESS
+  FETCH_COURSES_REQUEST, FETCH_COURSES_SUCCESS,
+  SORT_COURSES_IN_UI_REQUEST, SORT_COURSES_IN_UI_SUCCESS
 } from './types';
 
 import { convertBoolToNumber, formatDate } from '../helpers';
@@ -131,6 +132,22 @@ export const addCourse = data => async (dispatch, getState, api) => {
     dispatch(fetchCourses());
   });
 };
+
+export const sortCoursesInUI = ids => async (dispatch, getState, api) => {
+  dispatch({
+    type: SORT_COURSES_IN_UI_REQUEST,
+    payload: ids
+  });
+  await api.post('/courses/sort', {
+    order: ids
+  }).then(() => {
+    dispatch({ type: SORT_COURSES_IN_UI_SUCCESS });
+  });
+};
+
+// export const sortCourses = () => async (dispatch, getState, api) => {
+//   dispatch({
+// };
 
 export const editCourseDescription = text => async (dispatch, getState, api) => {
   await api.post('/account/courses_description', {

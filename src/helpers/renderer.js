@@ -30,6 +30,7 @@ export default (request, store, context) => {
         ${helmet.meta.toString()}
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,700i" rel="stylesheet">
         ${process.env.NODE_ENV === 'production' ? '<link href="/main.css" rel="stylesheet">' : ''}
+        <script src="https://use.fontawesome.com/85c8c10249.js"></script>
       </head>
       <body>
         <div id="root" class="outer-wrapper">${content}</div>
@@ -37,7 +38,6 @@ export default (request, store, context) => {
           window.INITIAL_STATE = ${serialize(store.getState())}
         </script>
         <script src="/bundle.js"></script>
-        <script src="https://use.fontawesome.com/85c8c10249.js"></script>
       </body>
     </html>
   `;
