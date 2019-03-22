@@ -1,104 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Courses Presentation Item should render CoursesPresentationItem with all data correctly 1`] = `
-<article
-  className="course"
->
-  <a
-    href="/testing/courses/56"
-    title="Online Course"
-  >
-    <img
-      alt=""
-      className="course-cover-photo"
-      src="coverPhotoUrl"
-    />
-    <h3
-      data-role="course-info"
-      title="Online Course"
-    >
-      Presentation Item name
-      <span
-        className="status icon icon-purchasable-usd unpaid"
-      />
-    </h3>
-    <div
-      className="info"
-    >
-      <p>
-        Description
-      </p>
-    </div>
-    <footer
-      className="meta-info"
-    >
-      <ul>
-        <MetaItem
-          count={6}
-          icon="section"
-        />
-        <MetaItem
-          count={9}
-          icon="presentation"
-        />
-        <MetaItem
-          count={5}
-          icon="link"
-        />
-        <MetaItem
-          count={1}
-          icon="document"
-        />
-        <MetaItem
-          count={3}
-          icon="certificate"
-        />
-        <MetaItem
-          count={2}
-          icon="survey"
-        />
-        <MetaItem
-          count={1}
-          icon="assignment"
-        />
-      </ul>
-    </footer>
-  </a>
-</article>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
 
 exports[`Courses Presentation Item should render CoursesPresentationItem with minimum data correctly 1`] = `
-<article
-  className="course"
->
-  <a
-    href="/testing/courses/56"
-    title="Online Course"
-  >
-    <img
-      alt=""
-      className="course-cover-photo"
-      src={null}
-    />
-    <h3
-      data-role="course-info"
-      title="Online Course"
-    >
-      Presentation Item name
-      <span
-        className="status icon icon-purchasable-usd"
-      />
-    </h3>
-    <div
-      className="info"
-    >
-      <p />
-    </div>
-    <footer
-      className="meta-info"
-    >
-      <ul />
-    </footer>
-  </a>
-</article>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;

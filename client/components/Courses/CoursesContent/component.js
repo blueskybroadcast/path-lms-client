@@ -7,18 +7,16 @@ import { DragDropContextProvider } from 'react-dnd';
 import CoursesPresentationItem from '../CoursesPresentationItem';
 
 const CoursesContent = ({
-  loading, location: { search }, coursesIds, coursesData, slug, currency, sortCoursesInUI
+  loading, location: { search }, coursesIds, coursesData, slug, currency, sortCourses, isAdmin
 }) => {
   const queryOptions = search && queryString.parse(search, { arrayFormat: 'bracket' });
-  const moveCard = (dragIndex, hoverIndex) => {
+  const moveCourseCard = (dragIndex, hoverIndex) => {
     const ids = [...coursesIds];
     const dragItem = ids[dragIndex];
     ids.splice(dragIndex, 1);
     ids.splice(hoverIndex, 0, dragItem);
-    console.log('dragIndex', dragIndex, 'hoverIndex', hoverIndex);
     if (hoverIndex !== undefined) {
-      console.log('if hoverIndex', hoverIndex);
-      sortCoursesInUI(ids);
+      sortCourses(ids);
     }
   };
   return (
@@ -53,11 +51,13 @@ const CoursesContent = ({
               {coursesIds && coursesIds.map((id, index) => (
                 <CoursesPresentationItem
                   key={id}
+                  isAdmin={isAdmin}
                   slug={slug}
                   currency={currency}
-                  moveCard={moveCard}
+                  moveCard={moveCourseCard}
                   id={id}
                   index={index}
+                  canDrag={isAdmin}
                   {...coursesData[id]}
                 />
               ))}
@@ -70,16 +70,18 @@ const CoursesContent = ({
 };
 
 CoursesContent.propTypes = {
+  isAdmin: PropTypes.bool,
   loading: PropTypes.bool.isRequired,
   location: PropTypes.objectOf(PropTypes.string).isRequired,
   coursesIds: PropTypes.arrayOf(PropTypes.string),
   coursesData: PropTypes.objectOf(PropTypes.object),
   slug: PropTypes.string.isRequired,
   currency: PropTypes.string.isRequired,
-  sortCoursesInUI: PropTypes.func.isRequired
+  sortCourses: PropTypes.func.isRequired
 };
 
 CoursesContent.defaultProps = {
+  isAdmin: false,
   coursesIds: null,
   coursesData: null
 };

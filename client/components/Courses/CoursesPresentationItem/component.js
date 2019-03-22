@@ -2,91 +2,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { DragSource, DropTarget } from 'react-dnd';
-import { findDOMNode } from 'react-dom';
 
-import ItemTypes from '../../common/dragAndDrop';
-
+import { textTruncate } from '../../../helpers';
+import { cardSource, cardTarget } from '../../../helpers/dragAndDrop';
+import { DRAG_AND_DROP_TYPES } from '../../../constants';
 import MetaItem from './components/MetaItem';
 
-const cardSource = {
-  beginDrag(props) {
-    return {
-      id: props.id,
-      index: props.index
-    };
-  },
-  endDrag(props, monitor) {
-    console.log('end');
-    const { id: droppedId, originalIndex } = monitor.getItem();
-    const didDrop = monitor.didDrop();
-    if (!didDrop) {
-      props.moveCard(droppedId, originalIndex);
-    }
-  }
-};
-
-const cardTarget = {
-  hover(props, monitor, component) {
-    if (!component) {
-      return null;
-    }
-    const dragIndex = monitor.getItem().index;
-    const hoverIndex = props.index;
-    // Don't replace items with themselves
-    if (dragIndex === hoverIndex) {
-      return;
-    }
-    // Determine rectangle on screen
-    const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
-    // Get vertical middle
-    const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
-    // Determine mouse position
-    const clientOffset = monitor.getClientOffset();
-    // Get pixels to the top
-    const hoverClientY = clientOffset.y - hoverBoundingRect.top;
-    // Only perform the move when the mouse has crossed half of the items height
-    // When dragging downwards, only move when the cursor is below 50%
-    // When dragging upwards, only move when the cursor is above 50%
-    // Dragging downwards
-    if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-      return;
-    }
-    // Dragging upwards
-    if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
-      return;
-    }
-    // Time to actually perform the action
-    props.moveCard(dragIndex, hoverIndex);
-    // Note: we're mutating the monitor item here!
-    // Generally it's better to avoid mutations,
-    // but it's good here for the sake of performance
-    // to avoid expensive index searches.
-    monitor.getItem().index = hoverIndex;
-  }
-};
 
 class CoursesPresentationItem extends React.Component {
   render() {
     const {
       coverDescription, resizedCoverPhotoUrl, id, name, permittedContent, currency,
-      slug, statuses,
-      isDragging, connectDragSource, connectDropTarget, connectDragPreview
+      slug, statuses, isDragging, connectDragSource, connectDropTarget, isAdmin, active
     } = this.props;
     const opacity = isDragging ? 0.5 : 1;
-    return connectDragPreview(
+    return connectDragSource(
       connectDropTarget(
         <article
           style={{ opacity }}
           className="course"
         >
           <a title="Online Course" href={`/${slug}/courses/${id}`}>
+            { !active && (
+              <div className="inactive-notice">
+                <span>
+                  <i className="icon icon-warning">
+                    <strong>&nbsp;Inactive&nbsp;</strong>
+                  </i>
+                  This course is currently hidden from users.
+                </span>
+              </div>
+            )}
             <img
               className="course-cover-photo"
               alt=""
               src={resizedCoverPhotoUrl}
             />
             <h3 data-role="course-info" title="Online Course">
-              {id}
+              {textTruncate(name)}
               <span
                 className={classNames(
                   'status icon',
@@ -95,7 +48,7 @@ class CoursesPresentationItem extends React.Component {
                 )}
               />
             </h3>
-            { connectDragSource(
+            { isAdmin && (
               <div className="reorder">
                 <i className="icon icon-reorder" />
               </div>
@@ -155,7 +108,12 @@ CoursesPresentationItem.propTypes = {
   currency: PropTypes.string.isRequired,
   statuses: PropTypes.shape({
     purchase: PropTypes.string
-  })
+  }),
+  isDragging: PropTypes.bool.isRequired,
+  connectDragSource: PropTypes.func.isRequired,
+  connectDropTarget: PropTypes.func.isRequired,
+  isAdmin: PropTypes.bool.isRequired,
+  active: PropTypes.bool.isRequired
 };
 
 CoursesPresentationItem.defaultProps = {
@@ -165,12 +123,14 @@ CoursesPresentationItem.defaultProps = {
   statuses: {}
 };
 
-export default DropTarget(ItemTypes.CARD, cardTarget, connect => ({
+const collect = (connect, monitor) => ({
+  connectDragSource: connect.dragSource(),
+  isDragging: monitor.isDragging(),
+  canDrag: monitor.canDrag()
+});
+
+export default DropTarget(DRAG_AND_DROP_TYPES.courseCard, cardTarget, connect => ({
   connectDropTarget: connect.dropTarget()
 }))(
-  DragSource(ItemTypes.CARD, cardSource, (connect, monitor) => ({
-    connectDragSource: connect.dragSource(),
-    connectDragPreview: connect.dragPreview(),
-    isDragging: monitor.isDragging()
-  }))(CoursesPresentationItem),
+  DragSource(DRAG_AND_DROP_TYPES.courseCard, cardSource, collect)(CoursesPresentationItem),
 );

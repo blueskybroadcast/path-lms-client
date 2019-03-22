@@ -46,88 +46,98 @@ exports[`Courses Content should render CoursesContent with data correctly 1`] = 
   <div
     className="courses courses-list ui-sortable"
   >
-    <CoursesPresentationItem
-      active={true}
-      comments={false}
-      courseItemComments={false}
-      coverDescription="Test Course 1 cover desctiption"
-      coverPhotoUrl="https://cdn.filestackcontent.com/9HnjTksSpyenARCxXMxg"
-      currency="usd"
-      description={null}
-      endDate="2019-03-27"
-      expiration={
-        Object {
-          "id": "3",
-          "type": "expiration",
-        }
-      }
-      featured={true}
-      fullsizeCoverPhotoUrl="https://cdn.filestackcontent.com/wSqPHkBmRryI2YgTZLxF"
-      id="14"
-      key="14"
-      name="Test Course 1"
-      permittedContent={null}
-      position={0}
-      resizedCoverPhotoUrl="https://cdn.filestackcontent.com/9HnjTksSpyenARCxXMxg/convert?align=left&cache=true&fit=crop&format=jpeg&h=152&quality=100&w=320"
-      searchKeywords="quiz, first"
-      sellableItems={
-        Array [
+    <Component
+      backend={[Function]}
+    >
+      <DropTarget(DragSource(CoursesPresentationItem))
+        active={true}
+        canDrag={false}
+        comments={false}
+        courseItemComments={false}
+        coverDescription="Test Course 1 cover desctiption"
+        coverPhotoUrl="https://cdn.filestackcontent.com/9HnjTksSpyenARCxXMxg"
+        currency="usd"
+        description={null}
+        endDate="2019-03-27"
+        expiration={
           Object {
-            "id": "10",
-            "type": "sellableItem",
-          },
-        ]
-      }
-      showProgress={true}
-      slug="test"
-      startDate="2019-03-13"
-      statuses={
-        Object {
-          "purchase": "unpaid",
+            "id": "3",
+            "type": "expiration",
+          }
         }
-      }
-    />
-    <CoursesPresentationItem
-      active={true}
-      comments={false}
-      courseItemComments={false}
-      coverDescription="Test Course 1 cover desctiption"
-      coverPhotoUrl="https://cdn.filestackcontent.com/9HnjTksSpyenARCxXMxg"
-      currency="usd"
-      description={null}
-      endDate="2019-04-03"
-      expiration={
-        Object {
-          "id": "4",
-          "type": "expiration",
+        featured={true}
+        fullsizeCoverPhotoUrl="https://cdn.filestackcontent.com/wSqPHkBmRryI2YgTZLxF"
+        id="14"
+        index={0}
+        isAdmin={false}
+        key="14"
+        moveCard={[Function]}
+        name="Test Course 1"
+        position={0}
+        resizedCoverPhotoUrl="https://cdn.filestackcontent.com/9HnjTksSpyenARCxXMxg/convert?align=left&cache=true&fit=crop&format=jpeg&h=152&quality=100&w=320"
+        searchKeywords="quiz, first"
+        sellableItems={
+          Array [
+            Object {
+              "id": "10",
+              "type": "sellableItem",
+            },
+          ]
         }
-      }
-      featured={true}
-      fullsizeCoverPhotoUrl="https://cdn.filestackcontent.com/wSqPHkBmRryI2YgTZLxF"
-      id="15"
-      key="15"
-      name="Test Course 2"
-      permittedContent={null}
-      position={1}
-      resizedCoverPhotoUrl="https://cdn.filestackcontent.com/9HnjTksSpyenARCxXMxg/convert?align=left&cache=true&fit=crop&format=jpeg&h=152&quality=100&w=320"
-      searchKeywords="quiz, first"
-      sellableItems={
-        Array [
+        showProgress={true}
+        slug="test"
+        startDate="2019-03-13"
+        statuses={
           Object {
-            "id": "11",
-            "type": "sellableItem",
-          },
-        ]
-      }
-      showProgress={true}
-      slug="test"
-      startDate="2019-03-24"
-      statuses={
-        Object {
-          "purchase": "unpaid",
+            "purchase": "unpaid",
+          }
         }
-      }
-    />
+      />
+      <DropTarget(DragSource(CoursesPresentationItem))
+        active={true}
+        canDrag={false}
+        comments={false}
+        courseItemComments={false}
+        coverDescription="Test Course 1 cover desctiption"
+        coverPhotoUrl="https://cdn.filestackcontent.com/9HnjTksSpyenARCxXMxg"
+        currency="usd"
+        description={null}
+        endDate="2019-04-03"
+        expiration={
+          Object {
+            "id": "4",
+            "type": "expiration",
+          }
+        }
+        featured={true}
+        fullsizeCoverPhotoUrl="https://cdn.filestackcontent.com/wSqPHkBmRryI2YgTZLxF"
+        id="15"
+        index={1}
+        isAdmin={false}
+        key="15"
+        moveCard={[Function]}
+        name="Test Course 2"
+        position={1}
+        resizedCoverPhotoUrl="https://cdn.filestackcontent.com/9HnjTksSpyenARCxXMxg/convert?align=left&cache=true&fit=crop&format=jpeg&h=152&quality=100&w=320"
+        searchKeywords="quiz, first"
+        sellableItems={
+          Array [
+            Object {
+              "id": "11",
+              "type": "sellableItem",
+            },
+          ]
+        }
+        showProgress={true}
+        slug="test"
+        startDate="2019-03-24"
+        statuses={
+          Object {
+            "purchase": "unpaid",
+          }
+        }
+      />
+    </Component>
   </div>
 </div>
 `;
@@ -149,6 +159,10 @@ exports[`Courses Content should render CoursesContent without data correctly 1`]
   </div>
   <div
     className="courses courses-list ui-sortable"
-  />
+  >
+    <Component
+      backend={[Function]}
+    />
+  </div>
 </div>
 `;

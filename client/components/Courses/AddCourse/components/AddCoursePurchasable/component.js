@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import DatePicker from 'react-datepicker';
 
-import { COURSE_PRICE_PATTERN } from '../../../../../constants/courses';
+import { COURSE_PRICE_PATTERN } from '../../../../../constants';
 
 const AddCoursePurchasable = ({
   sellableItems, selectedSellableItems, limitPurchaseAvailability, handleChange,

@@ -133,7 +133,7 @@ export const addCourse = data => async (dispatch, getState, api) => {
   });
 };
 
-export const sortCoursesInUI = ids => async (dispatch, getState, api) => {
+export const sortCourses = ids => async (dispatch, getState, api) => {
   dispatch({
     type: SORT_COURSES_IN_UI_REQUEST,
     payload: ids
@@ -144,10 +144,6 @@ export const sortCoursesInUI = ids => async (dispatch, getState, api) => {
     dispatch({ type: SORT_COURSES_IN_UI_SUCCESS });
   });
 };
-
-// export const sortCourses = () => async (dispatch, getState, api) => {
-//   dispatch({
-// };
 
 export const editCourseDescription = text => async (dispatch, getState, api) => {
   await api.post('/account/courses_description', {
