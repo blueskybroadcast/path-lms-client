@@ -1,4 +1,4 @@
-import { FETCH_COURSES_SUCCESS } from '../actions/types';
+import { FETCH_COURSES_SUCCESS, SORT_COURSES_IN_UI_REQUEST } from '../actions/types';
 
 export const initialState = {
   accountBanner: {},
@@ -19,6 +19,18 @@ const coursesReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload
+      };
+
+    case SORT_COURSES_IN_UI_REQUEST:
+      console.log('action.payload', action.payload);
+      return {
+        ...state,
+        courses: {
+          ...state.courses,
+          result: {
+            course: [...action.payload]
+          }
+        }
       };
 
     default:
